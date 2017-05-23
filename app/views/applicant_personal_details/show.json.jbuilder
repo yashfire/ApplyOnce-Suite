@@ -1,0 +1,1 @@
+json.partial! "applicant_personal_details/applicant_personal_detail", applicant_personal_detail: @applicant_personal_detail

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @applicant_address.Address_Line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @applicant_address.Address_Line_2 %>
+</p>
+
+<p>
+  <strong>Address line 3:</strong>
+  <%= @applicant_address.Address_Line_3 %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @applicant_address.Postal_Code %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_address.applicant %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_address_path(@applicant_address) %> |
+<%= link_to 'Back', applicant_addresses_path %>

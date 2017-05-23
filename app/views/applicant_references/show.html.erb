@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @applicant_reference.Contact_Number %>
+</p>
+
+<p>
+  <strong>Reference name:</strong>
+  <%= @applicant_reference.Reference_Name %>
+</p>
+
+<p>
+  <strong>Email address:</strong>
+  <%= @applicant_reference.Email_address %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @applicant_reference.Relationship %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_reference.applicant %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_reference_path(@applicant_reference) %> |
+<%= link_to 'Back', applicant_references_path %>

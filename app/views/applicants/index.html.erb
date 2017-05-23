@@ -1,0 +1,83 @@
+<style>
+	span {
+		color: #337AB7;
+	}
+	.size {
+		height:400px;
+	}
+</style>
+
+<div class="col-xs-12">
+	<div class="panel panel-primary size">
+	  <div class="panel-heading">
+	  </div>
+
+	  <div class="panel-body">
+	  </div>
+	</div>
+</div>
+
+<div class="col-xs-4">
+  <div class="panel panel-primary size">
+  	<div class="panel-heading">
+		<h4 class="text-center">Applicant Personal Details</h4>
+	</div>
+	<div class="panel-body">
+	  <% @applicant_personal_details.each do |applicant_personal_detail| %>
+	  <center>
+		<p><span>Surname:</span> <%= applicant_personal_detail.Surname %></p>
+		<p><span>First name:</span> <%= applicant_personal_detail.First_Name %></p>
+		<p><span>Middle name:</span> <%= applicant_personal_detail.Middle_Name %></p>
+		<p><span>Contact number:</span> <%= applicant_personal_detail.Contact_Number %></p>
+		<p><span>Alt contact number:</span> <%= applicant_personal_detail.Alt_Contact_Number %></p>
+		<p><span>Criminal record:</span> <%= applicant_personal_detail.Criminal_Record %></p>
+		<p><span>Skills:</span> <%= applicant_personal_detail.Skills %></p>
+		<p><span>Application status:</span> <%= applicant_personal_detail.Application_Status %></p>
+		<p><span>Number of dependancies:</span> <%= applicant_personal_detail.Number_Of_Dependancies %></p>
+	  	<%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %>
+	  	<%= link_to 'Edit', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
+	  	<%= link_to 'Destroy', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+	  </center>	
+	  <% end %>
+	</div>  
+  </div>	
+</div>
+<% @applicant_addresses.each do |applicant_address| %>
+	<div class="col-xs-4">
+	  <center>
+		<div class="panel panel-primary size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center">Applicant Address</h4>
+		  </div>
+		  <div class="panel-body">
+	  		<p><span>Address Line 1: </span><%= applicant_address.Address_Line_1 %></p>
+	  		<p><span>Address Line 2: </span><%= applicant_address.Address_Line_2 %></p>
+	  		<p><span>Address Line 3: </span><%= applicant_address.Address_Line_3 %></p>
+	  		<p><span>Postal Code: </span><%= applicant_address.Postal_Code %></p>
+	  		<%= link_to 'Show', applicant_address, class: "btn btn-xs btn-info" %>
+        	<%= link_to 'Edit', edit_applicant_address_path(applicant_address), class: "btn btn-xs btn-warning" %>
+        	<%= link_to 'Destroy', applicant_address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+		  </div>
+		</div>
+	  </center>
+	</div>
+<% end %>
+<div class="col-xs-4">
+	<div class="panel panel-primary size">
+	  <div class="panel-heading">
+	  </div>
+
+	  <div class="panel-body">
+	  </div>
+	</div>
+</div>
+
+<div class="col-xs-4">
+	<div class="panel panel-primary size">
+	  <div class="panel-heading">
+	  </div>
+
+	  <div class="panel-body">
+	  </div>
+	</div>
+</div>

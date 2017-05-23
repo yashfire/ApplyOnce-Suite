@@ -1,0 +1,28 @@
+<style>
+body { 
+    background: 
+    linear-gradient(
+      rgba(0,0,0, 0.5),
+      rgba(0,0,0, 0.5)),  
+    url("Cover.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+h1 {
+	color: white;
+	opacity: 0.75;
+} 
+</style>
+
+<div class="white">
+<h1 class="text-center index-font">Welcome <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
+ <center>
+    <a href="https://fb.me/littlepig.computing" class="fa fa-facebook"></a>
+    <a href="https://twitter.com/littlepigcc" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/company/little-pig-cc?trk=top_nav_home" class="fa fa-linkedin"></a>
+  </center>
+</div><br><br><br><br><br><br><br><br><br><br>
+
+<%= link_to "Apply", applicant_personal_details_path, class: "btn btn-primary btn-block" %>

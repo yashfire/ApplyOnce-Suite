@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @applicant_personal_detail.Surname %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @applicant_personal_detail.First_Name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @applicant_personal_detail.Middle_Name %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @applicant_personal_detail.Contact_Number %>
+</p>
+
+<p>
+  <strong>Alt contact number:</strong>
+  <%= @applicant_personal_detail.Alt_Contact_Number %>
+</p>
+
+<p>
+  <strong>Criminal record:</strong>
+  <%= @applicant_personal_detail.Criminal_Record %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @applicant_personal_detail.Skills %>
+</p>
+
+<p>
+  <strong>Application status:</strong>
+  <%= @applicant_personal_detail.Application_Status %>
+</p>
+
+<p>
+  <strong>Number of dependancies:</strong>
+  <%= @applicant_personal_detail.Number_Of_Dependancies %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_personal_detail.applicant %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_personal_detail_path(@applicant_personal_detail) %> |
+<%= link_to 'Back', applicant_personal_details_path %>

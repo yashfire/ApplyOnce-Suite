@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Applicant Personal Details</h1>
+
+<table class="table table-hover table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Surname</th>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Contact number</th>
+      <th>Alt contact number</th>
+      <th>Criminal record</th>
+      <th>Skills</th>
+      <th>Application status</th>
+      <th>Number of dependancies</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applicant_personal_details.each do |applicant_personal_detail| %>
+      <tr>
+        <td><%= applicant_personal_detail.Surname %></td>
+        <td><%= applicant_personal_detail.First_Name %></td>
+        <td><%= applicant_personal_detail.Middle_Name %></td>
+        <td><%= applicant_personal_detail.Contact_Number %></td>
+        <td><%= applicant_personal_detail.Alt_Contact_Number %></td>
+        <td><%= applicant_personal_detail.Criminal_Record %></td>
+        <td><%= applicant_personal_detail.Skills %></td>
+        <td><%= applicant_personal_detail.Application_Status %></td>
+        <td><%= applicant_personal_detail.Number_Of_Dependancies %></td>
+        
+        <td><%= link_to 'Show', applicant_personal_detail %></td>
+        <td><%= link_to 'Edit', edit_applicant_personal_detail_path(applicant_personal_detail) %></td>
+        <td><%= link_to 'Destroy', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Applicant Personal Detail', new_applicant_personal_detail_path, id: "applicant_personal_details", remote: true  %>
+
+<h1 class="text-center">Applicant Addresses</h1>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>Address line 3</th>
+      <th>Postal code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applicant_addresses.each do |applicant_address| %>
+      <tr>
+        <td><%= applicant_address.Address_Line_1 %></td>
+        <td><%= applicant_address.Address_Line_2 %></td>
+        <td><%= applicant_address.Address_Line_3 %></td>
+        <td><%= applicant_address.Postal_Code %></td>
+        <td><%= link_to 'Show', applicant_address %></td>
+        <td><%= link_to 'Edit', edit_applicant_address_path(applicant_address) %></td>
+        <td><%= link_to 'Destroy', applicant_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Applicant Address', new_applicant_address_path, id: "applicant_address", remote: true %>

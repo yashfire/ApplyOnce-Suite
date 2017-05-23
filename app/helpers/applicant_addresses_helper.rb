@@ -1,0 +1,2 @@
+module ApplicantAddressesHelper
+end

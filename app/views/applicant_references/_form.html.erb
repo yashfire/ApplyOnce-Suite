@@ -1,0 +1,15 @@
+<%= simple_form_for(@applicant_reference) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :Contact_Number %>
+    <%= f.input :Reference_Name %>
+    <%= f.input :Email_address %>
+    <%= f.input :Relationship %>
+    <%= f.association :applicant %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

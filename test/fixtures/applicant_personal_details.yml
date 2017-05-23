@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Surname: MyString
+  First_Name: MyString
+  Middle_Name: MyString
+  Contact_Number: MyString
+  Alt_Contact_Number: MyString
+  Criminal_Record: 1
+  Skills: MyText
+  Application_Status: 1
+  Number_Of_Dependancies: 1
+  applicant: one
+
+two:
+  Surname: MyString
+  First_Name: MyString
+  Middle_Name: MyString
+  Contact_Number: MyString
+  Alt_Contact_Number: MyString
+  Criminal_Record: 1
+  Skills: MyText
+  Application_Status: 1
+  Number_Of_Dependancies: 1
+  applicant: two

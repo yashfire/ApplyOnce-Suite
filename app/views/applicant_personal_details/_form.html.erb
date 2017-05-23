@@ -1,0 +1,19 @@
+<%= simple_form_for @applicant_personal_detail, remote: true do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :Surname %>
+    <%= f.input :First_Name %>
+    <%= f.input :Middle_Name %>
+    <%= f.input :Contact_Number %>
+    <%= f.input :Alt_Contact_Number %>
+    <%= f.input :Criminal_Record %>
+    <%= f.input :Skills %>
+    <%= f.input :Application_Status %>
+    <%= f.input :Number_Of_Dependancies %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

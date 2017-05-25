@@ -1,4 +1,4 @@
-<%= simple_form_for @applicant_personal_detail, remote: true do |f| %>
+<%= simple_form_for @applicant_personal_detail do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -7,13 +7,21 @@
     <%= f.input :Middle_Name %>
     <%= f.input :Contact_Number %>
     <%= f.input :Alt_Contact_Number %>
+    <label>Race</label><br>
+    <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race) %><br>
+    <label>Gender</label><br>
+    <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender) %><br>
+    <label>Marital Status</label><br>
+    <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status) %><br>
+    <label>Nationality</label><br>
+    <%= f.collection_select(:applicant_nationality_id, ApplicantNationality.all, :id, :Nationality) %><br>
     <%= f.input :Criminal_Record %>
     <%= f.input :Skills %>
     <%= f.input :Application_Status %>
     <%= f.input :Number_Of_Dependancies %>
-  </div>
+  </div> 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Submit", class: "btn btn-primary btn-block" %>
   </div>
-<% end %>
+<% end %><br>

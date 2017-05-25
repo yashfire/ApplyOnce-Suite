@@ -4,7 +4,7 @@ class ApplicantExperiencesController < ApplicationController
   # GET /applicant_experiences
   # GET /applicant_experiences.json
   def index
-    @applicant_experiences = ApplicantExperience.all
+    @applicant_experiences = current_applicant.applicant_experiences.all
   end
 
   # GET /applicant_experiences/1
@@ -14,7 +14,7 @@ class ApplicantExperiencesController < ApplicationController
 
   # GET /applicant_experiences/new
   def new
-    @applicant_experience = ApplicantExperience.new
+    @applicant_experience = current_applicant.applicant_experiences.build
   end
 
   # GET /applicant_experiences/1/edit
@@ -24,7 +24,7 @@ class ApplicantExperiencesController < ApplicationController
   # POST /applicant_experiences
   # POST /applicant_experiences.json
   def create
-    @applicant_experience = ApplicantExperience.new(applicant_experience_params)
+    @applicant_experience = current_applicant.applicant_experiences.build(applicant_experience_params)
 
     respond_to do |format|
       if @applicant_experience.save

@@ -1,0 +1,2 @@
+class ApplicantQualStatus < ApplicationRecord
+end

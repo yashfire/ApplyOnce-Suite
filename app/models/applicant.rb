@@ -3,6 +3,10 @@ class Applicant < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :applicant_personal_details
   has_many :applicant_addresses
+  has_many :applicant_experiences
+  has_many :applicant_references
+  has_many :applicant_field_of_studies
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

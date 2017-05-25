@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Field_Of_Study: MyString
+  Start_Date: 2017-05-25
+  End_date: 2017-05-25
+  applicant: one
+  applicant_university: one
+  applicant_qualification: one
+  applicant_qualification_status: one
+
+two:
+  Field_Of_Study: MyString
+  Start_Date: 2017-05-25
+  End_date: 2017-05-25
+  applicant: two
+  applicant_university: two
+  applicant_qualification: two
+  applicant_qualification_status: two

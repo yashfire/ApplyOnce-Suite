@@ -1,37 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="text-center"><%= current_applicant.username %>'s Work Experience</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <thead>
+          <tr bgcolor="#D9EDF7">
+          <th>Job name</th>
+          <th>Company name</th>
+          <th>Duties</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Applicant Experiences</h1>
+      <tbody>
+        <% @applicant_experiences.each do |applicant_experience| %>
+          <tr>
+            <td><%= applicant_experience.Job_Name %></td>
+            <td><%= applicant_experience.Company_Name %></td>
+            <td><%= applicant_experience.Duties %></td>
+            <td><%= applicant_experience.Start_Date %></td>
+            <td><%= applicant_experience.End_Date %></td>
+            <td><%= link_to 'Show', applicant_experience, class: "btn btn-xs btn-info" %></td>
+            <td><%= link_to 'Edit', edit_applicant_experience_path(applicant_experience), class: "btn btn-xs btn-warning" %></td>
+            <td><%= link_to 'Destroy', applicant_experience, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Job name</th>
-      <th>Company name</th>
-      <th>Duties</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Applicant</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <br>
 
-  <tbody>
-    <% @applicant_experiences.each do |applicant_experience| %>
-      <tr>
-        <td><%= applicant_experience.Job_Name %></td>
-        <td><%= applicant_experience.Company_Name %></td>
-        <td><%= applicant_experience.Duties %></td>
-        <td><%= applicant_experience.Start_Date %></td>
-        <td><%= applicant_experience.End_Date %></td>
-        <td><%= applicant_experience.applicant %></td>
-        <td><%= link_to 'Show', applicant_experience %></td>
-        <td><%= link_to 'Edit', edit_applicant_experience_path(applicant_experience) %></td>
-        <td><%= link_to 'Destroy', applicant_experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Applicant Experience', new_applicant_experience_path %>
+    <%= link_to 'New Applicant Experience', new_applicant_experience_path, class: "btn btn-block btn-primary" %><br>
+    <%= link_to 'Next Step', applicant_references_path, class: "btn btn-block btn-success" %>
+  </div>  
+</div>

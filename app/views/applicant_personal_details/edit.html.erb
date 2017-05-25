@@ -1,6 +1,10 @@
-<h1>Edit Applicant Personal Detail</h1>
-
-<%= render 'form', applicant_personal_detail: @applicant_personal_detail %>
-
-<%= link_to 'Show', @applicant_personal_detail %> |
-<%= link_to 'Back', applicant_personal_details_path %>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1 class="text-center">Edit <%= current_applicant.username %>'s Personal Details</h1>
+	</div>
+	<div class="panel-body">	
+		<%= render 'form', applicant_personal_detail: @applicant_personal_detail %>
+	</div>	
+	<%= link_to 'Show', @applicant_personal_detail, class: "btn btn-xs btn-info" %>
+	<%= link_to 'Back', :back, class: "btn btn-xs btn-danger" %>
+</div>

@@ -4,7 +4,7 @@ class ApplicantReferencesController < ApplicationController
   # GET /applicant_references
   # GET /applicant_references.json
   def index
-    @applicant_references = ApplicantReference.all
+    @applicant_references = current_applicant.applicant_references.all
   end
 
   # GET /applicant_references/1
@@ -14,7 +14,7 @@ class ApplicantReferencesController < ApplicationController
 
   # GET /applicant_references/new
   def new
-    @applicant_reference = ApplicantReference.new
+    @applicant_reference = current_applicant.applicant_references.build
   end
 
   # GET /applicant_references/1/edit
@@ -24,7 +24,7 @@ class ApplicantReferencesController < ApplicationController
   # POST /applicant_references
   # POST /applicant_references.json
   def create
-    @applicant_reference = ApplicantReference.new(applicant_reference_params)
+    @applicant_reference = current_applicant.applicant_references.build(applicant_reference_params)
 
     respond_to do |format|
       if @applicant_reference.save

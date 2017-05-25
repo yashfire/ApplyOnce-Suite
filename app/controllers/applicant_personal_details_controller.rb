@@ -5,7 +5,6 @@ class ApplicantPersonalDetailsController < ApplicationController
   # GET /applicant_personal_details.json
   def index
     @applicant_personal_details = current_applicant.applicant_personal_details.all
-    @applicant_addresses = current_applicant.applicant_addresses.all
   end
 
   # GET /applicant_personal_details/1
@@ -29,7 +28,7 @@ class ApplicantPersonalDetailsController < ApplicationController
 
     respond_to do |format|
       if @applicant_personal_detail.save
-        format.html { redirect_to @applicant_personal_detail, notice: 'Applicant personal detail was successfully created.' }
+        format.html { redirect_to applicant_personal_details_path, notice: 'Applicant personal detail was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_personal_detail }
       else
         format.html { render :new }
@@ -43,7 +42,7 @@ class ApplicantPersonalDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_personal_detail.update(applicant_personal_detail_params)
-        format.html { redirect_to @applicant_personal_detail, notice: 'Applicant personal detail was successfully updated.' }
+        format.html { redirect_to applicant_personal_details_path, notice: 'Applicant personal detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_personal_detail }
       else
         format.html { render :edit }
@@ -70,6 +69,10 @@ class ApplicantPersonalDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applicant_personal_detail_params
-      params.require(:applicant_personal_detail).permit(:Surname, :First_Name, :Middle_Name, :Contact_Number, :Alt_Contact_Number, :Criminal_Record, :Skills, :Application_Status, :Number_Of_Dependancies, :applicant_id)
+      params.require(:applicant_personal_detail).permit(:Surname, :First_Name, :Middle_Name,
+       :Contact_Number, :Alt_Contact_Number, :Criminal_Record, :Skills,
+        :Application_Status, :Number_Of_Dependancies, :applicant_id,
+        :applicant_race_id, :applicant_gender_id, :applicant_marital_status_id, 
+        :applicant_nationality_id)
     end
 end

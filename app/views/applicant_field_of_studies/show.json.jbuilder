@@ -1,0 +1,1 @@
+json.partial! "applicant_field_of_studies/applicant_field_of_study", applicant_field_of_study: @applicant_field_of_study

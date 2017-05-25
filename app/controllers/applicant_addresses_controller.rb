@@ -4,7 +4,7 @@ class ApplicantAddressesController < ApplicationController
   # GET /applicant_addresses
   # GET /applicant_addresses.json
   def index
-    @applicant_addresses = ApplicantAddress.all
+    @applicant_addresses = current_applicant.applicant_addresses.all
   end
 
   # GET /applicant_addresses/1
@@ -28,7 +28,7 @@ class ApplicantAddressesController < ApplicationController
 
     respond_to do |format|
       if @applicant_address.save
-        format.html { redirect_to @applicant_address, notice: 'Applicant address was successfully created.' }
+        format.html { redirect_to applicant_addresses_path, notice: 'Applicant address was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_address }
       else
         format.html { render :new }

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Field of study:</strong>
+  <%= @applicant_field_of_study.Field_Of_Study %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @applicant_field_of_study.Start_Date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @applicant_field_of_study.End_date %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_field_of_study.applicant %>
+</p>
+
+<p>
+  <strong>Applicant university:</strong>
+  <%= @applicant_field_of_study.applicant_university %>
+</p>
+
+<p>
+  <strong>Applicant qual:</strong>
+  <%= @applicant_field_of_study.applicant_qual %>
+</p>
+
+<p>
+  <strong>Applicant qual status:</strong>
+  <%= @applicant_field_of_study.applicant_qual_status %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_field_of_study_path(@applicant_field_of_study) %> |
+<%= link_to 'Back', applicant_field_of_studies_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@applicant_foi_program) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">    
+    <label>Program of Interest</label><br>
+    <%= f.collection_select(:applicant_program_interest_id, ApplicantProgramInterest.all, :id, :Program) %><br>
+    <label>Field of Interest</label><br>
+    <%= f.collection_select(:applicant_field_of_interest_id, ApplicantFieldOfInterest.all, :id, :Field_Of_Interest) %>
+  </div><br>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-block btn-primary" %>
+  </div>
+<% end %><br>

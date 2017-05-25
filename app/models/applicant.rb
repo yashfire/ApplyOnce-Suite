@@ -6,7 +6,8 @@ class Applicant < ApplicationRecord
   has_many :applicant_experiences
   has_many :applicant_references
   has_many :applicant_field_of_studies
-  
+  has_many :applicant_foi_programs
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

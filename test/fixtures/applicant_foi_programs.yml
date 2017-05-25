@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant: one
+  applicant_program_interest: one
+  applicant_field_of_interest: one
+
+two:
+  applicant: two
+  applicant_program_interest: two
+  applicant_field_of_interest: two

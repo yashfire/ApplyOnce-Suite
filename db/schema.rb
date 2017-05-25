@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525092600) do
+ActiveRecord::Schema.define(version: 20170525130614) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20170525092600) do
     t.index ["applicant_id"], name: "index_applicant_experiences_on_applicant_id", using: :btree
   end
 
+  create_table "applicant_field_of_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Field_Of_Interest"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "applicant_field_of_studies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Field_Of_Study"
     t.date     "Start_Date"
@@ -49,6 +55,17 @@ ActiveRecord::Schema.define(version: 20170525092600) do
     t.index ["applicant_qual_id"], name: "index_applicant_field_of_studies_on_applicant_qual_id", using: :btree
     t.index ["applicant_qual_status_id"], name: "index_applicant_field_of_studies_on_applicant_qual_status_id", using: :btree
     t.index ["applicant_university_id"], name: "index_applicant_field_of_studies_on_applicant_university_id", using: :btree
+  end
+
+  create_table "applicant_foi_programs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_id"
+    t.integer  "applicant_program_interest_id"
+    t.integer  "applicant_field_of_interest_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["applicant_field_of_interest_id"], name: "index_applicant_foi_programs_on_applicant_field_of_interest_id", using: :btree
+    t.index ["applicant_id"], name: "index_applicant_foi_programs_on_applicant_id", using: :btree
+    t.index ["applicant_program_interest_id"], name: "index_applicant_foi_programs_on_applicant_program_interest_id", using: :btree
   end
 
   create_table "applicant_genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -91,6 +108,12 @@ ActiveRecord::Schema.define(version: 20170525092600) do
     t.index ["applicant_marital_status_id"], name: "index_applicant_personal_details_on_applicant_marital_status_id", using: :btree
     t.index ["applicant_nationality_id"], name: "index_applicant_personal_details_on_applicant_nationality_id", using: :btree
     t.index ["applicant_race_id"], name: "index_applicant_personal_details_on_applicant_race_id", using: :btree
+  end
+
+  create_table "applicant_program_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Program"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "applicant_qual_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -153,6 +176,9 @@ ActiveRecord::Schema.define(version: 20170525092600) do
   add_foreign_key "applicant_field_of_studies", "applicant_quals"
   add_foreign_key "applicant_field_of_studies", "applicant_universities"
   add_foreign_key "applicant_field_of_studies", "applicants"
+  add_foreign_key "applicant_foi_programs", "applicant_field_of_interests"
+  add_foreign_key "applicant_foi_programs", "applicant_program_interests"
+  add_foreign_key "applicant_foi_programs", "applicants"
   add_foreign_key "applicant_personal_details", "applicant_genders"
   add_foreign_key "applicant_personal_details", "applicant_marital_statuses"
   add_foreign_key "applicant_personal_details", "applicant_nationalities"

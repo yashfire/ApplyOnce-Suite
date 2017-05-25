@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :applicant_foi_programs
   root 'welcome#index'
   get 'applicants/index'
   get 'welcome/index'

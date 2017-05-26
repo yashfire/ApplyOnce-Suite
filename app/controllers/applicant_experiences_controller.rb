@@ -28,7 +28,7 @@ class ApplicantExperiencesController < ApplicationController
 
     respond_to do |format|
       if @applicant_experience.save
-        format.html { redirect_to @applicant_experience, notice: 'Applicant experience was successfully created.' }
+        format.html { redirect_to applicant_experiences_url, notice: 'Applicant experience was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_experience }
       else
         format.html { render :new }

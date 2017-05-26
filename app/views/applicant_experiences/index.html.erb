@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if !@applicant_experiences.any? %> 
+  <%= render 'layouts/incomplete' %>
+<% end %>
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="text-center"><%= current_applicant.username %>'s Work Experience</h1>
@@ -35,6 +38,8 @@
     <br>
 
     <%= link_to 'New Applicant Experience', new_applicant_experience_path, class: "btn btn-block btn-primary" %><br>
-    <%= link_to 'Next Step', applicant_references_path, class: "btn btn-block btn-success" %>
+    <% if @applicant_experiences.any? %>
+      <%= link_to 'Next Step', applicant_references_path, class: "btn btn-block btn-success" %>
+    <% end %>  
   </div>  
 </div>

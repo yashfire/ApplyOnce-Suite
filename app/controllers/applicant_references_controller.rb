@@ -28,7 +28,7 @@ class ApplicantReferencesController < ApplicationController
 
     respond_to do |format|
       if @applicant_reference.save
-        format.html { redirect_to @applicant_reference, notice: 'Applicant reference was successfully created.' }
+        format.html { redirect_to applicant_references_url, notice: 'Applicant reference was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_reference }
       else
         format.html { render :new }

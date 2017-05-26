@@ -7,21 +7,23 @@
 	}
 </style>
 
-<div class="col-xs-12">
+<div class="col-xs-6 col-xs-offset-3">
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
 	  	<h1 class="text-center"><%= current_applicant.username %>'s Information</h1>
 	  </div>
 	  <div class="panel-body">
-		<p><span>ID Number: </span><%= current_applicant.id_number %></p>
-		<p><span>Email: </span><%= current_applicant.email %></p>
-		<p><span>Times signed in: </span><%= current_applicant.sign_in_count %></p>
-		<p><span>Current sign in: </span><%= current_applicant.current_sign_in_at %></p>
-		<p><span>Last sign in: </span><%= current_applicant.last_sign_in_at %></p>
-		<p><span>Current IP: </span><%= current_applicant.current_sign_in_ip %></p>
-		<p><span>Last sign in IP: </span><%= current_applicant.last_sign_in_ip %></p>
-		<p><span>Created: </span><%= current_applicant.created_at %></p>
-		<p><span>Last Updated: </span><%= current_applicant.updated_at %></p>
+	  	<center>
+			<p><span>ID Number: </span><%= current_applicant.id_number %></p>
+			<p><span>Email: </span><%= current_applicant.email %></p>
+			<p><span>Times signed in: </span><%= current_applicant.sign_in_count %></p>
+			<p><span>Current sign in: </span><%= current_applicant.current_sign_in_at %></p>
+			<p><span>Last sign in: </span><%= current_applicant.last_sign_in_at %></p>
+			<p><span>Current IP: </span><%= current_applicant.current_sign_in_ip %></p>
+			<p><span>Last sign in IP: </span><%= current_applicant.last_sign_in_ip %></p>
+			<p><span>Created: </span><%= current_applicant.created_at %></p>
+			<p><span>Last Updated: </span><%= current_applicant.updated_at %></p>
+		</center>
 	  </div>
 	</div>
 </div>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if !@applicant_references.any? %> 
+  <%= render 'layouts/incomplete' %>
+<% end %>
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="text-center"><%= current_applicant.username %>'s References</h1>
@@ -7,8 +10,8 @@
     <table class="table table-hover table-striped table-bordered table-condensed">
       <thead>
         <tr bgcolor="#D9EDF7">
-          <th>Contact number</th>
           <th>Reference name</th>
+          <th>Contact number</th>
           <th>Email address</th>
           <th>Relationship</th>
           <th colspan="3"></th>
@@ -18,8 +21,8 @@
       <tbody>
         <% @applicant_references.each do |applicant_reference| %>
           <tr>
-            <td><%= applicant_reference.Contact_Number %></td>
             <td><%= applicant_reference.Reference_Name %></td>
+            <td><%= applicant_reference.Contact_Number %></td>
             <td><%= applicant_reference.Email_address %></td>
             <td><%= applicant_reference.Relationship %></td>
             <td><%= link_to 'Show', applicant_reference, class: "btn btn-xs btn-info" %></td>
@@ -33,6 +36,8 @@
     <br>
 
     <%= link_to 'New Applicant Reference', new_applicant_reference_path, class: "btn btn-block btn-primary" %><br>
-    <%= link_to 'Finished?', applicants_index_path, class: "btn btn-block btn-success" %>
+    <% if @applicant_references.any? %>
+      <%= link_to 'Finished?', applicants_index_path, class: "btn btn-block btn-success" %>
+    <% end %>  
   </div>  
 </div>

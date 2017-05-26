@@ -1,18 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Applicant:</strong>
-  <%= @applicant_foi_program.applicant %>
-</p>
 
 <p>
   <strong>Applicant program interest:</strong>
-  <%= @applicant_foi_program.applicant_program_interest %>
+  <%= @applicant_foi_program.applicant_program_interest_id %>
 </p>
 
 <p>
   <strong>Applicant field of interest:</strong>
-  <%= @applicant_foi_program.applicant_field_of_interest %>
+  <%= @applicant_foi_program.applicant_field_of_interest_id %>
 </p>
 
 <%= link_to 'Edit', edit_applicant_foi_program_path(@applicant_foi_program) %> |

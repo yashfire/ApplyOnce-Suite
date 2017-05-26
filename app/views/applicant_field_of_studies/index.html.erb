@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if !@applicant_field_of_studies.any? %> 
+  <%= render 'layouts/incomplete' %>
+<% end %>
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="text-center"><%= current_applicant.username %>'s Qualifications</h1>
@@ -37,6 +40,8 @@
   <br>
 
   <%= link_to 'New Qualification', new_applicant_field_of_study_path, class: "btn btn-block btn-primary" %><br>
-  <%= link_to 'Next Step', applicant_experiences_path, class: "btn btn-block btn-success" %>
+  <% if @applicant_field_of_studies.any? %>
+    <%= link_to 'Next Step', applicant_experiences_path, class: "btn btn-block btn-success" %>
+  <% end %>
   </div>
 </div>  

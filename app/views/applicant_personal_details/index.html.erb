@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-<!-- <div class="col-xs-12"></div> -->
+<% if !@applicant_personal_details.any? %> 
+  <%= render 'layouts/incomplete' %>
+<% end %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="text-center"><%= current_applicant.username %>'s Personal Details</h1>
@@ -7,7 +8,7 @@
   <div class="panel-body">
   <table class="table table-hover table-striped table-bordered table-condensed">
     <thead>
-      <tr bgcolor="#D9EDF7">
+      <tr bgcolor="#D9EDF7" style="color: #337AB7;">
         <th>Surname</th>
         <th>First name</th>
         <th>Middle name</th>
@@ -45,8 +46,10 @@
           <td><%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %></td>
           <td><%= link_to 'Edit', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %></td>
           <td><%= link_to 'Destroy', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
-          <label class="label label-info">Created: <%= applicant_personal_detail.created_at %></label><span>   </span>
-          <label class="label label-info">Updated: <%= applicant_personal_detail.updated_at %></label><br><br>
+          <center>
+            <label class="label label-info">Created: <%= applicant_personal_detail.created_at %></label><span>   </span>
+            <label class="label label-info">Updated: <%= applicant_personal_detail.updated_at %></label><br><br>
+          </center>
         </tr>
 
       <% end %>

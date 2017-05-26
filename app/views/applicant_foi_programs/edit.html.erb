@@ -1,6 +1,11 @@
-<h1>Editing Applicant Foi Program</h1>
-
-<%= render 'form', applicant_foi_program: @applicant_foi_program %>
-
-<%= link_to 'Show', @applicant_foi_program %> |
-<%= link_to 'Back', applicant_foi_programs_path %>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1 class="text-center">Edit <%= current_applicant.username %>'s Interests</h1>
+	</div>
+	
+	<div class="panel-body">
+		<%= render 'form', applicant_foi_program: @applicant_foi_program %>
+	</div>
+	<%= link_to 'Show', @applicant_foi_program, class: "btn btn-xs btn-info" %>
+	<%= link_to 'Back', :back, class: "btn btn-xs btn-danger" %>
+</div>

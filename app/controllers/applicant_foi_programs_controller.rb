@@ -30,7 +30,7 @@ class ApplicantFoiProgramsController < ApplicationController
 
     respond_to do |format|
       if @applicant_foi_program.save
-        format.html { redirect_to @applicant_foi_program, notice: 'Applicant foi program was successfully created.' }
+        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant foi program was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_foi_program }
       else
         format.html { render :new }

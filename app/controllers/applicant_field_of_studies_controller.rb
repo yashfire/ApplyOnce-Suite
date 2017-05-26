@@ -28,7 +28,7 @@ class ApplicantFieldOfStudiesController < ApplicationController
 
     respond_to do |format|
       if @applicant_field_of_study.save
-        format.html { redirect_to @applicant_field_of_study, notice: 'Applicant field of study was successfully created.' }
+        format.html { redirect_to applicant_field_of_studies_url, notice: 'Applicant field of study was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_field_of_study }
       else
         format.html { render :new }

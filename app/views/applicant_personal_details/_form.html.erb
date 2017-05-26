@@ -8,13 +8,13 @@
     <%= f.input :Contact_Number %>
     <%= f.input :Alt_Contact_Number %>
     <label>Race</label><br>
-    <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race) %><br>
+      <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <label>Gender</label><br>
-    <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender) %><br>
+      <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <label>Marital Status</label><br>
-    <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status) %><br>
+      <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <label>Nationality</label><br>
-    <%= f.collection_select(:applicant_nationality_id, ApplicantNationality.all, :id, :Nationality) %><br>
+      <%= f.collection_select(:applicant_nationality_id, ApplicantNationality.all, :id, :Nationality, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <%= f.input :Criminal_Record %>
     <%= f.input :Skills %>
     <%= f.input :Application_Status %>

@@ -5,6 +5,15 @@
     <%= f.input :Address_Line_1 %>
     <%= f.input :Address_Line_2 %>
     <%= f.input :Address_Line_3 %>
+
+    <label>Province</label><br>
+    <%= f.collection_select(:id, ApplicantProvince.all, :id, :Province_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+
+    <label>Municipality</label><br>
+    <%= f.collection_select(:id, ApplicantPMunicipality.all, :id, :Municipality_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+
+    <label>City</label><br> 
+    <%= f.collection_select(:applicant_pm_city_id, ApplicantPmCity.all, :id, :City_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
     <%= f.input :Postal_Code %>
     
   </div>

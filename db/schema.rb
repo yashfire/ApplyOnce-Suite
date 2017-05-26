@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525130614) do
+ActiveRecord::Schema.define(version: 20170526104621) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 20170525130614) do
     t.string   "Address_Line_3"
     t.integer  "Postal_Code"
     t.integer  "applicant_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "applicant_pm_city_id"
     t.index ["applicant_id"], name: "index_applicant_addresses_on_applicant_id", using: :btree
+    t.index ["applicant_pm_city_id"], name: "index_applicant_addresses_on_applicant_pm_city_id", using: :btree
   end
 
   create_table "applicant_experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -86,6 +88,14 @@ ActiveRecord::Schema.define(version: 20170525130614) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "applicant_p_municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_province_id"
+    t.string   "Municipality_Name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["applicant_province_id"], name: "index_applicant_p_municipalities_on_applicant_province_id", using: :btree
+  end
+
   create_table "applicant_personal_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Surname"
     t.string   "First_Name"
@@ -110,10 +120,24 @@ ActiveRecord::Schema.define(version: 20170525130614) do
     t.index ["applicant_race_id"], name: "index_applicant_personal_details_on_applicant_race_id", using: :btree
   end
 
+  create_table "applicant_pm_cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_p_municipality_id"
+    t.string   "City_Name"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["applicant_p_municipality_id"], name: "index_applicant_pm_cities_on_applicant_p_municipality_id", using: :btree
+  end
+
   create_table "applicant_program_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Program"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "applicant_provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Province_Name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "applicant_qual_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -170,6 +194,7 @@ ActiveRecord::Schema.define(version: 20170525130614) do
     t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "applicant_addresses", "applicant_pm_cities"
   add_foreign_key "applicant_addresses", "applicants"
   add_foreign_key "applicant_experiences", "applicants"
   add_foreign_key "applicant_field_of_studies", "applicant_qual_statuses"
@@ -179,10 +204,12 @@ ActiveRecord::Schema.define(version: 20170525130614) do
   add_foreign_key "applicant_foi_programs", "applicant_field_of_interests"
   add_foreign_key "applicant_foi_programs", "applicant_program_interests"
   add_foreign_key "applicant_foi_programs", "applicants"
+  add_foreign_key "applicant_p_municipalities", "applicant_provinces"
   add_foreign_key "applicant_personal_details", "applicant_genders"
   add_foreign_key "applicant_personal_details", "applicant_marital_statuses"
   add_foreign_key "applicant_personal_details", "applicant_nationalities"
   add_foreign_key "applicant_personal_details", "applicant_races"
   add_foreign_key "applicant_personal_details", "applicants"
+  add_foreign_key "applicant_pm_cities", "applicant_p_municipalities"
   add_foreign_key "applicant_references", "applicants"
 end

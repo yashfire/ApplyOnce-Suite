@@ -42,7 +42,7 @@ class ApplicantFieldOfStudiesController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_field_of_study.update(applicant_field_of_study_params)
-        format.html { redirect_to @applicant_field_of_study, notice: 'Applicant field of study was successfully updated.' }
+        format.html { redirect_to applicant_field_of_studies_url, notice: 'Applicant field of study was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_field_of_study }
       else
         format.html { render :edit }

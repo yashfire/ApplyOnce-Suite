@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant: one
+  applicant_disability: one
+  Disability_Type: MyString
+
+two:
+  applicant: two
+  applicant_disability: two
+  Disability_Type: MyString

@@ -1,0 +1,2 @@
+class ApplicantCurrentOccupation < ApplicationRecord
+end

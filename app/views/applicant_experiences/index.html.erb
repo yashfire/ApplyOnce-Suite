@@ -13,6 +13,7 @@
           <th>Job name</th>
           <th>Company name</th>
           <th>Duties</th>
+          <th>Employment Type</th>
           <th>Start date</th>
           <th>End date</th>
           <th colspan="3"></th>
@@ -25,6 +26,7 @@
             <td><%= applicant_experience.Job_Name %></td>
             <td><%= applicant_experience.Company_Name %></td>
             <td><%= applicant_experience.Duties %></td>
+            <td><%= applicant_experience.applicant_employment_type_id %></td>
             <td><%= applicant_experience.Start_Date %></td>
             <td><%= applicant_experience.End_Date %></td>
             <td><%= link_to 'Show', applicant_experience, class: "btn btn-xs btn-info" %></td>

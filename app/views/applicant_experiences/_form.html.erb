@@ -5,6 +5,8 @@
     <%= f.input :Job_Name %>
     <%= f.input :Company_Name %>
     <%= f.input :Duties %>
+    <label>Employment Type</label><br> 
+    <%= f.collection_select(:applicant_employment_type_id, ApplicantEmploymentType.all, :id, :Employment_Type, {:include_blank=>true}, {:class=>'form-control'}) %>
     <%= f.input :Start_Date %>
     <%= f.input :End_Date %>
   </div>

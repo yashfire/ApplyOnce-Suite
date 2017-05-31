@@ -38,7 +38,8 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
-  border-radius: 50%
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 .fa:hover {
     opacity: 0.7;

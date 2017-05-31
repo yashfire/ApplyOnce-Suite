@@ -69,6 +69,6 @@ class ApplicantExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applicant_experience_params
-      params.require(:applicant_experience).permit(:Job_Name, :Company_Name, :Duties, :Start_Date, :End_Date, :applicant_id)
+      params.require(:applicant_experience).permit(:Job_Name, :Company_Name, :Duties, :Start_Date, :End_Date, :applicant_id, :applicant_employment_type_id)
     end
 end

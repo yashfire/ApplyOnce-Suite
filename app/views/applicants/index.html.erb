@@ -7,11 +7,11 @@
 	}
 </style>
 
-<div class="col-xs-6 col-xs-offset-1">
+<div id="1" class="col-xs-6 col-xs-offset-1">
 <!-- <div class="alert alert-info alert-dismissible text-center" role="alert">
 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
 	<div class="panel panel-info size">
-	  <div class="panel-heading">
+	  <div class="panel-heading"><!-- <button id="hide">x</button> -->
 	  	<h1 class="text-center"><%= current_applicant.username %>'s Information</h1>
 	  </div>
 	  <div class="panel-body">
@@ -30,10 +30,11 @@
 	</div>
 <!-- </div> -->	
 </div>
+
 <% @applicant_personal_details.each do |applicant_personal_detail| %>
 <div class="col-xs-4">
   <div class="panel panel-info size">
-  	<div class="panel-heading">
+  	<div class="panel-heading"><!-- <button id="hide2">x</button> -->
 		<h4 class="text-center"><%= current_applicant.username %>'s Personal Details</h4>
 	</div>
 	<div class="panel-body">
@@ -60,7 +61,7 @@
 <% @applicant_foi_programs.each do |applicant_foi_program| %>
 <div class="col-xs-4">
 	<div class="panel panel-info size">
-	  <div class="panel-heading">
+	  <div class="panel-heading"><!-- <button id="hide3">x</button> -->
 	  	<h4 class="text-center"><%= current_applicant.username %>'s Fields of interest</h4>
 	  </div>
 	  <div class="panel-body">
@@ -81,7 +82,7 @@
 	  <center>
 		<div class="panel panel-info size">
 		  <div class="panel-heading">
-		  	<h4 class="text-center">Applicant Address</h4>
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Address</h4>
 		  </div>
 		  <div class="panel-body">
 	  		<p><span>Address Line 1: </span><%= applicant_address.Address_Line_1 %></p>
@@ -102,7 +103,7 @@
   <center>
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
-	  	<h4 class="text-center">Applicant Experience</h4>
+	  	<h4 class="text-center"><%= current_applicant.username %>'s Experience</h4>
 	  </div>
 	  <div class="panel-body">
 	  	<p><span>Job name: </span><%= applicant_experience.Job_Name %></p>
@@ -118,6 +119,56 @@
   </center>	
  </div>
 <% end %>
+
+<% @applicant_field_of_studies.each do |applicant_field_of_study| %>
+ <div class="col-xs-4">
+  <center>
+	<div class="panel panel-info size">
+	  <div class="panel-heading">
+	  	<h4 class="text-center"><%= current_applicant.username %>'s Qualifications</h4>
+	  </div>
+	  <div class="panel-body">
+	  	<p><span>Field Of Study: </span><%= applicant_field_of_study.Field_Of_Study %></p>
+	  	<p><span>Start_Date: </span><%= applicant_field_of_study.Start_Date %></p>
+	  	<p><span>End_date: </span><%= applicant_field_of_study.End_date %></p>
+	  	<p><span>applicant_university_id: </span><%= applicant_field_of_study.applicant_university_id %></p>
+	  	<p><span>applicant_qual_id: </span><%= applicant_field_of_study.applicant_qual_id %></p>
+	  	<p><span>applicant_qual_status_id: </span><%= applicant_field_of_study.applicant_qual_status_id %></p>
+	  	<p><span>created_at: </span><%= applicant_field_of_study.created_at %></p>
+	  	<p><span>updated_at: </span><%= applicant_field_of_study.updated_at %></p>
+	  	<%= link_to 'Show', applicant_field_of_study, class: "btn btn-xs btn-info" %>
+        <%= link_to 'Edit', edit_applicant_field_of_study_path(applicant_field_of_study), class: "btn btn-xs btn-warning" %>
+        <%= link_to 'Destroy', applicant_field_of_study, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+	  </div>
+	</div>
+  </center>	
+ </div>
+<% end %>
+
+<% @applicant_references.each do |applicant_reference| %>
+<div class="col-xs-4">
+	<div class="panel panel-info size">
+	  <div class="panel-heading">
+	  	<h4 class="text-center"><%= current_applicant.username %>'s References</h4>
+	  </div>
+	  <div class="panel-body">
+	  	<center>
+	  	<p><span>Reference Name: </span><%= applicant_reference.Reference_Name %></p>
+	  	<p><span>Contact Number: </span><%= applicant_reference.Contact_Number %></p>
+		<p><span>Email Address: </span><%= applicant_reference.Email_address %></p>
+		<p><span>Relationship: </span><%= applicant_reference.Relationship %></p>
+		<p><span>Created: </span><%= applicant_reference.created_at %></p>
+		<p><span>Updated: </span><%= applicant_reference.updated_at %></p>
+		<%= link_to 'Show', applicant_reference, class: "btn btn-xs btn-info" %>
+        <%= link_to 'Edit', edit_applicant_reference_path(applicant_reference), class: "btn btn-xs btn-warning" %>
+        <%= link_to 'Destroy', applicant_reference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+		</center>
+	  </div>
+	</div>
+</div>
+<% end %> 
+
+
 <!--
 <div class="col-xs-4">
 	<div class="panel panel-info size">
@@ -128,3 +179,47 @@
 	  </div>
 	</div>
 </div> -->
+
+
+
+<% @applicant_disability_types.each do |applicant_disability_type| %>
+<div class="col-xs-4">
+	<div class="panel panel-info size">
+	  <div class="panel-heading">
+	  	<h4 class="text-center"><%= current_applicant.username %>'s Disabilities</h4>
+	  </div>
+	  <div class="panel-body">
+	  	<center>
+	  	<p><span>Reference Name: </span><%= applicant_disability_type.applicant_disability_id %></p>
+	  	<p><span>Contact Number: </span><%= applicant_disability_type.Disability_Type %></p>
+		<p><span>Created: </span><%= applicant_disability_type.created_at %></p>
+		<p><span>Updated: </span><%= applicant_disability_type.updated_at %></p>
+		<%= link_to 'Show', applicant_disability_type, class: "btn btn-xs btn-info" %>
+        <%= link_to 'Edit', edit_applicant_disability_type_path(applicant_disability_type), class: "btn btn-xs btn-warning" %>
+        <%= link_to 'Destroy', applicant_disability_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+		</center>
+	  </div>
+	</div>
+</div>
+<% end %>
+
+<% @applicant_licenses.each do |applicant_license| %>
+<div class="col-xs-4">
+	<div class="panel panel-info size">
+	  <div class="panel-heading">
+	  	<h4 class="text-center"><%= current_applicant.username %>'s Drivers License</h4>
+	  </div>
+	  <div class="panel-body">
+	  	<center>
+	  	<p><span>Drivers License Code: </span><%= applicant_license.applicant_license_code_id %></p>
+	  	<p><span>Drivers License Status: </span><%= applicant_license.applicant_license_status_id %></p>
+		<p><span>Created: </span><%= applicant_license.created_at %></p>
+		<p><span>Updated: </span><%= applicant_license.updated_at %></p>
+		<%= link_to 'Show', applicant_license, class: "btn btn-xs btn-info" %>
+        <%= link_to 'Edit', edit_applicant_license_path(applicant_license), class: "btn btn-xs btn-warning" %>
+        <%= link_to 'Destroy', applicant_license, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+		</center>
+	  </div>
+	</div>
+</div>
+<% end %>

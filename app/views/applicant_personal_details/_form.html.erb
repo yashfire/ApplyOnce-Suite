@@ -7,6 +7,8 @@
     <%= f.input :Middle_Name %>
     <%= f.input :Contact_Number %>
     <%= f.input :Alt_Contact_Number %>
+    <label>Current Occupation</label><br>
+      <%= f.collection_select(:applicant_current_occupation_id, ApplicantCurrentOccupation.all, :id, :Current_Occupation, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <label>Race</label><br>
       <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     <label>Gender</label><br>

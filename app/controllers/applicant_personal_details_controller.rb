@@ -73,6 +73,6 @@ class ApplicantPersonalDetailsController < ApplicationController
        :Contact_Number, :Alt_Contact_Number, :Criminal_Record, :Skills,
         :Application_Status, :Number_Of_Dependancies, :applicant_id,
         :applicant_race_id, :applicant_gender_id, :applicant_marital_status_id, 
-        :applicant_nationality_id)
+        :applicant_nationality_id, :applicant_current_occupation_id)
     end
 end

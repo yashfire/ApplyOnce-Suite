@@ -8,6 +8,7 @@ class Applicant < ApplicationRecord
   has_many :applicant_field_of_studies
   has_many :applicant_foi_programs
   has_many :applicant_licenses
+  has_many :applicant_disability_types
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

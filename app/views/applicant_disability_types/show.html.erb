@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_disability_type.applicant %>
+</p>
+
+<p>
+  <strong>Applicant disability:</strong>
+  <%= @applicant_disability_type.applicant_disability %>
+</p>
+
+<p>
+  <strong>Disability type:</strong>
+  <%= @applicant_disability_type.Disability_Type %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_disability_type_path(@applicant_disability_type) %> |
+<%= link_to 'Back', applicant_disability_types_path %>

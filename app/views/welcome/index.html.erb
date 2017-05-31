@@ -9,20 +9,28 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; 
-}
+} 
 h1 {
+  font-size: 50px;
 	color: white;
 	opacity: 0.75;
+  position: fixed;
+  text-shadow: 2px 2px 4px #ffffff;
 } 
+.white {
+  color: white;
+  font-size: 25px;
+}
 </style>
 
-<div class="white">
-<h1 class="text-center index-font">Welcome <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
+<div>
+<h1>Welcome<br> <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
  <center>
     <a href="https://fb.me/littlepig.computing" class="fa fa-facebook"></a>
     <a href="https://twitter.com/littlepigcc" class="fa fa-twitter"></a>
     <a href="https://www.linkedin.com/company/little-pig-cc?trk=top_nav_home" class="fa fa-linkedin"></a>
   </center>
-</div><br><br><br><br><br><br><br><br><br><br>
-
-<%= link_to "Apply", applicant_foi_programs_path, class: "btn btn-primary btn-block" %>
+</div>
+<div style="padding-top: 30%; float: right; text-shadow: 2px 2px 4px #000000;">
+  <%= link_to '<i class="glyphicon glyphicon-send"></i> Click Here To Secure Your Future'.html_safe, applicant_foi_programs_path, class: "white" %>
+</div>

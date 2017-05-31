@@ -15,6 +15,7 @@
         <th>Contact number</th>
         <th>Alt contact number</th>
         <th>Criminal record</th>
+        <th>Current Occupation</th>
         <th>Skills</th>
         <th>Application status</th>
         <th>Number of dependancies</th>
@@ -35,6 +36,7 @@
           <td><%= applicant_personal_detail.Contact_Number %></td>
           <td><%= applicant_personal_detail.Alt_Contact_Number %></td>
           <td><%= applicant_personal_detail.Criminal_Record %></td>
+          <td><%= applicant_personal_detail.applicant_current_occupation_id %></td>
           <td><%= applicant_personal_detail.Skills %></td>
           <td><%= applicant_personal_detail.Application_Status %></td>
           <td><%= applicant_personal_detail.Number_Of_Dependancies %></td>
@@ -45,10 +47,6 @@
           <td><%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %></td>
           <td><%= link_to 'Edit', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %></td>
           <td><%= link_to 'Destroy', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
-          <center>
-            <label class="label label-info">Created: <%= applicant_personal_detail.created_at %></label><span>   </span>
-            <label class="label label-info">Updated: <%= applicant_personal_detail.updated_at %></label><br><br>
-          </center>
         </tr>
 
       <% end %>

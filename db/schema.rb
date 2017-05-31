@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531070210) do
+ActiveRecord::Schema.define(version: 20170531102805) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -25,6 +25,34 @@ ActiveRecord::Schema.define(version: 20170531070210) do
     t.index ["applicant_pm_city_id"], name: "index_applicant_addresses_on_applicant_pm_city_id", using: :btree
   end
 
+  create_table "applicant_current_occupations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Current_Occupation"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "applicant_disabilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Disability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "applicant_disability_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_id"
+    t.integer  "applicant_disability_id"
+    t.string   "Disability_Type"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["applicant_disability_id"], name: "index_applicant_disability_types_on_applicant_disability_id", using: :btree
+    t.index ["applicant_id"], name: "index_applicant_disability_types_on_applicant_id", using: :btree
+  end
+
+  create_table "applicant_employment_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Employment_Type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "applicant_experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Job_Name"
     t.string   "Company_Name"
@@ -32,8 +60,10 @@ ActiveRecord::Schema.define(version: 20170531070210) do
     t.date     "Start_Date"
     t.date     "End_Date"
     t.integer  "applicant_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "applicant_employment_type_id"
+    t.index ["applicant_employment_type_id"], name: "index_applicant_experiences_on_applicant_employment_type_id", using: :btree
     t.index ["applicant_id"], name: "index_applicant_experiences_on_applicant_id", using: :btree
   end
 
@@ -126,16 +156,17 @@ ActiveRecord::Schema.define(version: 20170531070210) do
     t.string   "Contact_Number"
     t.string   "Alt_Contact_Number"
     t.integer  "Criminal_Record"
-    t.text     "Skills",                      limit: 65535
+    t.text     "Skills",                          limit: 65535
     t.integer  "Application_Status"
     t.integer  "Number_Of_Dependancies"
     t.integer  "applicant_id"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.integer  "applicant_race_id"
     t.integer  "applicant_gender_id"
     t.integer  "applicant_marital_status_id"
     t.integer  "applicant_nationality_id"
+    t.integer  "applicant_current_occupation_id"
     t.index ["applicant_gender_id"], name: "index_applicant_personal_details_on_applicant_gender_id", using: :btree
     t.index ["applicant_id"], name: "index_applicant_personal_details_on_applicant_id", using: :btree
     t.index ["applicant_marital_status_id"], name: "index_applicant_personal_details_on_applicant_marital_status_id", using: :btree
@@ -219,6 +250,9 @@ ActiveRecord::Schema.define(version: 20170531070210) do
 
   add_foreign_key "applicant_addresses", "applicant_pm_cities"
   add_foreign_key "applicant_addresses", "applicants"
+  add_foreign_key "applicant_disability_types", "applicant_disabilities"
+  add_foreign_key "applicant_disability_types", "applicants"
+  add_foreign_key "applicant_experiences", "applicant_employment_types"
   add_foreign_key "applicant_experiences", "applicants"
   add_foreign_key "applicant_field_of_studies", "applicant_qual_statuses"
   add_foreign_key "applicant_field_of_studies", "applicant_quals"

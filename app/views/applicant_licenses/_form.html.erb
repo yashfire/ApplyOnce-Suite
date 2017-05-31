@@ -1,0 +1,13 @@
+<%= simple_form_for(@applicant_license) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+    <%= f.association :applicant_license_code, :label_method =>  lambda { |code| "#{code.Drivers_License_Code}"  } %>
+    <%= f.association :applicant_license_status, :label_method =>  lambda { |status| "#{status.Drivers_License_Status}"  } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,76 @@
+<% if !@applicant_licenses.any? %> 
+  <%= render 'layouts/incomplete' %>
+<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="text-center"><%= current_applicant.username %>'s Drivers License</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+      <thead>
+        <tr bgcolor="#D9EDF7" style="color: #337AB7;">
+          <th>Applicant license code</th>
+          <th>Applicant license status</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @applicant_licenses.each do |applicant_license| %>
+          <tr>
+            <td><%= applicant_license.applicant_license_code_id %></td>
+            <td><%= applicant_license.applicant_license_status_id %></td>
+            <td><%= link_to 'Show', applicant_license, class: "btn btn-xs btn-info" %></td>
+            <td><%= link_to 'Edit', edit_applicant_license_path(applicant_license), class: "btn btn-xs btn-warning" %></td>
+            <td><%= link_to 'Destroy', applicant_license, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Applicant License', new_applicant_license_path, class: "btn btn-block btn-primary" %><br>
+    <% if @applicant_licenses.any? %> 
+      <%= link_to 'Next Step', applicant_addresses_path, class: "btn btn-block btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<% if @applicant_licenses.any? %>
+  <div class="col-xs-6">
+    <div class="panel panel-info" style="height:445px;">
+      <div class="panel-heading">
+        <h4>Drivers License Status</h4>
+      </div>
+        <div class="panel-body">
+        <table class="table table-bordered table-striped table-hover">
+          <% @status.each do |status| %>
+          <tr>
+            <td><%= status.id %></td>
+            <td><%= status.Drivers_License_Status %></td>
+          </tr>
+          <% end %>
+        </table>  
+        </div>
+    </div>
+  </div> 
+
+  <div class="col-xs-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Divers License Code</h4>
+      </div>
+        <div class="panel-body">
+        <table class="table table-bordered table-striped table-hover">
+          <% @code.each do |code| %>
+          <tr>
+            <td><%= code.id %></td>
+            <td><%= code.Drivers_License_Code %></td>
+          </tr>
+          <% end %>
+        </table>  
+        </div>
+    </div>
+  </div>  
+<% end %>

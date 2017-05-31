@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526104621) do
+ActiveRecord::Schema.define(version: 20170531070210) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -74,6 +74,29 @@ ActiveRecord::Schema.define(version: 20170526104621) do
     t.string   "Gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "applicant_license_codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Drivers_License_Code"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "applicant_license_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Drivers_License_Status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "applicant_licenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_id"
+    t.integer  "applicant_license_code_id"
+    t.integer  "applicant_license_status_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["applicant_id"], name: "index_applicant_licenses_on_applicant_id", using: :btree
+    t.index ["applicant_license_code_id"], name: "index_applicant_licenses_on_applicant_license_code_id", using: :btree
+    t.index ["applicant_license_status_id"], name: "index_applicant_licenses_on_applicant_license_status_id", using: :btree
   end
 
   create_table "applicant_marital_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -204,6 +227,9 @@ ActiveRecord::Schema.define(version: 20170526104621) do
   add_foreign_key "applicant_foi_programs", "applicant_field_of_interests"
   add_foreign_key "applicant_foi_programs", "applicant_program_interests"
   add_foreign_key "applicant_foi_programs", "applicants"
+  add_foreign_key "applicant_licenses", "applicant_license_codes"
+  add_foreign_key "applicant_licenses", "applicant_license_statuses"
+  add_foreign_key "applicant_licenses", "applicants"
   add_foreign_key "applicant_p_municipalities", "applicant_provinces"
   add_foreign_key "applicant_personal_details", "applicant_genders"
   add_foreign_key "applicant_personal_details", "applicant_marital_statuses"

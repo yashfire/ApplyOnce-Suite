@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant: one
+  applicant_license_code: one
+  applicant_license_status: one
+
+two:
+  applicant: two
+  applicant_license_code: two
+  applicant_license_status: two

@@ -1,0 +1,17 @@
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_license.applicant %>
+</p>
+
+<p>
+  <strong>Applicant license code:</strong>
+  <%= @applicant_license.applicant_license_code %>
+</p>
+
+<p>
+  <strong>Applicant license status:</strong>
+  <%= @applicant_license.applicant_license_status %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_license_path(@applicant_license) %> |
+<%= link_to 'Back', applicant_licenses_path %>

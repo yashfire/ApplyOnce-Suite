@@ -8,6 +8,8 @@
 </style>
 
 <div class="col-xs-6 col-xs-offset-1">
+<!-- <div class="alert alert-info alert-dismissible text-center" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
 	  	<h1 class="text-center"><%= current_applicant.username %>'s Information</h1>
@@ -26,6 +28,7 @@
 		</center>
 	  </div>
 	</div>
+<!-- </div> -->	
 </div>
 <% @applicant_personal_details.each do |applicant_personal_detail| %>
 <div class="col-xs-4">

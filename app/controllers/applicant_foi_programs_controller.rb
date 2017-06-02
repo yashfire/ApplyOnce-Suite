@@ -44,7 +44,7 @@ class ApplicantFoiProgramsController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_foi_program.update(applicant_foi_program_params)
-        format.html { redirect_to @applicant_foi_program, notice: 'Applicant foi program was successfully updated.' }
+        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant foi program was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_foi_program }
       else
         format.html { render :edit }

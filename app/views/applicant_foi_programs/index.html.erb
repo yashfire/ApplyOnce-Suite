@@ -10,20 +10,20 @@
     <table class="table table-hover table-striped table-bordered table-condensed">
       <thead>
         <tr bgcolor="#D9EDF7" style="color: #337AB7;">
-          <th>Program Of Interest</th>
-          <th>Field of interest</th>
-          <th colspan="3"></th>
+          <th class="col-xs-5">Program Of Interest</th>
+          <th class="col-xs-5">Field of interest</th>
+          <th colspan="1"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @applicant_foi_programs.each do |applicant_foi_program| %>
           <tr>
-            <td><%= applicant_foi_program.applicant_program_interest_id %></td>
-            <td><%= applicant_foi_program.applicant_field_of_interest_id %></td>
-            <td><%= link_to 'Show', applicant_foi_program, class: "btn btn-xs btn-info" %></td>
-            <td><%= link_to 'Edit', edit_applicant_foi_program_path(applicant_foi_program), class: "btn btn-xs btn-warning" %></td>
-            <td><%= link_to 'Destroy', applicant_foi_program, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+            <td class="col-xs-5"><%= applicant_foi_program.applicant_program_interest_id %></td>
+            <td class="col-xs-5"><%= applicant_foi_program.applicant_field_of_interest_id %></td>
+            <!-- <td><%= link_to 'Show', applicant_foi_program, class: "btn btn-xs btn-info" %></td> -->
+            <td class="col-xs-2"><%= link_to 'Edit Entry', edit_applicant_foi_program_path(applicant_foi_program), class: "btn btn-xs btn-warning btn" %>
+            <%= link_to 'Delete Entry', applicant_foi_program, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger btn" %></td>
           </tr>
         <% end %>
       </tbody>

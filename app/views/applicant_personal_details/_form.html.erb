@@ -19,11 +19,11 @@
       <%= f.input :Alt_Contact_Number, label: "Alternate Contact Number" %>
     </div>
 <!-- Next Row -->
-    <div class="col-xs-4">  
+    <div class="col-xs-">  
       <label>Race</label><br>
       <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     </div>
-    <div class="col-xs-4">  
+    <div class="col-xs-">  
       <label>Gender</label><br>
       <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender, {:include_blank=>true}, {:class=>'form-control'}) %><br>
     </div>  

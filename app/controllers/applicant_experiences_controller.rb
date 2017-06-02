@@ -42,7 +42,7 @@ class ApplicantExperiencesController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_experience.update(applicant_experience_params)
-        format.html { redirect_to @applicant_experience, notice: 'Applicant experience was successfully updated.' }
+        format.html { redirect_to applicant_experiences_url, notice: 'Applicant experience was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_experience }
       else
         format.html { render :edit }

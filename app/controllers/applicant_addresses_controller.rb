@@ -28,7 +28,7 @@ class ApplicantAddressesController < ApplicationController
 
     respond_to do |format|
       if @applicant_address.save
-        format.html { redirect_to applicant_addresses_path, notice: 'Applicant address was successfully created.' }
+        format.html { redirect_to applicant_addresses_url, notice: 'Applicant address was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_address }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ApplicantAddressesController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_address.update(applicant_address_params)
-        format.html { redirect_to @applicant_address, notice: 'Applicant address was successfully updated.' }
+        format.html { redirect_to applicant_addresses_url, notice: 'Applicant address was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_address }
       else
         format.html { render :edit }

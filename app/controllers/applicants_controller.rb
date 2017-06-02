@@ -8,5 +8,17 @@ class ApplicantsController < ApplicationController
     @applicant_disability_types = current_applicant.applicant_disability_types.all
     @applicant_field_of_studies = current_applicant.applicant_field_of_studies.all
     @applicant_licenses = current_applicant.applicant_licenses.all
+
+    respond_to do |format| 
+      format.html
+      format.pdf do 
+        pdf = Cv.new(@applicant_personal_details)
+        send_data pdf.render, filename: "current_applicant.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end      
+
+
   end 
 end

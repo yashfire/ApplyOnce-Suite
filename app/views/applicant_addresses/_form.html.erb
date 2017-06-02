@@ -6,14 +6,14 @@
     <%= f.input :Address_Line_2 %>
     <%= f.input :Address_Line_3 %>
 
-    <label>Province</label><br>
-    <%= f.collection_select(:id, ApplicantProvince.all, :id, :Province_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+    <!-- <label>Province</label><br>
+    <%= f.collection_select(:id, ApplicantProvince.all, :id, :Province_Name, {:include_blank=>true}, {:class=>'form-control'}) %> -->
 
     <label>Municipality</label><br>
-    <%= f.collection_select(:id, ApplicantPMunicipality.all, :id, :Municipality_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+    <%= f.grouped_collection_select :id, ApplicantProvince.all, :applicant_p_municipalities, :Province_Name, :id, :Municipality_Name,{}, class: "form-control" %>
 
     <label>City</label><br> 
-    <%= f.collection_select(:applicant_pm_city_id, ApplicantPmCity.all, :id, :City_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+    <%= f.grouped_collection_select(:applicant_pm_city_id, ApplicantPMunicipality.all, :applicant_pm_cities, :Municipality_Name, :id, :City_Name, {}, class: 'form-control') %>
     <%= f.input :Postal_Code %>
     
   </div>

@@ -42,7 +42,7 @@ class ApplicantReferencesController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_reference.update(applicant_reference_params)
-        format.html { redirect_to @applicant_reference, notice: 'Applicant reference was successfully updated.' }
+        format.html { redirect_to applicant_references_url, notice: 'Applicant reference was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_reference }
       else
         format.html { render :edit }

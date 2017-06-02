@@ -2,25 +2,58 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Surname %>
-    <%= f.input :First_Name %>
-    <%= f.input :Middle_Name %>
-    <%= f.input :Contact_Number %>
-    <%= f.input :Alt_Contact_Number %>
-    <label>Current Occupation</label><br>
-      <%= f.collection_select(:applicant_current_occupation_id, ApplicantCurrentOccupation.all, :id, :Current_Occupation, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    <label>Race</label><br>
+    <div class="col-xs-4">
+      <%= f.input :First_Name, autofocus: true %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.input :Middle_Name %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.input :Surname %>
+    </div>
+<!-- Next Row -->
+    <div class="col-xs-6">
+      <%= f.input :Contact_Number %>
+    </div>  
+    <div class="col-xs-6">
+      <%= f.input :Alt_Contact_Number, label: "Alternate Contact Number" %>
+    </div>
+<!-- Next Row -->
+    <div class="col-xs-4">  
+      <label>Race</label><br>
       <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    <label>Gender</label><br>
+    </div>
+    <div class="col-xs-4">  
+      <label>Gender</label><br>
       <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    <label>Marital Status</label><br>
-      <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    <label>Nationality</label><br>
+    </div>  
+    <div class="col-xs-4">
+      <label>Nationality</label><br>
       <%= f.collection_select(:applicant_nationality_id, ApplicantNationality.all, :id, :Nationality, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    <%= f.input :Criminal_Record %>
-    <%= f.input :Skills %>
-    <%= f.input :Application_Status %>
-    <%= f.input :Number_Of_Dependancies %>
+    </div>
+<!-- Next Row -->
+    <div class="col-xs-6">
+      <label>Marital Status</label><br>
+      <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br>
+    </div>
+    <div class="col-xs-6">  
+      <%= f.input :Number_Of_Dependancies %>
+    </div>
+<!-- Next Row -->
+    <div class="col-xs-6">
+      <label>Current Occupation</label><br>
+      <%= f.collection_select(:applicant_current_occupation_id, ApplicantCurrentOccupation.all, :id, :Current_Occupation, {:include_blank=>true}, {:class=>'form-control'}) %><br>
+    </div>
+    <div class="col-xs-6">  
+      <%= f.input :Skills %>
+    </div>  
+<!-- Next Row -->
+    <div class="col-xs-6">
+      <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ], :checked => ['No', 0]  %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
+    </div>
   </div> 
 
   <div class="form-actions">

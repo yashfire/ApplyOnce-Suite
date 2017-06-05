@@ -1,3 +1,3 @@
 class ApplicantRace < ApplicationRecord
-	belongs_to :applicant_personal_detail
+	has_many :applicant_personal_details
 end

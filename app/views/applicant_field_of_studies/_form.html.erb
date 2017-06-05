@@ -5,14 +5,10 @@
     <%= f.input :Field_Of_Study %>
     <%= f.input :Start_Date %>
     <%= f.input :End_date %>
-    <label>University</label><br>
-    <%= f.collection_select(:applicant_university_id, ApplicantUniversity.all, :id, :University_Name, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    
-    <label>Qualification</label><br>
-    <%= f.collection_select(:applicant_qual_id, ApplicantQual.all, :id, :Qualification_Name, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-
-    <label>Qualification Status</label><br>
-    <%= f.collection_select(:applicant_qual_status_id, ApplicantQualStatus.all, :id, :Qualification_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br><br>
+    <%= f.association :applicant_university , :label_method =>  lambda { |university| "#{university.University_Name}"  }%>
+    <%= f.association :applicant_qual, :label_method =>  lambda { |qual| "#{qual.Qualification_Name}"  } %>
+    <%= f.association :applicant_qual_status, :label_method =>  lambda { |qual_status| "#{qual_status.Qualification_Status}"  } %>
+    <br><br>
   </div>
 
   <div class="form-actions">

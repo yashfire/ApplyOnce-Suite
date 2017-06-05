@@ -1,59 +1,21 @@
 <%= simple_form_for @applicant_personal_detail do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <div class="col-xs-4">
-      <%= f.input :First_Name, autofocus: true %>
-    </div>
-    <div class="col-xs-4">
-      <%= f.input :Middle_Name %>
-    </div>
-    <div class="col-xs-4">
-      <%= f.input :Surname %>
-    </div>
-<!-- Next Row -->
-    <div class="col-xs-6">
-      <%= f.input :Contact_Number %>
-    </div>  
-    <div class="col-xs-6">
-      <%= f.input :Alt_Contact_Number, label: "Alternate Contact Number" %>
-    </div>
-<!-- Next Row -->
-    <div class="col-xs-">  
-      <label>Race</label><br>
-      <%= f.collection_select(:applicant_race_id, ApplicantRace.all, :id, :Race, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    </div>
-    <div class="col-xs-">  
-      <label>Gender</label><br>
-      <%= f.collection_select(:applicant_gender_id, ApplicantGender.all, :id, :Gender, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    </div>  
-    <div class="col-xs-4">
-      <label>Nationality</label><br>
-      <%= f.collection_select(:applicant_nationality_id, ApplicantNationality.all, :id, :Nationality, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    </div>
-<!-- Next Row -->
-    <div class="col-xs-6">
-      <label>Marital Status</label><br>
-      <%= f.collection_select(:applicant_marital_status_id, ApplicantMaritalStatus.all, :id, :Marital_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    </div>
-    <div class="col-xs-6">  
-      <%= f.input :Number_Of_Dependancies %>
-    </div>
-<!-- Next Row -->
-    <div class="col-xs-6">
-      <label>Current Occupation</label><br>
-      <%= f.collection_select(:applicant_current_occupation_id, ApplicantCurrentOccupation.all, :id, :Current_Occupation, {:include_blank=>true}, {:class=>'form-control'}) %><br>
-    </div>
-    <div class="col-xs-6">  
-      <%= f.input :Skills %>
-    </div>  
-<!-- Next Row -->
-    <div class="col-xs-6">
-      <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ], :checked => ['No', 0]  %>
-    </div>
-    <div class="col-xs-6">
-      <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
-    </div>
+  <div class="form-inputs col-xs-8 col-xs-offset-2">
+    <%= f.input :First_Name, autofocus: true, placeholder: "John" %>
+    <%= f.input :Middle_Name, placeholder: "Michael" %>
+    <%= f.input :Surname, placeholder: "Smith" %>
+    <%= f.input :Contact_Number, placeholder: "0831234567" %>
+    <%= f.input :Alt_Contact_Number, label: "Alternate Contact Number", placeholder: "0837654321" %>
+    <%= f.association :applicant_race, :label_method =>  lambda { |race| "#{race.Race}"  } %>
+    <%= f.association :applicant_gender, :label_method =>  lambda { |gender| "#{gender.Gender}"  } %>
+    <%= f.association :applicant_nationality, :label_method => lambda { |nationality| "#{nationality.Nationality}"} %>
+    <%= f.association :applicant_marital_status, :label_method => lambda { |marital_status| "#{marital_status.Marital_Status}"} %>
+    <%= f.input :Number_Of_Dependancies %>
+    <%= f.association :applicant_current_occupation, :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
+    <%= f.input :Skills %>
+    <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ], :checked => ['No', 0]  %>
+    <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
   </div> 
 
   <div class="form-actions">

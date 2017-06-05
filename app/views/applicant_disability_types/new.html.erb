@@ -1,5 +1,9 @@
-<h1>New Applicant Disability Type</h1>
-
-<%= render 'form', applicant_disability_type: @applicant_disability_type %>
-
-<%= link_to 'Back', applicant_disability_types_path %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+	<h1 class="text-center">New Applicant Disability Type</h1>
+  </div>
+  <div class="panel-body">
+	<%= render 'form', applicant_disability_type: @applicant_disability_type %>
+  </div>
+<%= link_to 'Back', applicant_disability_types_path, class: "btn btn-xs btn-danger" %>
+</div>

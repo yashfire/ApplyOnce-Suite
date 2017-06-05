@@ -1,21 +1,23 @@
 class ApplicantPersonalDetail < ApplicationRecord
   belongs_to :applicant
-  has_many :applicant_races
+  belongs_to :applicant_race
+  belongs_to :applicant_gender
+  belongs_to :applicant_nationality
+  belongs_to :applicant_marital_status
+  belongs_to :applicant_current_occupation
 
   	validates_uniqueness_of :applicant_id
 
 	validates :Surname, presence: true
 	validates :First_Name, presence: true
 	validates :Middle_Name, presence: true
-	validates :Contact_Number, presence: true
-	validates :Alt_Contact_Number, presence: true
+	validates_format_of :Contact_Number, presence: true, :with => /\A([0]{1})\d{9}\z/
+	validates_format_of :Alt_Contact_Number, presence: true, :with => /\A([0]{1})\d{9}\z/
 	validates :Criminal_Record, presence: true
-	validates :Skills, presence: true
+	validates :Skills, presence: true	
 	validates :Application_Status, presence: true
-	validates :Number_Of_Dependancies, presence: true
+	validates_format_of :Number_Of_Dependancies, presence: true, :with => /\A\d{1}\z/
 	validates :applicant_id, presence: true
-	validates :created_at, presence: true
-	validates :updated_at, presence: true
 	validates :applicant_race_id, presence: true
 	validates :applicant_gender_id, presence: true
 	validates :applicant_marital_status_id, presence: true

@@ -23,7 +23,7 @@
         <th>Gender</th>
         <th>Marital Status</th>
         <th>Nationality</th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -44,9 +44,9 @@
           <td><%= applicant_personal_detail.applicant_gender_id %></td>
           <td><%= applicant_personal_detail.applicant_marital_status_id %></td>
           <td><%= applicant_personal_detail.applicant_nationality_id %></td>
-          <td><%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %></td>
-          <td><%= link_to 'Edit', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %></td>
-          <td><%= link_to 'Destroy', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+          <!-- <td><%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %></td> -->
+          <td><%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %></td>
+          <td><%= link_to 'Destroy Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
         </tr>
 
       <% end %>

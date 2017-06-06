@@ -13,8 +13,8 @@ development:
   <<: *default
   adapter: mysql2
   database: applicant_v2
-  username: Calvin
-  password: seidlc06
+  username: monwabisi
+  password: littlepig123
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

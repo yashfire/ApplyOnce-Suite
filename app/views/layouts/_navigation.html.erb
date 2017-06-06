@@ -1,0 +1,47 @@
+<% if current_applicant.applicant_foi_programs.any? %>
+  <li><a href="/applicant_foi_programs"><div class="label label-success">Complete!</div> Field of Interest</a></li>
+<% else %>
+  <li><a href="/applicant_foi_programs"><div class="label label-danger">Incomplete!</div> Field of Interest</a></li>
+<% end %>
+
+<% if current_applicant.applicant_personal_details.any? %>
+  <li><a href="/applicant_personal_details"><div class="label label-success">Complete!</div> Personal Details</a></li>
+<% else %>
+  <li><a href="/applicant_personal_details"><div class="label label-danger">Incomplete!</div> Personal Details</a></li>
+<% end %>
+
+<% if current_applicant.applicant_licenses.any? %>
+  <li><a href="/applicant_licenses"><div class="label label-success">Complete!</div> Drivers License</a></li>
+<% else %>
+  <li><a href="/applicant_licenses"><div class="label label-danger">Incomplete!</div> Drivers License</a></li>
+<% end %>
+
+<% if current_applicant.applicant_disability_types.any? %>
+  <li><a href="/applicant_disability_types"><div class="label label-success">Complete!</div> Disability</a></li>
+<% else %>
+  <li><a href="/applicant_disability_types"><div class="label label-danger">Incomplete!</div> Disability</a></li>
+<% end %>
+
+<% if current_applicant.applicant_addresses.any? %>
+  <li><a href="/applicant_addresses"><div class="label label-success">Complete!</div> Address</a></li>
+<% else %>
+  <li><a href="/applicant_addresses"><div class="label label-danger">Incomplete!</div> Address</a></li>
+<% end %>
+
+<% if current_applicant.applicant_field_of_studies.any? %>
+  <li><a href="/applicant_field_of_studies"><div class="label label-success">Complete!</div> Qualifications</a></li>
+<% else %>
+  <li><a href="/applicant_field_of_studies"><div class="label label-danger">Incomplete!</div> Qualifications</a></li>
+<% end %>
+
+<% if current_applicant.applicant_experiences.any? %>
+  <li><a href="/applicant_experiences"><div class="label label-success">Complete!</div> Experience</a></li>
+<% else %>
+  <li><a href="/applicant_experiences"><div class="label label-danger">Incomplete!</div> Experience</a></li>
+<% end %>
+
+<% if current_applicant.applicant_references.any? %>
+  <li><a href="/applicant_references"><div class="label label-success">Complete!</div> References</a></li>
+<% else %>
+  <li><a href="/applicant_references"><div class="label label-danger">Incomplete!</div> References</a></li>
+<% end %>

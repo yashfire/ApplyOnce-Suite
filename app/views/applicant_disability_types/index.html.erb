@@ -10,8 +10,8 @@
     <table class="table table-hover table-striped table-bordered table-condensed">
       <thead>
         <tr bgcolor="#D9EDF7" style="color: #337AB7;">
-          <th>Applicant disability</th>
-          <th>Disability type</th>
+          <th>Applicant Disability</th>
+          <th>Disability Type</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -21,9 +21,9 @@
           <tr>
             <td><%= applicant_disability_type.applicant_disability_id %></td>
             <td><%= applicant_disability_type.Disability_Type %></td>
-            <td><%= link_to 'Show', applicant_disability_type, class: "btn btn-xs btn-info" %></td>
-            <td><%= link_to 'Edit', edit_applicant_disability_type_path(applicant_disability_type), class: "btn btn-xs btn-warning" %></td>
-            <td><%= link_to 'Destroy', applicant_disability_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+            <td><%= link_to 'Edit Entry', edit_applicant_disability_type_path(applicant_disability_type), class: "btn btn-xs btn-warning" %>
+           <%= link_to 'Destroy Entry', applicant_disability_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" 
+%></td>
           </tr>
         <% end %>
       </tbody>

@@ -35,19 +35,26 @@
           </li>
         </ul>
         <!-- NAV LINKS -->
-        <% if current_applicant.applicant_foi_programs.any? %>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i> Pages <span style="color:grey;" class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/applicant_foi_programs"><div class="label label-success">Complete!</div> Field of Interest</a></li>
+	        <% if current_applicant.applicant_foi_programs.any? %>
+                    <li><a href="/applicant_foi_programs"><div class="label label-success">Complete!</div> Field of Interest</a></li>
+		<% else %>
+                    <li><a href="/applicant_foi_programs"><div class="label label-danger">Incomplete!</div> Field of Interest</a></li>
+	        <% end %>
 
                 <% if current_applicant.applicant_personal_details.any? %>
                   <li><a href="/applicant_personal_details"><div class="label label-success">Complete!</div> Personal Details</a></li>
-                <% end %>
+                <% else %>
+		  <li><a href="/applicant_personal_details"><div class="label label-danger">Incomplete!</div> Personal Details</a></li>
+		<% end %>
 
                 <% if current_applicant.applicant_licenses.any? %>
                   <li><a href="/applicant_licenses"><div class="label label-success">Complete!</div> Drivers License</a></li>
+		<% else %>
+		  <li><a href="/applicant_licenses"><div class="label label-danger">Incomplete!</div> Drivers License</a></li>
                 <% end %>
 
                 <% if current_applicant.applicant_disability_types.any? %>
@@ -72,7 +79,6 @@
               </ul>
           </li>
         </ul>
-        <% end %>
       <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

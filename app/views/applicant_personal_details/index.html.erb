@@ -1,63 +1,47 @@
-<% if !@applicant_personal_details.any? %> 
-  <%= render 'layouts/incomplete' %>
-<% end %>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h1 class="text-center"><%= current_applicant.username %>'s Personal Details</h1>
-  </div>
-  <div class="panel-body">
-  <table class="table table-hover table-striped table-bordered table-condensed">
-    <thead>
-      <tr bgcolor="#D9EDF7" style="color: #337AB7;">
-        <th>Surname</th>
-        <th>First name</th>
-        <th>Middle name</th>
-        <th>Contact number</th>
-        <th>Alt contact number</th>
-        <th>Criminal record</th>
-        <th>Current Occupation</th>
-        <th>Skills</th>
-        <th>Application status</th>
-        <th>Number of dependancies</th>
-        <th>Race</th>
-        <th>Gender</th>
-        <th>Marital Status</th>
-        <th>Nationality</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @applicant_personal_details.each do |applicant_personal_detail| %>
-        <tr>
-          <td><%= applicant_personal_detail.Surname %></td>
-          <td><%= applicant_personal_detail.First_Name %></td>
-          <td><%= applicant_personal_detail.Middle_Name %></td>
-          <td><%= applicant_personal_detail.Contact_Number %></td>
-          <td><%= applicant_personal_detail.Alt_Contact_Number %></td>
-          <td><%= applicant_personal_detail.Criminal_Record %></td>
-          <td><%= applicant_personal_detail.applicant_current_occupation_id %></td>
-          <td><%= applicant_personal_detail.Skills %></td>
-          <td><%= applicant_personal_detail.Application_Status %></td>
-          <td><%= applicant_personal_detail.Number_Of_Dependancies %></td>
-          <td><%= applicant_personal_detail.applicant_race_id %></td>
-          <td><%= applicant_personal_detail.applicant_gender_id %></td>
-          <td><%= applicant_personal_detail.applicant_marital_status_id %></td>
-          <td><%= applicant_personal_detail.applicant_nationality_id %></td>
-          <!-- <td><%= link_to 'Show', applicant_personal_detail, class: "btn btn-xs btn-info" %></td> -->
-          <td><%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %></td>
-          <td><%= link_to 'Destroy Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
-        </tr>
-
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-  <% if !@applicant_personal_details.any? %>
-    <%= link_to 'New Applicant Personal Detail', new_applicant_personal_detail_path, id: "applicant_personal_details", class: "btn btn-primary btn-block" %>
-  <% else %>
-    <%= link_to 'Next Step', applicant_licenses_path, class: "btn btn-success btn-block" %>
+<style type="text/css">
+  span {
+    color: #337AB7;
+  }
+</style>
+<div class="col-xs-8 col-xs-offset-2">
+  <% if !@applicant_personal_details.any? %> 
+    <%= render 'layouts/incomplete' %>
   <% end %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="text-center"><%= current_applicant.username %>'s Personal Details</h1>
+    </div>
+    <div class="panel-body">
+      <div class="well"> 
+        <% @applicant_personal_details.each do |applicant_personal_detail| %>
+          <span>Surname: </span><%= applicant_personal_detail.Surname %><br>
+          <span>First name: </span><%= applicant_personal_detail.First_Name %><br>
+          <span>Middle name: </span><%= applicant_personal_detail.Middle_Name %><br>
+          <span>Contact number: </span><%= applicant_personal_detail.Contact_Number %><br>
+          <span>Alternate contact number: </span><%= applicant_personal_detail.Alt_Contact_Number %><br>
+          <span>Criminal record: </span><%= applicant_personal_detail.Criminal_Record %><br>
+          <span>Current Occupation: </span><%= applicant_personal_detail.applicant_current_occupation_id %><br>
+          <span>Skills: </span><%= applicant_personal_detail.Skills %><br>
+          <span>Application status: </span><%= applicant_personal_detail.Application_Status %><br>
+          <span>Number of dependancies: </span><%= applicant_personal_detail.Number_Of_Dependancies %><br>
+          <span>Race: </span><%= applicant_personal_detail.applicant_race_id %><br>
+          <span>Gender: </span><%= applicant_personal_detail.applicant_gender_id %><br>
+          <span>Marital Status: </span><%= applicant_personal_detail.applicant_marital_status_id %><br>
+          <span>Nationality: </span><%= applicant_personal_detail.applicant_nationality_id %><br>
+              
+          <%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
+          <%= link_to 'Destroy Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+        <% end %>
+      </div>
+    
+      <br>
+
+      <% if !@applicant_personal_details.any? %>
+        <%= link_to 'New Applicant Personal Detail', new_applicant_personal_detail_path, id: "applicant_personal_details", class: "btn btn-primary btn-block" %>
+      <% else %>
+        <%= link_to 'Next Step', applicant_licenses_path, class: "btn btn-success btn-block" %>
+      <% end %>
+
+    </div>
   </div>
 </div>

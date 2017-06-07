@@ -1,11 +1,12 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-	<h1 class="text-center">Edit <%= current_applicant.username %> Disability Type</h1>
-  </div>
-  <div class="panel-body">
-	<%= render 'form', applicant_disability_type: @applicant_disability_type %>
-  </div>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+		<h1 class="text-center">Edit <%= current_applicant.username %> Disability Type</h1>
+	  </div>
+	  <div class="panel-body">
+		<%= render 'form', applicant_disability_type: @applicant_disability_type %>
+	  </div>
 
-	<%= link_to 'Show', @applicant_disability_type, class: "btn btn-xs btn-info" %>
-	<%= link_to 'Back', applicant_disability_types_path, class: "btn btn-xs btn-danger" %>
-</div>
+		<%= link_to 'Back', applicant_disability_types_path, class: "btn btn-xs btn-danger" %>
+	</div>
+</div>	

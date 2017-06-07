@@ -14,7 +14,7 @@ class ApplicantsController < ApplicationController
       format.html
       format.pdf do 
         pdf = Cv.new(@applicant_personal_details)
-        send_data pdf.render, filename: "current_applicant.pdf",
+        send_data pdf.render, filename: "Curriculum Vitae.pdf",
                               type: "application/pdf",
                               disposition: "inline"
       end

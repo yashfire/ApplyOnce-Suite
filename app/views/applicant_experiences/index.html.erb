@@ -1,47 +1,37 @@
-<% if !@applicant_experiences.any? %> 
-  <%= render 'layouts/incomplete' %>
-<% end %>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <% if !@applicant_experiences.any? %> 
+    <%= render 'layouts/incomplete' %>
+  <% end %>
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h1 class="text-center"><%= current_applicant.username %>'s Work Experience</h1>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="text-center"><%= current_applicant.username %>'s Work Experience</h1>
+    </div>
+    <div class="panel-body">
+
+      <% @applicant_experiences.each do |applicant_experience| %>
+        <div class="well text-center col-xs-12 col-md-8 col-md-offset-2">
+        <h5 class="text-primary">Job name: </h5><%= applicant_experience.Job_Name %>
+        <h5 class="text-primary">Company name: </h5><%= applicant_experience.Company_Name %>
+        <h5 class="text-primary">Duties: </h5><%= applicant_experience.Duties %>
+        <h5 class="text-primary">Employment Type: </h5><%= applicant_experience.applicant_employment_type %>
+        <h5 class="text-primary">Start date: </h5><%= applicant_experience.Start_Date %>
+        <h5 class="text-primary">End date: </h5><%= applicant_experience.End_Date %><hr>
+          
+          <%= link_to 'Edit Entry', edit_applicant_experience_path(applicant_experience), class: "btn btn-xs btn-warning" %>
+          <%= link_to 'Delete Entry', applicant_experience, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
+
+
+      <br>
+      <div class="col-xs-12 col-md-12">
+        <%= link_to 'New Applicant Experience', new_applicant_experience_path, class: "btn btn-block btn-primary" %><br>
+        <% if @applicant_experiences.any? %>
+          <%= link_to 'Next Step', applicant_references_path, class: "btn btn-block btn-success" %>
+        <% end %> 
+      </div>
+
+    </div>  
   </div>
-  <div class="panel-body">
-    <table class="table table-hover table-striped table-bordered table-condensed">
-        <thead>
-          <tr bgcolor="#D9EDF7" style="color: #337AB7;">
-          <th>Job name</th>
-          <th>Company name</th>
-          <th>Duties</th>
-          <th>Employment Type</th>
-          <th>Start date</th>
-          <th>End date</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @applicant_experiences.each do |applicant_experience| %>
-          <tr>
-            <td><%= applicant_experience.Job_Name %></td>
-            <td><%= applicant_experience.Company_Name %></td>
-            <td><%= applicant_experience.Duties %></td>
-            <td><%= applicant_experience.applicant_employment_type_id %></td>
-            <td><%= applicant_experience.Start_Date %></td>
-            <td><%= applicant_experience.End_Date %></td>
-            <td><%= link_to 'Show', applicant_experience, class: "btn btn-xs btn-info" %></td>
-            <td><%= link_to 'Edit', edit_applicant_experience_path(applicant_experience), class: "btn btn-xs btn-warning" %></td>
-            <td><%= link_to 'Destroy', applicant_experience, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Applicant Experience', new_applicant_experience_path, class: "btn btn-block btn-primary" %><br>
-    <% if @applicant_experiences.any? %>
-      <%= link_to 'Next Step', applicant_references_path, class: "btn btn-block btn-success" %>
-    <% end %>  
-  </div>  
-</div>
+</div>  

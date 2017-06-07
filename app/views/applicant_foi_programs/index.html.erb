@@ -1,4 +1,4 @@
-<div class="col-xs-8 col-xs-offset-2">
+<div class=" col-xs-12 col-md-8 col-md-offset-2">
   <% if !@applicant_foi_programs.any? %> 
     <%= render 'layouts/incomplete' %>
   <% end %>
@@ -10,7 +10,7 @@
     <div class="panel-body">
    
           <% @applicant_foi_programs.each do |applicant_foi_program| %>
-            <div class="well col-xs-8 col-xs-offset-2 text-center">
+            <div class="well col-xs-12  col-md-8 col-md-offset-2 text-center">
               <h5 class="text-primary">Program Of Interest</h5><%= applicant_foi_program.applicant_program_interest %><br>
               <h5 class="text-primary">Field of interest</h5><%= applicant_foi_program.applicant_field_of_interest %><br><hr>
               
@@ -20,7 +20,7 @@
           <% end %>
 
       <br>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-12">
         <%= link_to 'New Field of Interest and Program', new_applicant_foi_program_path, class: "btn btn-primary btn-block" %><br>
         <% if @applicant_foi_programs.any? %>
         <%= link_to 'Next Step', applicant_personal_details_path, class: "btn btn-success btn-block" %>

@@ -1,43 +1,33 @@
-<% if !@applicant_references.any? %> 
-  <%= render 'layouts/incomplete' %>
-<% end %>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <% if !@applicant_references.any? %> 
+    <%= render 'layouts/incomplete' %>
+  <% end %>
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h1 class="text-center"><%= current_applicant.username %>'s References</h1>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover table-striped table-bordered table-condensed">
-      <thead>
-        <tr bgcolor="#D9EDF7" style="color: #337AB7;">
-          <th>Reference name</th>
-          <th>Contact number</th>
-          <th>Email address</th>
-          <th>Relationship</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="text-center"><%= current_applicant.username %>'s References</h1>
+    </div>
+    <div class="panel-body">
 
-      <tbody>
-        <% @applicant_references.each do |applicant_reference| %>
-          <tr>
-            <td><%= applicant_reference.Reference_Name %></td>
-            <td><%= applicant_reference.Contact_Number %></td>
-            <td><%= applicant_reference.Email_address %></td>
-            <td><%= applicant_reference.Relationship %></td>
-            <td><%= link_to 'Show', applicant_reference, class: "btn btn-xs btn-info" %></td>
-            <td><%= link_to 'Edit', edit_applicant_reference_path(applicant_reference), class: "btn btn-xs btn-warning" %></td>
-            <td><%= link_to 'Destroy', applicant_reference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
-          </tr>
+      <% @applicant_references.each do |applicant_reference| %>
+        <div class="well text-center col-xs-12 col-md-8 col-md-offset-2">
+          <h5 class="text-primary">Reference name: </h5><%= applicant_reference.Reference_Name %>
+          <h5 class="text-primary">Contact number: </h5><%= applicant_reference.Contact_Number %>
+          <h5 class="text-primary">Email address: </h5><%= applicant_reference.Email_address %>
+          <h5 class="text-primary">Relationship: </h5><%= applicant_reference.Relationship %><hr>
+
+          <%= link_to 'Edit Entry', edit_applicant_reference_path(applicant_reference), class: "btn btn-xs btn-warning" %>
+          <%= link_to 'Delete Entry', applicant_reference, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
+
+      <br>
+      <div class="col-xs-12 col-md-12">
+        <%= link_to 'New Applicant Reference', new_applicant_reference_path, class: "btn btn-block btn-primary" %><br>
+        <% if @applicant_references.any? %>
+          <%= link_to 'Finished?', applicants_index_path, class: "btn btn-block btn-success" %>
         <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Applicant Reference', new_applicant_reference_path, class: "btn btn-block btn-primary" %><br>
-    <% if @applicant_references.any? %>
-      <%= link_to 'Finished?', applicants_index_path, class: "btn btn-block btn-success" %>
-    <% end %>  
-  </div>  
+      </div>
+    </div>  
+  </div>
 </div>

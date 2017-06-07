@@ -1,4 +1,4 @@
-<div class="col-xs-8 col-xs-offset-2">
+<div class="col-xs-12 col-md-8 col-md-offset-2">
   <% if !@applicant_licenses.any? %> 
     <%= render 'layouts/incomplete' %>
   <% end %>
@@ -9,7 +9,7 @@
     <div class="panel-body">
 
       <% @applicant_licenses.each do |applicant_license| %>
-        <div class="well text-center col-xs-8 col-xs-offset-2">
+        <div class="well text-center col-xs-12 col-md-8 col-md-offset-2">
           <h5 class="text-primary">Drivers License Code: </h5><%= applicant_license.applicant_license_code %>
           <h5 class="text-primary">Drivers License Status: </h5><%= applicant_license.applicant_license_status %><hr>
          
@@ -20,7 +20,7 @@
 
 
       <br>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-12">
         <%= link_to 'New Applicant License', new_applicant_license_path, class: "btn btn-block btn-primary" %><br>
         <% if @applicant_licenses.any? %> 
           <%= link_to 'Next Step', applicant_disability_types_path, class: "btn btn-block btn-success" %>

@@ -20,7 +20,7 @@ h1 {
 }
 </style>
 
-<div>
+<div class="col-xs-12 col-md-12">
 <h1 class="text-center">Welcome <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
  <center>
     <a href="https://fb.me/littlepig.computing" class="fa fa-facebook"></a>
@@ -28,6 +28,6 @@ h1 {
     <a href="https://www.linkedin.com/company/little-pig-cc?trk=top_nav_home" class="fa fa-linkedin"></a>
   </center>
 </div>
-<div style="padding-top: 20%; text-align: center; text-shadow: 2px 2px 4px #000000;">
+<div class="col-xs-12 col-md-12" style="padding-top: 20%; text-align: center; text-shadow: 2px 2px 4px #000000;">
   <%= link_to '<i class="glyphicon glyphicon-send"></i> Click Here To Secure Your Future'.html_safe, applicant_foi_programs_path, class: "white" %>
 </div>

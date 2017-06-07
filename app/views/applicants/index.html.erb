@@ -3,13 +3,17 @@
 		color: #337AB7;
 	}
 	.size {
-		height:400px;
+		/*height:400px;
+		padding-bottom: 200px;*/
+	}
+	.col-xs-12{
+		overflow: auto;
 	}
 </style>
 <!-- <div class="col-xs-12">
 	<%= link_to "PDF", applicants_index_url(format: "pdf"), class: "btn btn-success btn-block" %><br>
 </div><br> -->
-<div id="1" class="col-xs-6 col-xs-offset-1">
+<div id="1" class="col-xs-12 col-md-8 col-md-offset-2">
 <!-- <div class="alert alert-info alert-dismissible text-center" role="alert">
 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
 	<div class="panel panel-info size">
@@ -34,7 +38,7 @@
 </div>
 
 <% @applicant_personal_details.each do |applicant_personal_detail| %>
-<div class="col-xs-4">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
   <div class="panel panel-info size">
   	<div class="panel-heading"><!-- <button id="hide2">x</button> -->
 		<h4 class="text-center"><%= current_applicant.username %>'s Personal Details</h4>
@@ -61,7 +65,7 @@
 <% end %>
 
 <% @applicant_foi_programs.each do |applicant_foi_program| %>
-<div class="col-xs-4">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
 	  <div class="panel-heading"><!-- <button id="hide3">x</button> -->
 	  	<h4 class="text-center"><%= current_applicant.username %>'s Fields of interest</h4>
@@ -80,7 +84,7 @@
 <% end %>
 
 <% @applicant_addresses.each do |applicant_address| %>
-	<div class="col-xs-4">
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
 	  <center>
 		<div class="panel panel-info size">
 		  <div class="panel-heading">
@@ -101,7 +105,7 @@
 <% end %>
 
 <% @applicant_experiences.each do |applicant_experience| %>
- <div class="col-xs-4">
+ <div class="col-xs-12 col-md-6 col-md-offset-3">
   <center>
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
@@ -123,7 +127,7 @@
 <% end %>
 
 <% @applicant_field_of_studies.each do |applicant_field_of_study| %>
- <div class="col-xs-4">
+ <div class="col-xs-12 col-md-6 col-md-offset-3">
   <center>
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
@@ -148,7 +152,7 @@
 <% end %>
 
 <% @applicant_references.each do |applicant_reference| %>
-<div class="col-xs-4">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
 	  	<h4 class="text-center"><%= current_applicant.username %>'s References</h4>
@@ -185,7 +189,7 @@
 
 
 <% @applicant_disability_types.each do |applicant_disability_type| %>
-<div class="col-xs-4">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
 	  	<h4 class="text-center"><%= current_applicant.username %>'s Disabilities</h4>
@@ -206,7 +210,7 @@
 <% end %>
 
 <% @applicant_licenses.each do |applicant_license| %>
-<div class="col-xs-4">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
 	  <div class="panel-heading">
 	  	<h4 class="text-center"><%= current_applicant.username %>'s Drivers License</h4>

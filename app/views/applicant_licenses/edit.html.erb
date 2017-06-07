@@ -1,9 +1,11 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-	<h1>Edit <%= current_applicant.username %> License</h1>
-  </div>
-  <div class="panel-body">
-	<%= render 'form', applicant_license: @applicant_license %>
-  </div>
-	<%= link_to 'Back', applicant_licenses_path, class: "btn btn-xs btn-danger" %>
-</div>
+<div class="col-xs-8 col-xs-offset-2">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+		<h1>Edit <%= current_applicant.username %> License</h1>
+	  </div>
+	  <div class="panel-body">
+		<%= render 'form', applicant_license: @applicant_license %>
+	  </div>
+		<%= link_to 'Back', applicant_licenses_path, class: "btn btn-xs btn-danger" %>
+	</div>
+</div>	

@@ -11,11 +11,8 @@ body {
     background-size: cover; 
 } 
 h1 {
-  font-size: 50px;
 	color: white;
-	opacity: 0.75;
-  position: fixed;
-  text-shadow: 2px 2px 4px #ffffff;
+  text-shadow: 2px 2px 4px #000000;
 } 
 .white {
   color: white;
@@ -24,7 +21,7 @@ h1 {
 </style>
 
 <div>
-<h1>Welcome<br> <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
+<h1 class="text-center">Welcome <% if applicant_signed_in? %><%= current_applicant.username %><% end %></h1>
  <center>
     <a href="https://fb.me/littlepig.computing" class="fa fa-facebook"></a>
     <a href="https://twitter.com/littlepigcc" class="fa fa-twitter"></a>

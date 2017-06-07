@@ -30,7 +30,7 @@ class ApplicantFoiProgramsController < ApplicationController
 
     respond_to do |format|
       if @applicant_foi_program.save
-        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant foi program was successfully created.' }
+        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant Field Of Interest Entry was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_foi_program }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ApplicantFoiProgramsController < ApplicationController
   def update
     respond_to do |format|
       if @applicant_foi_program.update(applicant_foi_program_params)
-        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant foi program was successfully updated.' }
+        format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant Field Of Interest Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_foi_program }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ApplicantFoiProgramsController < ApplicationController
   def destroy
     @applicant_foi_program.destroy
     respond_to do |format|
-      format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant foi program was successfully destroyed.' }
+      format.html { redirect_to applicant_foi_programs_url, notice: 'Applicant Field Of Interest Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

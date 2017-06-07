@@ -5,4 +5,9 @@ class ApplicantFoiProgram < ApplicationRecord
 
   validates :applicant_program_interest_id, presence: true
   validates :applicant_field_of_interest_id, presence: true
+
+  	def to_s
+        self.Program
+    end
+
 end

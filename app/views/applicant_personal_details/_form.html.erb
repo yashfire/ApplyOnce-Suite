@@ -14,7 +14,7 @@
     <%= f.input :Number_Of_Dependancies %>
     <%= f.association :applicant_current_occupation, :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
     <%= f.input :Skills %>
-    <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ], :checked => ['No', 0]  %>
+    <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ]  %>
     <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
   </div> 
 

@@ -68,8 +68,8 @@
 	  </div>
 	  <div class="panel-body">
 	  	<center>
-		  	<p><span>Program of Interest</span><%= applicant_foi_program.applicant_program_interest_id %></p>
-			<p><span>Field of Interest </span><%= applicant_foi_program.applicant_field_of_interest_id %></p>
+		  	<p><span>Program of Interest: </span><%= applicant_foi_program.applicant_program_interest %></p>
+			<p><span>Field of Interest: </span><%= applicant_foi_program.applicant_field_of_interest %></p>
 			<%= link_to 'Show', applicant_foi_program, class: "btn btn-xs btn-info" %>
 	  		<%= link_to 'Edit', edit_applicant_foi_program_path(applicant_foi_program), class: "btn btn-xs btn-warning" %>
 	  		<%= link_to 'Destroy', applicant_foi_program, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>

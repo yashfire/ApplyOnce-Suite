@@ -9,10 +9,11 @@
 	p {
 		font-size: 125%;
 	}
-	.jumbotron {
-		background-color: #337AB7
+	.well {
+		background-color: #337AB7;
+		box-shadow: 3px 3px 5px 6px #ccc;
 	}
-	.jumbotron h1 {
+	.well h1 {
 		color: white;
 	}
 	.col-xs-12{
@@ -45,14 +46,19 @@
 
 <!-- FIELD OF INTEREST -->
 <% if @applicant_foi_programs.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Fields of interest</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo1">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+ 
+<div id="demo1" class="collapse in">
 <% @applicant_foi_programs.each do |applicant_foi_program| %>
 <div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
-	  <div class="panel-heading"><!-- <button id="hide3">x</button> -->
+	  <div class="panel-heading">
 	  	<h4 class="text-center"><%= current_applicant.username %>'s Fields of interest</h4>
 	  </div>
 	  <div class="panel-body">
@@ -68,13 +74,18 @@
 	</div>
 </div>
 <% end %>
+</div> 
 
 <!-- PERSONAL DETAILS -->
 <% if @applicant_personal_details.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Personal Details</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo2">Show/Hide</button>
+		</center>
 	</div>
-<% end %>		
+<% end %>
+<div id="demo2" class="collapse in">		
 <% @applicant_personal_details.each do |applicant_personal_detail| %>
 <div class="col-xs-12 col-md-6 col-md-offset-3">
   <div class="panel panel-info size">
@@ -84,16 +95,20 @@
 	<div class="panel-body">
 	  <center>
 		<p><span>Surname:</span> <%= applicant_personal_detail.Surname %></p>
-		<p><span>First name:</span> <%= applicant_personal_detail.First_Name %></p>
-		<p><span>Middle name:</span> <%= applicant_personal_detail.Middle_Name %></p>
-		<p><span>Contact number:</span> <%= applicant_personal_detail.Contact_Number %></p>
-		<p><span>Alt contact number:</span> <%= applicant_personal_detail.Alt_Contact_Number %></p>
-		<p><span>Criminal record:</span> <%= applicant_personal_detail.Criminal_Record %></p>
+		<p><span>First Name:</span> <%= applicant_personal_detail.First_Name %></p>
+		<p><span>Middle Name:</span> <%= applicant_personal_detail.Middle_Name %></p>
+		<p><span>Contact Number:</span> <%= applicant_personal_detail.Contact_Number %></p>
+		<p><span>Alternative Contact Number:</span> <%= applicant_personal_detail.Alt_Contact_Number %></p>
+		<p><span>Gender:</span> <%= applicant_personal_detail.applicant_gender %></p>
+		<p><span>Race:</span> <%= applicant_personal_detail.applicant_race %></p>
+		<p><span>Nationality:</span> <%= applicant_personal_detail.applicant_nationality %></p>
+		<p><span>Marital Status:</span> <%= applicant_personal_detail.applicant_marital_status %></p>
+		<p><span>Number Of Dependancies:</span> <%= applicant_personal_detail.Number_Of_Dependancies %></p>
+		<p><span>Current Occupation:</span> <%= applicant_personal_detail.applicant_current_occupation %></p>
+		<p><span>Criminal Record:</span> <%= applicant_personal_detail.Criminal_Record %></p>
 		<p><span>Skills:</span> <%= applicant_personal_detail.Skills %></p>
-		<p><span>Application status:</span> <%= applicant_personal_detail.Application_Status %></p>
-		<p><span>Number of dependancies:</span> <%= applicant_personal_detail.Number_Of_Dependancies %></p>
 		<p><span>Created: </span><%= applicant_personal_detail.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_personal_detail.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+		<p><span>Last Updated: </span><%= applicant_personal_detail.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
 	  	<%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
 	  	<%= link_to 'Delete Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
 	  </center>	
@@ -101,13 +116,18 @@
   </div>	
 </div>
 <% end %>
+</div>
 
 <!-- DRIVERS LICENSE -->
 <% if @applicant_licenses.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Drivers License</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo3">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo3" class="collapse in">
 <% @applicant_licenses.each do |applicant_license| %>
 <div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
@@ -127,13 +147,18 @@
 	</div>
 </div>
 <% end %>
+</div>
 
 <!-- DISABILITIES -->
 <% if @applicant_disability_types.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Disabilities</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo4">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo4" class="collapse in">
 <% @applicant_disability_types.each do |applicant_disability_type| %>
 <div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
@@ -153,13 +178,18 @@
 	</div>
 </div>
 <% end %>
+</div>
 
 <!-- ADDRESS -->
 <% if @applicant_addresses.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">ADDRESS</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo5">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo5" class="collapse in">
 <% @applicant_addresses.each do |applicant_address| %>
 	<div class="col-xs-12 col-md-6 col-md-offset-3">
 	  <center>
@@ -181,13 +211,18 @@
 	  </center>
 	</div>
 <% end %>
+</div>
 
 <!-- QUALIFICATIONS -->
 <% if @applicant_field_of_studies.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Qualifications</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo6">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo6" class="collapse in">
 <% @applicant_field_of_studies.each do |applicant_field_of_study| %>
  <div class="col-xs-12 col-md-6 col-md-offset-3">
   <center>
@@ -211,13 +246,18 @@
   </center>	
  </div>
 <% end %>
+</div>
 
 <!-- WORK EXPERIENCE -->
 <% if @applicant_experiences.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">Work experience</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo7">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo7" class="collapse in">
 <% @applicant_experiences.each do |applicant_experience| %>
  <div class="col-xs-12 col-md-6 col-md-offset-3">
   <center>
@@ -240,13 +280,18 @@
   </center>	
  </div>
 <% end %>
+</div>
 
 <!-- REFERENCES -->
 <% if @applicant_references.any? %>
-	<div class="jumbotron col-xs-12 col-md-12">
+	<div class="well col-xs-12 col-md-12">
 		<h1 class="text-center">References</h1>
+		<center>
+			<button class="btn btn-info" data-toggle="collapse" data-target="#demo8">Show/Hide</button>
+		</center>
 	</div>
 <% end %>
+<div id="demo8" class="collapse in">
 <% @applicant_references.each do |applicant_reference| %>
 <div class="col-xs-12 col-md-6 col-md-offset-3">
 	<div class="panel panel-info size">
@@ -267,4 +312,5 @@
 	  </div>
 	</div>
 </div>
-<% end %> 
+<% end %>
+</div>

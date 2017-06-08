@@ -17,18 +17,23 @@
   <body>
   	<%= render 'layouts/navbar' %>
     <div class="container-fluid">	
-    
-      <% if notice %> 
-        <div class="alert alert-info alert-dismissable text-center">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong><span class="notice"><%= notice %></span></strong> 
-        </div> 
-      <% elsif alert %>
-        <div class="alert alert-danger alert-dismissable text-center">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong><span class="alert"><%= alert %></span></strong>
-        </div>
-      <% end %>
+      <% if current_page?(new_applicant_session_path) %>
+        <!--  -->
+      <% elsif current_page?(new_applicant_registration_path) %>
+        <!--  -->
+      <% else %>
+        <% if notice %> 
+          <div class="alert alert-info alert-dismissable text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong><span class="notice"><%= notice %></span></strong> 
+          </div> 
+        <% elsif alert %>
+          <div class="alert alert-danger alert-dismissable text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong><span class="alert"><%= alert %></span></strong>
+          </div>
+        <% end %>
+      <% end %>  
 
     	<%= yield %>
     </div>	

@@ -7,8 +7,9 @@
       <h1 class="text-center"><%= current_applicant.username %>'s Personal Details</h1>
     </div>
     <div class="panel-body">
-      <div class="well col-xs-12 col-md-8 col-md-offset-2 text-center"> 
-        <% @applicant_personal_details.each do |applicant_personal_detail| %>
+       
+      <% @applicant_personal_details.each do |applicant_personal_detail| %>
+        <div class="well col-xs-12 col-md-8 col-md-offset-2 text-center">
           <h5 class="text-primary">Surname: </h5><%= applicant_personal_detail.Surname %><br>
           <h5 class="text-primary">First Name: </h5><%= applicant_personal_detail.First_Name %><br>
           <h5 class="text-primary">Middle Name: </h5><%= applicant_personal_detail.Middle_Name %><br>
@@ -25,9 +26,10 @@
           <h5 class="text-primary">Nationality: </h5><%= applicant_personal_detail.applicant_nationality %><hr>
               
           <%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
-          <%= link_to 'Destroy Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-        <% end %>
-      </div>
+          <%= link_to 'Delete Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+        </div>  
+      <% end %>
+      
     
       <br>
       <div class="col-xs-12 col-md-12">

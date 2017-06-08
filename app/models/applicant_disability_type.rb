@@ -4,4 +4,9 @@ class ApplicantDisabilityType < ApplicationRecord
 
   validates :applicant_disability_id, presence: true
   # validates :Disability_Type, presence: true
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.Disability_Type = "n/a" if self.Disability_Type.nil?
+  end
 end

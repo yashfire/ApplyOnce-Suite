@@ -9,11 +9,11 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :id_number, required: true %>
-        <%= f.input :username, required: true %>
+        <%= f.input :email, required: true, autofocus: true, placeholder: "john@example.com" %>
+        <%= f.input :id_number, as: :string, label: "Identity Number", required: true, placeholder: "9101011234567", hint: "13 Digit Identity Number" %>
+        <%= f.input :username, required: true, placeholder: "John", label: "Username" %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :password_confirmation, label: "Password Confirmation", required: true %>
       </div>
 
       <div class="form-actions">

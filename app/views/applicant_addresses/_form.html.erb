@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Address_Line_1 %>
-    <%= f.input :Address_Line_2 %>
-    <%= f.input :Address_Line_3 %>
+    <%= f.input :Address_Line_1, label: "Address Line 1", placeholder: "101 Main Road" %>
+    <%= f.input :Address_Line_2, label: "Address Line 2", placeholder: "Amalinda" %>
+    <%= f.input :Address_Line_3, label: "Address Line 3" %>
 
     <!-- <label>Province</label><br>
     <%= f.collection_select(:id, ApplicantProvince.all, :id, :Province_Name, {:include_blank=>true}, {:class=>'form-control'}) %> -->
@@ -14,7 +14,8 @@
 
     <label>City</label><br> 
     <%= f.grouped_collection_select(:applicant_pm_city_id, ApplicantPMunicipality.all, :applicant_pm_cities, :Municipality_Name, :id, :City_Name, {}, class: 'form-control') %>
-    <%= f.input :Postal_Code %>
+
+    <%= f.input :Postal_Code, label: "Postal Code", placeholder: "1234" %>
     
   </div>
 

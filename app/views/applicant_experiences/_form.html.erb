@@ -2,13 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Job_Name %>
-    <%= f.input :Company_Name %>
-    <%= f.input :Duties %>
+    <%= f.input :Job_Name, label: "Job Name", placeholder: "Intern" %>
+    <%= f.input :Company_Name, label: "Company Name", placeholder: "Little Pig" %>
+    <%= f.input :Duties, placeholder: "Admin, Software Development, etc", hint: "List duties seperated by a comma" %>
 
-    <%= f.association :applicant_employment_type, :label_method => lambda { |employment| "#{employment.Employment_Type}" } %>
-    <%= f.input :Start_Date %>
-    <%= f.input :End_Date %>
+    <%= f.association :applicant_employment_type, :label_method => lambda { |employment| "#{employment.Employment_Type}" }, label: "Employment Type" %>
+    <%= f.input :Start_Date, label: "Start Date", end_year: Time.now.year - 50, start_year: Time.now.year, order: [:day, :month, :year] %>
+    <%= f.input :End_Date, label: "End Date", end_year: Time.now.year - 50, start_year: Time.now.year, order: [:day, :month, :year] %>
   </div>
 
   <div class="form-actions">

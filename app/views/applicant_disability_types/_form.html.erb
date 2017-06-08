@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.association :applicant_disability, :label_method =>  lambda { |disability| "#{disability.Disability}"  } %>
-    <%= f.input :Disability_Type %>
+    <%= f.input :Disability_Type, hint: "Specify your type of disability" %>
   </div>
 
   <div class="form-actions">

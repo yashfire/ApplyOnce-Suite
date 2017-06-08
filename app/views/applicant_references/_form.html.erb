@@ -2,10 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Reference_Name %>
-    <%= f.input :Contact_Number %>
-    <%= f.input :Email_address %>
-    <%= f.input :Relationship %>
+    <%= f.input :Reference_Name, label: "Reference Name", placeholder: "John" %>
+    <%= f.input :Contact_Number, label: "Contact Number", placeholder: "0831234567" %>
+    <%= f.input :Email_address, label: "Email Address", placeholder: "john@example.com" %>
+    <%= f.input :Relationship, placeholder: "Manager" %>
   </div>
 
   <div class="form-actions">

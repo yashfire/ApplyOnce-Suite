@@ -2,19 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs col-xs-8 col-xs-offset-2">
-    <%= f.input :First_Name, autofocus: true, placeholder: "John" %>
-    <%= f.input :Middle_Name, placeholder: "Michael" %>
+    <%= f.input :First_Name, label: "First Name", autofocus: true, placeholder: "John" %>
+    <%= f.input :Middle_Name, label: "Middle Name", placeholder: "Michael" %>
     <%= f.input :Surname, placeholder: "Smith" %>
-    <%= f.input :Contact_Number, placeholder: "0831234567" %>
+    <%= f.input :Contact_Number, label: "Contact Number", placeholder: "0831234567" %>
     <%= f.input :Alt_Contact_Number, label: "Alternate Contact Number", placeholder: "0837654321" %>
-    <%= f.association :applicant_race, :label_method =>  lambda { |race| "#{race.Race}"  } %>
-    <%= f.association :applicant_gender, :label_method =>  lambda { |gender| "#{gender.Gender}"  } %>
-    <%= f.association :applicant_nationality, :label_method => lambda { |nationality| "#{nationality.Nationality}"} %>
-    <%= f.association :applicant_marital_status, :label_method => lambda { |marital_status| "#{marital_status.Marital_Status}"} %>
-    <%= f.input :Number_Of_Dependancies %>
-    <%= f.association :applicant_current_occupation, :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
-    <%= f.input :Skills %>
-    <%= f.input :Criminal_Record, as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ]  %>
+    <%= f.association :applicant_race, label: "Race", :label_method =>  lambda { |race| "#{race.Race}"  } %>
+    <%= f.association :applicant_gender, label: "Gender", :label_method =>  lambda { |gender| "#{gender.Gender}"  } %>
+    <%= f.association :applicant_nationality, label: "Nationality", :label_method => lambda { |nationality| "#{nationality.Nationality}"} %>
+    <%= f.association :applicant_marital_status, label: "Marital Status", :label_method => lambda { |marital_status| "#{marital_status.Marital_Status}"} %>
+    <%= f.input :Number_Of_Dependancies, label: "Number Of Dependancies", placeholder: "1, 2, 3, etc." %>
+    <%= f.association :applicant_current_occupation, label: "Current Occupation", :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
+    <%= f.input :Skills, placeholder: "HTML, Bootstrap, Microsoft Office, Ruby on Rails, Project Management", hint: "Please specify 5 skills seperated by a comma" %>
+    <%= f.input :Criminal_Record, label: "Criminal Record", as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ]  %>
     <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
   </div> 
 

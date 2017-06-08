@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     
-    <%= f.association :applicant_license_code, :label_method =>  lambda { |code| "#{code.Drivers_License_Code}"  } %>
-    <%= f.association :applicant_license_status, :label_method =>  lambda { |status| "#{status.Drivers_License_Status}"  } %>
+    <%= f.association :applicant_license_code, label: "Drivers License Code", :label_method =>  lambda { |code| "#{code.Drivers_License_Code}"  } %>
+    <%= f.association :applicant_license_status, label: "Drivers License Status", :label_method =>  lambda { |status| "#{status.Drivers_License_Status}"  } %>
   </div>
 
   <div class="form-actions">

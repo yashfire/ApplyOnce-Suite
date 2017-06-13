@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><i class="glyphicon glyphicon-piggy-bank"></i> Little Pig Recruitment Agency</a>
+      <a class="navbar-brand" href="/"><i class="glyphicon glyphicon-piggy-bank"></i> Little Pig Recruitment</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,10 +27,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i> Options <span style="color:grey;" class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/applicants/index">Application Info</a></li>
-              <li><a href="/applicants/edit">Edit Login Info</a></li>
+              <li><a href="/applicants/index"><i class="glyphicon glyphicon-list"></i> Application Info</a></li>
+              <li><a href="/applicants/edit"><i class="glyphicon glyphicon-edit"></i> Edit Login Info</a></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Log Out", destroy_applicant_session_path, method: :delete %></li>
+              <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Log Out'.html_safe, destroy_applicant_session_path, method: :delete %></li>
             </ul>
           </li>
         </ul>

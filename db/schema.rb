@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531102805) do
+ActiveRecord::Schema.define(version: 20170612113715) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -244,6 +244,10 @@ ActiveRecord::Schema.define(version: 20170531102805) do
     t.datetime "updated_at",                          null: false
     t.string   "username"
     t.bigint   "id_number"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_applicants_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_applicants_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true, using: :btree
   end

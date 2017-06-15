@@ -2,9 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Field_Of_Study, label: "Field Of Study" %>
+    <%= f.input :Field_Of_Study, label: "Field Of Study", placeholder: "Information Technology, Computer Science, etc." %>
     <%= f.input :Start_Date, label: "Start Date", end_year: Time.now.year - 50, start_year: Time.now.year, order: [:day, :month, :year]%>
-    <%= f.input :End_date, label: "End Date", end_year: Time.now.year - 50, start_year: Time.now.year, order: [:day, :month, :year]%>
+
+    <%= f.input :End_date, label: "End Date", end_year: Time.now.year + 50, start_year: Time.now.year - 50, order: [:day, :month, :year]%>
     <%= f.association :applicant_university, label:"University Name", :label_method =>  lambda { |university| "#{university.University_Name}" }%>
     <%= f.association :applicant_qual, label:"Qualification Name", :label_method =>  lambda { |qual| "#{qual.Qualification_Name}" } %>
     <%= f.association :applicant_qual_status, label:"Qualification Status", :label_method =>  lambda { |qual_status| "#{qual_status.Qualification_Status}" } %>

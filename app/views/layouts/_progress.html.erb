@@ -1,0 +1,194 @@
+<center>
+  <% if current_applicant.applicant_foi_programs.any? %>
+    <a href="/applicant_foi_programs">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Field of Interest 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_foi_programs">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Field of Interest 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_personal_details.any? %>
+    <a href="/applicant_personal_details">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Personal Details 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_personal_details">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Personal Details 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_licenses.any? %>
+    <a href="/applicant_licenses">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Drivers License 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_licenses">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Drivers License 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_disability_types.any? %>
+    <a href="/applicant_disability_types">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Disabilities 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_disability_types">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Disabilities 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_addresses.any? %>
+    <a href="/applicant_addresses">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Address 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_addresses">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Address 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_field_of_studies.any? %>
+    <a href="/applicant_field_of_studies">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Qualifications 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_field_of_studies">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Qualifications 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_experiences.any? %>
+    <a href="/applicant_experiences">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Work Experience 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_experiences">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Work Experience 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+  <% if current_applicant.applicant_references.any? %>
+    <a href="/applicant_references">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          References 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_references">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          References 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
+</center>

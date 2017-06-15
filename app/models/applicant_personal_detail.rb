@@ -10,7 +10,7 @@ class ApplicantPersonalDetail < ApplicationRecord
 
 	validates :Surname, presence: true
 	validates :First_Name, presence: true
-	validates :Middle_Name, presence: true
+	# validates :Middle_Name, presence: true
 	validates_format_of :Contact_Number, :with => /\A([0]{1})\d{9}\z/
 	validates :Contact_Number, presence: true
 	validates_format_of :Alt_Contact_Number, :with => /\A([0]{1})\d{9}\z/

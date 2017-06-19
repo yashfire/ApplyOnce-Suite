@@ -12,7 +12,14 @@
         <div class="well col-xs-12 col-md-8 col-md-offset-2 text-center">
           <h5 class="text-primary">Surname: </h5><%= applicant_personal_detail.Surname %><br>
           <h5 class="text-primary">First Name: </h5><%= applicant_personal_detail.First_Name %><br>
-          <h5 class="text-primary">Middle Name: </h5><%= applicant_personal_detail.Middle_Name %><br>
+          <h5 class="text-primary">Middle Name: </h5>
+            <% if applicant_personal_detail.Middle_Name.blank? %>
+              [N/A]
+            <% else %>
+              <%= applicant_personal_detail.Middle_Name %> 
+            <% end %>
+          
+          <br>
           <h5 class="text-primary">Contact Number: </h5><%= applicant_personal_detail.Contact_Number %><br>
           <h5 class="text-primary">Alternate Number: </h5><%= applicant_personal_detail.Alt_Contact_Number %><br>
           <h5 class="text-primary">Criminal Record: </h5><%= applicant_personal_detail.Criminal_Record %><br>

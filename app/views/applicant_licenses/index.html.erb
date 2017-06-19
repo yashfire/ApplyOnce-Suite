@@ -27,45 +27,6 @@
         <% end %>
       </div>
     </div>
+    <br><%= link_to 'Back', root_url, class: 'btn btn-xs btn-danger' %>
   </div>
 </div>
-
-<!-- <div>
-<% if @applicant_licenses.any? %>
-  <div class="col-xs-6">
-    <div class="panel panel-info" style="height:445px;">
-      <div class="panel-heading">
-        <h4>Drivers License Status</h4>
-      </div>
-        <div class="panel-body">
-        <table class="table table-bordered table-striped table-hover">
-          <% @status.each do |status| %>
-          <tr>
-            <td><%= status.id %></td>
-            <td><%= status.Drivers_License_Status %></td>
-          </tr>
-          <% end %>
-        </table>  
-        </div>
-    </div>
-  </div> 
-
-  <div class="col-xs-6">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h4>Divers License Code</h4>
-      </div>
-        <div class="panel-body">
-        <table class="table table-bordered table-striped table-hover">
-          <% @code.each do |code| %>
-          <tr>
-            <td><%= code.id %></td>
-            <td><%= code.Drivers_License_Code %></td>
-          </tr>
-          <% end %>
-        </table>  
-        </div>
-    </div>
-  </div>  
-<% end %>
-</div> -->

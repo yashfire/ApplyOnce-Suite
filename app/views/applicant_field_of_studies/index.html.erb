@@ -28,7 +28,7 @@
       <div class="col-xs-12 col-md-12">
         <%= link_to 'New Qualification', new_applicant_field_of_study_path, class: "btn btn-block btn-primary" %><br>
         <% if @applicant_field_of_studies.any? %>
-          <%= link_to 'Next Step', applicant_experiences_path, class: "btn btn-block btn-success" %>
+          <%= link_to 'Next Step', root_url, class: "btn btn-block btn-success" %>
         <% end %>
       </div>
     </div>

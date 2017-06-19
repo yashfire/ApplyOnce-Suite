@@ -23,7 +23,7 @@
       <div class="col-xs-12 col-md-12">
         <%= link_to 'New Field of Interest and Program', new_applicant_foi_program_path, class: "btn btn-primary btn-block" %><br>
         <% if @applicant_foi_programs.any? %>
-        <%= link_to 'Next Step', applicant_personal_details_path, class: "btn btn-success btn-block" %>
+        <%= link_to 'Next Step', root_url, class: "btn btn-success btn-block" %>
         <% end %>
       </div>
     </div>  

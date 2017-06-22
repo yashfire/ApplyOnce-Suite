@@ -15,5 +15,10 @@
 //= require cocoon
 //= require jquery_ujs
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
+$(document).ready(function() {
+  NProgress.start();
+});

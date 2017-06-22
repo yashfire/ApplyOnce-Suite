@@ -94,6 +94,7 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
+    nprogress-rails (0.2.0.2)
     orm_adapter (0.5.0)
     pdf-core (0.7.0)
     prawn (2.2.2)
@@ -189,6 +190,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mysql2
+  nprogress-rails
   prawn
   puma (~> 3.0)
   rails (~> 5.0.3)

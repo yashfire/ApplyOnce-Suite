@@ -1,0 +1,13 @@
+<%= simple_form_for(@applicant_emergency_contact) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :Emergency_Contact_Name, label: "Name", placeholder: "John" %>
+    <%= f.input :Emergency_Contact_Number, label: "Contact Number", placeholder: "0831234567" %>
+    <%= f.input :Emergency_Contact_Relationship, label: "Relationship", placeholder: "Father" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

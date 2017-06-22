@@ -95,6 +95,30 @@
     </a>
   <% end %>
 
+    <% if current_applicant.applicant_emergency_contacts.any? %>
+    <a href="/applicant_emergency_contacts">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Emergency Contacts 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-success">Complete!</div>
+        </div>
+      </div>
+    </a>  
+  <% else %>
+    <a href="/applicant_emergency_contacts/new">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          Emergency Contacts 
+        </div>
+        <div class="panel-body"> 
+          <div class="label label-danger">Incomplete!</div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+
   <% if current_applicant.applicant_addresses.any? %>
     <a href="/applicant_addresses">
       <div class="panel panel-success">

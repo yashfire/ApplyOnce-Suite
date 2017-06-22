@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :applicant_emergency_contacts
   resources :applicant_disability_types
   resources :applicant_licenses
   resources :applicant_foi_programs

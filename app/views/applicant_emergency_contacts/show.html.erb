@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Emergency contact name:</strong>
+  <%= @applicant_emergency_contact.Emergency_Contact_Name %>
+</p>
+
+<p>
+  <strong>Emergency contact number:</strong>
+  <%= @applicant_emergency_contact.Emergency_Contact_Number %>
+</p>
+
+<p>
+  <strong>Emergency contact relationship:</strong>
+  <%= @applicant_emergency_contact.Emergency_Contact_Relationship %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant_emergency_contact.applicant %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_emergency_contact_path(@applicant_emergency_contact) %> |
+<%= link_to 'Back', applicant_emergency_contacts_path %>

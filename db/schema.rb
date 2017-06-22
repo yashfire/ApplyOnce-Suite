@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612113715) do
+ActiveRecord::Schema.define(version: 20170622074516) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20170612113715) do
     t.datetime "updated_at",              null: false
     t.index ["applicant_disability_id"], name: "index_applicant_disability_types_on_applicant_disability_id", using: :btree
     t.index ["applicant_id"], name: "index_applicant_disability_types_on_applicant_id", using: :btree
+  end
+
+  create_table "applicant_emergency_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Emergency_Contact_Name"
+    t.string   "Emergency_Contact_Number"
+    t.string   "Emergency_Contact_Relationship"
+    t.integer  "applicant_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["applicant_id"], name: "index_applicant_emergency_contacts_on_applicant_id", using: :btree
   end
 
   create_table "applicant_employment_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -256,6 +266,7 @@ ActiveRecord::Schema.define(version: 20170612113715) do
   add_foreign_key "applicant_addresses", "applicants"
   add_foreign_key "applicant_disability_types", "applicant_disabilities"
   add_foreign_key "applicant_disability_types", "applicants"
+  add_foreign_key "applicant_emergency_contacts", "applicants"
   add_foreign_key "applicant_experiences", "applicant_employment_types"
   add_foreign_key "applicant_experiences", "applicants"
   add_foreign_key "applicant_field_of_studies", "applicant_qual_statuses"

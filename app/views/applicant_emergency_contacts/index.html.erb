@@ -1,0 +1,35 @@
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <% if !@applicant_emergency_contacts.any? %> 
+    <%= render 'layouts/incomplete' %>
+  <% end %>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="text-center"><%= current_applicant.username %>'s Emergency Contacts</h1>
+    </div>
+    <div class="panel-body">
+
+      <% @applicant_emergency_contacts.each do |applicant_emergency_contact| %>
+        <div class="well col-xs-12 col-md-8 col-md-offset-2 text-center">
+          <h5 class="text-primary">Emergency contact name </h5> <%= applicant_emergency_contact.Emergency_Contact_Name %>
+          <h5 class="text-primary">Emergency contact number </h5> <%= applicant_emergency_contact.Emergency_Contact_Number %>
+          <h5 class="text-primary">Emergency contact relationship </h5> <%= applicant_emergency_contact.Emergency_Contact_Relationship %><hr>
+          <%= link_to 'Edit', edit_applicant_emergency_contact_path(applicant_emergency_contact), class: "btn btn-xs btn-warning" %>
+          <%= link_to 'Destroy', applicant_emergency_contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+        </div>  
+      <% end %>
+
+      <br>
+
+      <div class="col-xs-12 col-md-12">
+        <%= link_to 'New Emergency Contact', new_applicant_emergency_contact_path, class: "btn btn-primary btn-block" %><br>
+        <% if @applicant_emergency_contacts.any? %>
+          <%= link_to 'Next Step', root_url, class: "btn btn-block btn-success" %>
+        <% end %>
+      </div>
+
+      
+    </div>
+    <br><%= link_to 'Back', root_url, class: 'btn btn-xs btn-danger' %>
+  </div>
+</div>

@@ -4,7 +4,12 @@
   <div class="form-inputs">
     
     <%= f.association :applicant_license_code, label: "Drivers License Code", :label_method =>  lambda { |code| "#{code.Drivers_License_Code}"  } %>
-    <%= f.association :applicant_license_status, label: "Drivers License Status", :label_method =>  lambda { |status| "#{status.Drivers_License_Status}"  } %>
+    <div id="status">
+    	<%= f.association :applicant_license_status, label: "Drivers License Status", :label_method =>  lambda { |status| "#{status.Drivers_License_Status}" }, required: false, :selected => 3 %>
+    
+    <!-- <label>Drivers License Status</label><br>
+    <%= f.collection_select(:id, ApplicantLicenseStatus.all, :id, :Drivers_License_Status, {:include_blank=>true}, {:class=>'form-control'}) %><br> 
+    </div> -->
   </div>
 
   <div class="form-actions">

@@ -7,6 +7,6 @@ class ApplicantDisabilityType < ApplicationRecord
   after_initialize :set_defaults
 
   def set_defaults
-    self.Disability_Type = "n/a" if self.Disability_Type.nil?
+    self.Disability_Type = "None" if self.Disability_Type.nil?
   end
 end

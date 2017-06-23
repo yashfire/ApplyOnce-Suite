@@ -9,10 +9,10 @@ class ApplicantAddress < ApplicationRecord
   validates_format_of :Postal_Code, :with => /\A([0-9]{4})\z/
   validates :applicant_pm_city_id, presence: true
 
-  after_initialize :set_defaults
+  # after_initialize :set_defaults
 
-  def set_defaults
-    self.Address_Line_3 = "n/a" if self.Address_Line_3.nil?
-  end
+  # def set_defaults
+  #   self.Address_Line_3 = "n/a" if self.Address_Line_3.nil?
+  # end
 
 end

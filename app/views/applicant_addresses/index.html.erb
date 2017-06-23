@@ -11,14 +11,14 @@
 
       <% @applicant_addresses.each do |applicant_address| %>
         <div class="well text-center col-xs-12 col-md-8 col-md-offset-2">
-          <h5 class="text-primary">Address line 1</h5><%= applicant_address.Address_Line_1 %>
-          <h5 class="text-primary">Address line 2</h5><%= applicant_address.Address_Line_2 %>
-          <h5 class="text-primary">Address line 3</h5>
+          <h5 class="text-primary">Address</h5><%= applicant_address.Address_Line_1 %>
+          <!--<h5 class="text-primary">Address line 2</h5>--><br><%= applicant_address.Address_Line_2 %><br><%= applicant_address.Address_Line_3 %>
+          <!-- <h5 class="text-primary">Address line 3</h5>
           <% if applicant_address.Address_Line_3.blank? %>
               [N/A]
             <% else %>
               <%= applicant_address.Address_Line_3 %> 
-            <% end %>
+            <% end %> -->
           <h5 class="text-primary">Postal code</h5><%= applicant_address.Postal_Code %>
           <h5 class="text-primary">City</h5><%= applicant_address.applicant_pm_city %><hr>
           <td><%= link_to 'Edit Entry', edit_applicant_address_path(applicant_address), class: "btn btn-xs btn-warning" %></td>

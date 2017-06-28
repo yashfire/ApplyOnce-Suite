@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170622074516) do
     t.index ["applicant_id"], name: "index_applicant_disability_types_on_applicant_id", using: :btree
   end
 
-  create_table "applicant_emergency_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "applicant_emergency_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Emergency_Contact_Name"
     t.string   "Emergency_Contact_Number"
     t.string   "Emergency_Contact_Relationship"

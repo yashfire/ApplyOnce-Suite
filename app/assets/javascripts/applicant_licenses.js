@@ -1,6 +1,6 @@
 //#applicant_license_applicant_license_code_id
 //#applicant_license_applicant_license_status_id
-$(document).ready(function(){
+$(document).ready('turbolinks:load', function(){
 	(function() {
 		jQuery(function(){
 			$('#applicant_license_applicant_license_code_id').on('change',function(){

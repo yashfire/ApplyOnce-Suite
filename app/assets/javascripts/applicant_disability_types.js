@@ -1,6 +1,6 @@
 //#applicant_disability_type_applicant_disability_id
 //#applicant_disability_type_Disability_Type
-$(document).ready(function(){
+$(document).ready('turbolinks:load', function(){
 	(function() {
 		jQuery(function(){
 			$('#applicant_disability_type_applicant_disability_id').on('change',function(){
@@ -15,3 +15,7 @@ $(document).ready(function(){
 	}).call(this);
 });
 //if( $(this).val().equals("2")){
+
+// $( document ).on('turbolinks:load', function() {
+//   console.log("It works on each visit!")
+// })

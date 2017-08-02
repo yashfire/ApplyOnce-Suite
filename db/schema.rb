@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622074516) do
+ActiveRecord::Schema.define(version: 20170802081932) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170622074516) do
     t.index ["applicant_id"], name: "index_applicant_disability_types_on_applicant_id", using: :btree
   end
 
-  create_table "applicant_emergency_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicant_emergency_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Emergency_Contact_Name"
     t.string   "Emergency_Contact_Number"
     t.string   "Emergency_Contact_Relationship"
@@ -151,12 +151,26 @@ ActiveRecord::Schema.define(version: 20170622074516) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "applicant_nqf_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "NQF_Level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "applicant_p_municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "applicant_province_id"
     t.string   "Municipality_Name"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.index ["applicant_province_id"], name: "index_applicant_p_municipalities_on_applicant_province_id", using: :btree
+  end
+
+  create_table "applicant_person_qualification_field_of_studies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "Field_Of_Study"
+    t.string   "Start_Date"
+    t.string   "End_Date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "applicant_personal_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

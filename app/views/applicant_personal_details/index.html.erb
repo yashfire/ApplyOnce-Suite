@@ -43,7 +43,7 @@
         <% if !@applicant_personal_details.any? %>
           <%= link_to 'New Applicant Personal Detail', new_applicant_personal_detail_path, id: "applicant_personal_details", class: "btn btn-primary btn-block" %>
         <% else %>
-          <%= link_to 'Next Step', root_url, class: "btn btn-success btn-block" %>
+          <%= link_to 'Next Step', new_applicant_address_url, class: "btn btn-success btn-block" %>
         <% end %>
       </div>
 

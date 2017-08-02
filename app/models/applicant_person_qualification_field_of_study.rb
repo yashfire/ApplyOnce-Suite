@@ -1,0 +1,2 @@
+class ApplicantPersonQualificationFieldOfStudy < ApplicationRecord
+end

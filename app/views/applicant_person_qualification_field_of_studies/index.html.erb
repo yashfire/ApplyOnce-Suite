@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Applicant Person Qualification Field Of Studies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field of study</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applicant_person_qualification_field_of_studies.each do |applicant_person_qualification_field_of_study| %>
+      <tr>
+        <td><%= applicant_person_qualification_field_of_study.Field_Of_Study %></td>
+        <td><%= applicant_person_qualification_field_of_study.Start_Date %></td>
+        <td><%= applicant_person_qualification_field_of_study.End_Date %></td>
+        <td><%= link_to 'Show', applicant_person_qualification_field_of_study %></td>
+        <td><%= link_to 'Edit', edit_applicant_person_qualification_field_of_study_path(applicant_person_qualification_field_of_study) %></td>
+        <td><%= link_to 'Destroy', applicant_person_qualification_field_of_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Applicant Person Qualification Field Of Study', new_applicant_person_qualification_field_of_study_path %>

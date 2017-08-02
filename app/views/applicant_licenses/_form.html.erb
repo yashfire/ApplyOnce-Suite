@@ -16,3 +16,20 @@
     <%= f.button :submit, "Submit", class: "btn btn-primary btn-block" %><br>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+  (function() {
+    jQuery(function(){
+      $('#applicant_license_applicant_license_code_id').on('change',function(){
+          if( $(this).val()==="9"){
+          $("#status").hide()
+          }
+          else{
+          $("#status").show()
+          }
+      });
+    });
+  }).call(this);
+
+</script>

@@ -34,7 +34,7 @@
         <%= link_to 'New Applicant Address', new_applicant_address_path, class: "btn btn-block btn-primary" %><br>
         <% end %>
         <% if @applicant_addresses.any? %>
-        <%= link_to 'Next Step', root_url, class: "btn btn-block btn-success" %>
+        <%= link_to 'Next Step', new_applicant_license_url, class: "btn btn-block btn-success" %>
         <% end %>
       </div>
     </div>

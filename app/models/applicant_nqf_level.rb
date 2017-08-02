@@ -1,0 +1,2 @@
+class ApplicantNqfLevel < ApplicationRecord
+end

@@ -12,3 +12,20 @@
     <%= f.button :submit, "Submit", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+  (function() {
+    jQuery(function(){
+      $('#applicant_disability_type_applicant_disability_id').on('change',function(){
+          if( $(this).val()!=="2"){
+          $("#type").hide()
+          }
+          else{
+          $("#type").show()
+          }
+      });
+    });
+  }).call(this);
+
+</script>

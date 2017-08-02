@@ -1,0 +1,2 @@
+module ApplicantPersonQualificationFieldOfStudiesHelper
+end

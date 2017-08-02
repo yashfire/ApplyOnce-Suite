@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Field_Of_Study: MyString
+  Start_Date: MyString
+  End_Date: MyString
+
+two:
+  Field_Of_Study: MyString
+  Start_Date: MyString
+  End_Date: MyString

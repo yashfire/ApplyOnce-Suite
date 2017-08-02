@@ -1,0 +1,264 @@
+<div class="panel-group" id="accordion">
+
+<!-- Personal Details -->
+  <% if current_applicant.applicant_personal_details.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>  
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Personal Details</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_personal_details.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_personal_details">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_personal_details/new">
+            Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Address -->
+  <% if current_applicant.applicant_addresses.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %> 
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Address</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <% if current_applicant.applicant_addresses.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_addresses">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_addresses/new">
+              Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Drivers License -->
+  <% if current_applicant.applicant_licenses.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %> 
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Drivers License</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_licenses.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_licenses">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_licenses/new">
+             Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Disabilities -->
+  <% if current_applicant.applicant_disability_types.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+        Disabilities</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_disability_types.any? %> 
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_disability_types">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_disability_types/new">
+              Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Emergency Contacts -->
+  <% if current_applicant.applicant_emergency_contacts.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+        Emergency Contacts</a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <% if current_applicant.applicant_emergency_contacts.any? %> 
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_emergency_contacts">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_emergency_contacts/new">
+              Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Qualifications -->
+  <% if current_applicant.applicant_field_of_studies.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+        Qualifications</a>
+      </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_field_of_studies.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_field_of_studies">
+              Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_field_of_studies/new">
+              Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Work Experiences -->
+  <% if current_applicant.applicant_experiences.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+        Work Experience</a>
+      </h4>
+    </div>
+    <div id="collapse7" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_experiences.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_experiences">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_experiences/new">
+            Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- References -->
+ <% if current_applicant.applicant_references.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+        References</a>
+      </h4>
+    </div>
+    <div id="collapse8" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_references.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_references">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_references/new">
+            Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Field of Interest -->
+ <% if current_applicant.applicant_foi_programs.any? %>
+    <div class="panel panel-success">
+  <% else %>    
+    <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+        Field of Interest</a>
+      </h4>
+    </div>
+    <div id="collapse9" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% if current_applicant.applicant_foi_programs.any? %>
+          <div class="label label-success">Complete!</div>
+          <a href="/applicant_foi_programs">
+            Click here to view
+          </a>  
+        <% else %>
+          <div class="label label-danger">Incomplete!</div>
+          <a href="/applicant_foi_programs/new">
+            Click here to complete
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div> 

@@ -29,7 +29,7 @@
             <ul class="dropdown-menu">
               <li><a href="/applicants/index"><i class="glyphicon glyphicon-list"></i> Application Info</a></li>
               <li><a href="/applicants/edit"><i class="glyphicon glyphicon-edit"></i> Edit Login Info</a></li>
-              <li><%= link_to "Generate CV", applicants_index_url(format: "pdf"), target: :_blank %></li>
+              <!-- <li><%= link_to "Generate CV", applicants_index_url(format: "pdf"), target: :_blank %></li> -->
               <li role="separator" class="divider"></li>
               <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Log Out'.html_safe, destroy_applicant_session_path, method: :delete %></li>
             </ul>

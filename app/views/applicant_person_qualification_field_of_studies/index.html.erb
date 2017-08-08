@@ -1,31 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <% if !@applicant_person_qualification_field_of_studies.any? %> 
+    <%= render 'layouts/incomplete' %>
+  <% end %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="text-center"><%= current_applicant.username %>'s Qualifications</h1>
+    </div>
+    <div class="panel-body">
 
-<h1>Applicant Person Qualification Field Of Studies</h1>
+      <% @applicant_person_qualification_field_of_studies.each do |applicant_person_qualification_field_of_study| %>
+        <div class="well text-center col-xs-12 col-md-8 col-md-offset-2">
+          
+          <h5 class="text-primary">Qualification</h5><%= applicant_person_qualification_field_of_study.applicant_nqf_qualification %>
+        <h5 class="text-primary">Field of study</h5><%= applicant_person_qualification_field_of_study.Field_Of_Study %>
+        <h5 class="text-primary">University</h5><%= applicant_person_qualification_field_of_study.applicant_university %>
+        <h5 class="text-primary">Start date</h5><%= applicant_person_qualification_field_of_study.Start_Date %>
+        <h5 class="text-primary">End date</h5><%= applicant_person_qualification_field_of_study.End_Date %><hr>
+          <%= link_to 'Edit Entry', edit_applicant_person_qualification_field_of_study_path(applicant_person_qualification_field_of_study), class: "btn btn-xs btn-warning" %>
+          <%= link_to 'Destroy Entry', applicant_person_qualification_field_of_studies_path, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field of study</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @applicant_person_qualification_field_of_studies.each do |applicant_person_qualification_field_of_study| %>
-      <tr>
-        <td><%= applicant_person_qualification_field_of_study.Field_Of_Study %></td>
-        <td><%= applicant_person_qualification_field_of_study.Start_Date %></td>
-        <td><%= applicant_person_qualification_field_of_study.End_Date %></td>
-        <td><%= link_to 'Show', applicant_person_qualification_field_of_study %></td>
-        <td><%= link_to 'Edit', edit_applicant_person_qualification_field_of_study_path(applicant_person_qualification_field_of_study) %></td>
-        <td><%= link_to 'Destroy', applicant_person_qualification_field_of_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Applicant Person Qualification Field Of Study', new_applicant_person_qualification_field_of_study_path %>
+      <br>
+      <div class="col-xs-12 col-md-12">
+        <%= link_to 'New Applicant Qualification', new_applicant_person_qualification_field_of_study_path, class: "btn btn-block btn-primary" %><br>
+        <% if @applicant_person_qualification_field_of_studies.any? %> 
+          <%= link_to 'Next Step', applicant_experiences_url, class: "btn btn-block btn-success" %>
+        <% end %>
+      </div>
+    </div>
+    <br><%= link_to 'Back', root_url, class: 'btn btn-xs btn-danger' %>
+  </div>
+</div>

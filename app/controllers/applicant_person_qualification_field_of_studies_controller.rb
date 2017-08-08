@@ -4,7 +4,7 @@ class ApplicantPersonQualificationFieldOfStudiesController < ApplicationControll
   # GET /applicant_person_qualification_field_of_studies
   # GET /applicant_person_qualification_field_of_studies.json
   def index
-    @applicant_person_qualification_field_of_studies = ApplicantPersonQualificationFieldOfStudy.all
+    @applicant_person_qualification_field_of_studies = current_applicant.applicant_person_qualification_field_of_studies.all
   end
 
   # GET /applicant_person_qualification_field_of_studies/1
@@ -14,7 +14,7 @@ class ApplicantPersonQualificationFieldOfStudiesController < ApplicationControll
 
   # GET /applicant_person_qualification_field_of_studies/new
   def new
-    @applicant_person_qualification_field_of_study = ApplicantPersonQualificationFieldOfStudy.new
+    @applicant_person_qualification_field_of_study = current_applicant.applicant_person_qualification_field_of_studies.build
   end
 
   # GET /applicant_person_qualification_field_of_studies/1/edit
@@ -24,11 +24,11 @@ class ApplicantPersonQualificationFieldOfStudiesController < ApplicationControll
   # POST /applicant_person_qualification_field_of_studies
   # POST /applicant_person_qualification_field_of_studies.json
   def create
-    @applicant_person_qualification_field_of_study = ApplicantPersonQualificationFieldOfStudy.new(applicant_person_qualification_field_of_study_params)
+    @applicant_person_qualification_field_of_study = current_applicant.applicant_person_qualification_field_of_studies.build(applicant_person_qualification_field_of_study_params)
 
     respond_to do |format|
       if @applicant_person_qualification_field_of_study.save
-        format.html { redirect_to @applicant_person_qualification_field_of_study, notice: 'Applicant person qualification field of study was successfully created.' }
+        format.html { redirect_to applicant_person_qualification_field_of_studies_url, notice: 'Applicant person qualification field of study was successfully created.' }
         format.json { render :show, status: :created, location: @applicant_person_qualification_field_of_study }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ApplicantPersonQualificationFieldOfStudiesController < ApplicationControll
   def update
     respond_to do |format|
       if @applicant_person_qualification_field_of_study.update(applicant_person_qualification_field_of_study_params)
-        format.html { redirect_to @applicant_person_qualification_field_of_study, notice: 'Applicant person qualification field of study was successfully updated.' }
+        format.html { redirect_to applicant_person_qualification_field_of_studies_url, notice: 'Applicant person qualification field of study was successfully updated.' }
         format.json { render :show, status: :ok, location: @applicant_person_qualification_field_of_study }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class ApplicantPersonQualificationFieldOfStudiesController < ApplicationControll
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applicant_person_qualification_field_of_study_params
-      params.require(:applicant_person_qualification_field_of_study).permit(:Field_Of_Study, :Start_Date, :End_Date)
+      params.require(:applicant_person_qualification_field_of_study).permit(:Field_Of_Study, :Start_Date, :End_Date, :applicant_id, :applicant_university_id, :applicant_qual_status_id, :applicant_nqf_qualification_id)
     end
 end

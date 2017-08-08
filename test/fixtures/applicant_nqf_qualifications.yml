@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant_nqf_level_id: 1
+  Qualification_Name: MyString
+
+two:
+  applicant_nqf_level_id: 1
+  Qualification_Name: MyString

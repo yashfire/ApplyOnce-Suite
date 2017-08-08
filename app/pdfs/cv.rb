@@ -21,12 +21,14 @@ class Cv < Prawn::Document
   		end
 
       @applicant_licenses = licenses 
-      @applicant_licenses.each do |license|
-        move_down 10
-        text "Driver License", :size => 14, :style => :bold
-        move_down 10
-        text "Driver License Code: #{license.applicant_license_code}"
-        text "Driver License Status: #{license.applicant_license_status}"
+      if @applicant_licenses.any? 
+        @applicant_licenses.each do |license|
+          move_down 10
+          text "Driver License", :size => 14, :style => :bold
+          move_down 10
+          text "Driver License Code: #{license.applicant_license_code}"
+          text "Driver License Status: #{license.applicant_license_status}"
+        end
       end
 
       @applicant_disability_types = disability_types

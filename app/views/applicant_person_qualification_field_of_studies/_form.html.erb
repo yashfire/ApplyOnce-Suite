@@ -1,10 +1,18 @@
 <%= simple_form_for(@applicant_person_qualification_field_of_study) do |f| %>
   <%= f.error_notification %>
-
+  <% if @applicant_person_qualification_field_of_study.errors.any? %>
+    <%= @applicant_person_qualification_field_of_study.errors.full_messages %>
+  <% end %>
   <div class="form-inputs">
     <%= f.input :Field_Of_Study %>
     <%= f.input :Start_Date %>
     <%= f.input :End_Date %>
+    <label>Qualification</label>
+    <%= f.collection_select(:applicant_nqf_qualification_id, ApplicantNqfQualification.all, :id, :Qualification_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
+    <label>Qualification Status</label>
+    <%= f.collection_select(:applicant_qual_status_id, ApplicantQualStatus.all, :id, :Qualification_Status, {:include_blank=>true}, {:class=>'form-control'}) %>
+    <label>University</label>
+    <%= f.collection_select(:applicant_university_id, ApplicantUniversity.all, :id, :University_Name, {:include_blank=>true}, {:class=>'form-control'}) %>
   </div>
 
   <div class="form-actions">

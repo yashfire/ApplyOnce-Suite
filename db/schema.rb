@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802081932) do
+ActiveRecord::Schema.define(version: 20170803131716) do
 
   create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "Address_Line_1"
@@ -157,6 +157,13 @@ ActiveRecord::Schema.define(version: 20170802081932) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "applicant_nqf_qualifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "applicant_nqf_level_id"
+    t.string   "Qualification_Name"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "applicant_p_municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "applicant_province_id"
     t.string   "Municipality_Name"
@@ -167,10 +174,16 @@ ActiveRecord::Schema.define(version: 20170802081932) do
 
   create_table "applicant_person_qualification_field_of_studies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Field_Of_Study"
-    t.string   "Start_Date"
-    t.string   "End_Date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "applicant_id"
+    t.date     "Start_Date"
+    t.date     "End_Date"
+    t.integer  "university_id"
+    t.integer  "applicant_university_id"
+    t.integer  "applicant_qual_status_id"
+    t.integer  "applicant_nqf_qualification_id"
+    t.index ["applicant_qual_status_id", "university_id", "applicant_nqf_qualification_id"], name: "my_index", unique: true, using: :btree
   end
 
   create_table "applicant_personal_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

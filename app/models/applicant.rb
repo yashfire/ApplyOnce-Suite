@@ -10,6 +10,7 @@ class Applicant < ApplicationRecord
   has_many :applicant_licenses, dependent: :destroy
   has_many :applicant_disability_types, dependent: :destroy
   has_many :applicant_emergency_contacts, dependent: :destroy
+  has_many :applicant_person_qualification_field_of_studies, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable

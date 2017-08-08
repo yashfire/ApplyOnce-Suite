@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
   resources :applicant_person_qualification_field_of_studies
-  root 'welcome#index'
+  root :to => 'welcome#index'
   get 'applicants/index'
-  get 'welcome/index'
+  #get 'welcome/index'
   devise_for :applicants
   resources :applicant_emergency_contacts
   resources :applicant_disability_types

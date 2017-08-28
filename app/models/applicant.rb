@@ -28,10 +28,10 @@ class Applicant < ApplicationRecord
   validates :id_number, presence: true
   validates :email, presence: true
   
-  after_create :welcome_send
-  def welcome_send
-    WelcomeMailer.welcome_send(self).deliver
-    # redirect_to root_url, alert: "Thank you for signing up"
-  end
+  # after_create :welcome_send
+  # def welcome_send
+  #   WelcomeMailer.welcome_send(self).deliver
+  #   # redirect_to root_url, alert: "Thank you for signing up"
+  # end
 
 end

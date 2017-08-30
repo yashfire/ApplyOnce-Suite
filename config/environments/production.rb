@@ -1,15 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { :host => "lpra.local" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'littlepig.cc',
-    user_name:            'seidlecalvin',
-    password:             'seidlc06',
-    authentication:       'plain',
-    enable_starttls_auto: true  }
+  #config.action_mailer.default_url_options = { :host => "applyonce.littlepig.agency" }
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+  #  address:              'localhost',
+  #  port:                 587,
+  #  domain:               'applyonce.littlepig.agency',
+  #  user_name:            'applyonce',
+  #  password:             '--/$apply---.',
+  #  authentication:       'plain',
+  #  enable_starttls_auto: true  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -25,7 +25,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true #ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -92,4 +92,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { :host => "applyonce.littlepig.agency:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'twothreeinvestmentholdings.dedicated.co.za',
+    port:                 587,
+    domain:               'applyonce.littlepig.agency',
+    user_name:            'applyonce',
+    password:             '--/$apply---.',
+    authentication:       'plain',
+    enable_starttls_auto: false  }	
 end

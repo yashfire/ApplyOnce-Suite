@@ -1,0 +1,10 @@
+2016-09-12 15:38:53 1bhXCt-0006YS-Sj == nmkize@ihlm.com R=dnslookup T=remote_smtp defer (-53): retry time not reached for any host
+2016-09-12 15:38:53 1bjQpv-000BcH-Qf Completed
+2016-09-12 15:38:53 1bjRQ2-000CBt-Hb Spool file is locked (another process is handling this message)
+2016-09-12 15:38:53 1bjRLc-000BxP-9l Spool file is locked (another process is handling this message)
+2016-09-12 15:38:53 1bjR61-000Boz-Fa Completed
+2016-09-12 15:39:50 no host name found for IP address 27.3.250.29
+2016-09-12 15:39:51 H=([27.3.250.29]) [27.3.250.29] F=<Edwin455@ihlm.gov.za> rejected RCPT <info@ihlm.gov.za>: Please authenticate
+2016-09-12 15:40:02 1bjRSr-000CF2-Ta DKIM: d=twitter.com s=dkim-201406 c=relaxed/relaxed a=rsa-sha256 t=1473687597 [verification succeeded]
+2016-09-12 15:40:04 1bjRSr-000CF2-Ta <= n00565ce8de-3c0453b0e427475e92d7cc7bdd29d265-pntshobo===ihlm.gov.za@bounce.twitter.com H=spring-chicken-ae.twitter.com [199.16.156.144] P=esmtps X=TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128 CV=no S=97389 id=28.63.46333.D20B6D75@twitter.com
+2016-09-12 15:40:04 1bjRSr-000CF2-Ta => pntshobo <pntshobo@ihlm.gov.za> R=mylocaluser T=myvmail_directory

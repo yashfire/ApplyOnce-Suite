@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+
+$name = shift or die "Usage $0 username\n";
+$exists = 0;
+$entry = 0;
+
+open PASS, "/usr/local/etc/dovecot.passwd";
+
+while (<PASS>) {
+  $entry = $_;
+  chomp $entry;
+
+  if ($entry =~ /^$name\:/) {
+    $exists = 1; 
+  }
+  last if $exists;
+}
+  
+if ($exists) {
+  @details = split/:/,$entry;
+  print "USER FOUND:\n\tUsername: $details[0]\n\tPassword: $details[1]\n";
+} 
+else {
+  print "User $name does not exist.\n";
+}
+close PASS;

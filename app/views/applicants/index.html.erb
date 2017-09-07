@@ -20,297 +20,299 @@
 		overflow: auto;
 	}
 </style>
-<div class="col-xs-12 col-md-4 col-md-offset-4">
+<!-- <div class="col-xs-12 col-md-4 col-md-offset-4">
 	<%= link_to "Click Here To Generate CV", applicants_index_url(format: "pdf"), class: "btn btn-success btn-block", target: :_blank %><br>
-</div><br>
-<div id="1" class="col-xs-12 col-md-8 col-md-offset-2">
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h1 class="text-center"><%= current_applicant.username %>'s Information</h1>
-	  </div>
-	  <div class="panel-body">
-	  	<center>
-			<p><span>ID Number: </span><%= current_applicant.id_number %></p>
-			<p><span>Email: </span><%= current_applicant.email %></p>
-			<p><span>Times signed in: </span><%= current_applicant.sign_in_count %></p>
-			<p><span>Current sign in: </span><%= current_applicant.current_sign_in_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last sign in: </span><%= current_applicant.last_sign_in_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Current IP: </span><%= current_applicant.current_sign_in_ip %></p>
-			<p><span>Last sign in IP: </span><%= current_applicant.last_sign_in_ip %></p>
-			<p><span>Created: </span><%= current_applicant.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= current_applicant.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-		</center>
-	  </div>
-	</div>	
-</div>
+</div><br> -->
+<div class="container">
+	<div id="1" class="col-xs-12 col-md-8 col-md-offset-2">
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h1 class="text-center"><%= current_applicant.username %>'s Information</h1>
+		  </div>
+		  <div class="panel-body">
+		  	<center>
+				<p><span>ID Number: </span><%= current_applicant.id_number %></p>
+				<p><span>Email: </span><%= current_applicant.email %></p>
+				<p><span>Times signed in: </span><%= current_applicant.sign_in_count %></p>
+				<p><span>Current sign in: </span><%= current_applicant.current_sign_in_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last sign in: </span><%= current_applicant.last_sign_in_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Current IP: </span><%= current_applicant.current_sign_in_ip %></p>
+				<p><span>Last sign in IP: </span><%= current_applicant.last_sign_in_ip %></p>
+				<p><span>Created: </span><%= current_applicant.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= current_applicant.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+			</center>
+		  </div>
+		</div>	
+	</div>
 
-<!-- FIELD OF INTEREST -->
-<% if @applicant_foi_programs.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Fields of interest</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo1">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
- 
-<div id="demo1" class="collapse in">
-<% @applicant_foi_programs.each do |applicant_foi_program| %>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s Fields of interest</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<center>
-		  	<p><span>Program of Interest: </span><%= applicant_foi_program.applicant_program_interest %></p>
-			<p><span>Field of Interest: </span><%= applicant_foi_program.applicant_field_of_interest %></p>
-			<p><span>Created: </span><%= applicant_foi_program.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_foi_program.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-	  		<%= link_to 'Edit Entry', edit_applicant_foi_program_path(applicant_foi_program), class: "btn btn-xs btn-warning" %>
-	  		<%= link_to 'Delete Entry', applicant_foi_program, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-		</center>
-	  </div>
-	</div>
-</div>
-<% end %>
-</div> 
-
-<!-- PERSONAL DETAILS -->
-<% if @applicant_personal_details.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Personal Details</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo2">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
-<div id="demo2" class="collapse in">		
-<% @applicant_personal_details.each do |applicant_personal_detail| %>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-  <div class="panel panel-info size">
-  	<div class="panel-heading"><!-- <button id="hide2">x</button> -->
-		<h4 class="text-center"><%= current_applicant.username %>'s Personal Details</h4>
-	</div>
-	<div class="panel-body">
-	  <center>
-		<p><span>Surname:</span> <%= applicant_personal_detail.Surname %></p>
-		<p><span>First Name:</span> <%= applicant_personal_detail.First_Name %></p>
-		<p><span>Middle Name:</span> <%= applicant_personal_detail.Middle_Name %></p>
-		<p><span>Contact Number:</span> <%= applicant_personal_detail.Contact_Number %></p>
-		<p><span>Alternative Contact Number:</span> <%= applicant_personal_detail.Alt_Contact_Number %></p>
-		<p><span>Gender:</span> <%= applicant_personal_detail.applicant_gender %></p>
-		<p><span>Race:</span> <%= applicant_personal_detail.applicant_race %></p>
-		<p><span>Nationality:</span> <%= applicant_personal_detail.applicant_nationality %></p>
-		<p><span>Marital Status:</span> <%= applicant_personal_detail.applicant_marital_status %></p>
-		<p><span>Number Of Dependancies:</span> <%= applicant_personal_detail.Number_Of_Dependancies %></p>
-		<p><span>Current Occupation:</span> <%= applicant_personal_detail.applicant_current_occupation %></p>
-		<p><span>Criminal Record:</span> <%= applicant_personal_detail.Criminal_Record %></p>
-		<p><span>Skills:</span> <%= applicant_personal_detail.Skills %></p>
-		<p><span>Created: </span><%= applicant_personal_detail.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-		<p><span>Last Updated: </span><%= applicant_personal_detail.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-	  	<%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
-	  	<%= link_to 'Delete Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-	  </center>	
-	</div>  
-  </div>	
-</div>
-<% end %>
-</div>
-
-<!-- DRIVERS LICENSE -->
-<% if @applicant_licenses.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Drivers License</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo3">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
-<div id="demo3" class="collapse in">
-<% @applicant_licenses.each do |applicant_license| %>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s Drivers License</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<center>
-	  	<p><span>Drivers License Code: </span><%= applicant_license.applicant_license_code %></p>
-	  	<p><span>Drivers License Status: </span><%= applicant_license.applicant_license_status %></p>
-		<p><span>Created: </span><%= applicant_license.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_license.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        <%= link_to 'Edit Entry', edit_applicant_license_path(applicant_license), class: "btn btn-xs btn-warning" %>
-        <%= link_to 'Delete Entry', applicant_license, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-		</center>
-	  </div>
-	</div>
-</div>
-<% end %>
-</div>
-
-<!-- DISABILITIES -->
-<% if @applicant_disability_types.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Disabilities</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo4">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
-<div id="demo4" class="collapse in">
-<% @applicant_disability_types.each do |applicant_disability_type| %>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s Disabilities</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<center>
-	  	<p><span>Disability: </span><%= applicant_disability_type.applicant_disability %></p>
-	  	<p><span>Disability Type: </span><%= applicant_disability_type.Disability_Type %></p>
-		<p><span>Created: </span><%= applicant_disability_type.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_disability_type.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        <%= link_to 'Edit Entry', edit_applicant_disability_type_path(applicant_disability_type), class: "btn btn-xs btn-warning" %>
-        <%= link_to 'Delete Entry', applicant_disability_type, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-		</center>
-	  </div>
-	</div>
-</div>
-<% end %>
-</div>
-
-<!-- ADDRESS -->
-<% if @applicant_addresses.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">ADDRESS</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo5">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
-<div id="demo5" class="collapse in">
-<% @applicant_addresses.each do |applicant_address| %>
+	<!-- FIELD OF INTEREST -->
+	<% if @applicant_foi_programs.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Fields of interest</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo1">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	 
+	<div id="demo1" class="collapse in">
+	<% @applicant_foi_programs.each do |applicant_foi_program| %>
 	<div class="col-xs-12 col-md-6 col-md-offset-3">
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Fields of interest</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<center>
+			  	<p><span>Program of Interest: </span><%= applicant_foi_program.applicant_program_interest %></p>
+				<p><span>Field of Interest: </span><%= applicant_foi_program.applicant_field_of_interest %></p>
+				<p><span>Created: </span><%= applicant_foi_program.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_foi_program.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+		  		<%= link_to 'Edit Entry', edit_applicant_foi_program_path(applicant_foi_program), class: "btn btn-xs btn-warning" %>
+		  		<%= link_to 'Delete Entry', applicant_foi_program, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+			</center>
+		  </div>
+		</div>
+	</div>
+	<% end %>
+	</div> 
+
+	<!-- PERSONAL DETAILS -->
+	<% if @applicant_personal_details.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Personal Details</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo2">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo2" class="collapse in">		
+	<% @applicant_personal_details.each do |applicant_personal_detail| %>
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+	  <div class="panel panel-info size">
+	  	<div class="panel-heading"><!-- <button id="hide2">x</button> -->
+			<h4 class="text-center"><%= current_applicant.username %>'s Personal Details</h4>
+		</div>
+		<div class="panel-body">
+		  <center>
+			<p><span>Surname:</span> <%= applicant_personal_detail.Surname %></p>
+			<p><span>First Name:</span> <%= applicant_personal_detail.First_Name %></p>
+			<p><span>Middle Name:</span> <%= applicant_personal_detail.Middle_Name %></p>
+			<p><span>Contact Number:</span> <%= applicant_personal_detail.Contact_Number %></p>
+			<p><span>Alternative Contact Number:</span> <%= applicant_personal_detail.Alt_Contact_Number %></p>
+			<p><span>Gender:</span> <%= applicant_personal_detail.applicant_gender %></p>
+			<p><span>Race:</span> <%= applicant_personal_detail.applicant_race %></p>
+			<p><span>Nationality:</span> <%= applicant_personal_detail.applicant_nationality %></p>
+			<p><span>Marital Status:</span> <%= applicant_personal_detail.applicant_marital_status %></p>
+			<p><span>Number Of Dependancies:</span> <%= applicant_personal_detail.Number_Of_Dependancies %></p>
+			<p><span>Current Occupation:</span> <%= applicant_personal_detail.applicant_current_occupation %></p>
+			<p><span>Criminal Record:</span> <%= applicant_personal_detail.Criminal_Record %></p>
+			<p><span>Skills:</span> <%= applicant_personal_detail.Skills %></p>
+			<p><span>Created: </span><%= applicant_personal_detail.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+			<p><span>Last Updated: </span><%= applicant_personal_detail.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+		  	<%= link_to 'Edit Entry', edit_applicant_personal_detail_path(applicant_personal_detail), class: "btn btn-xs btn-warning" %>
+		  	<%= link_to 'Delete Entry', applicant_personal_detail, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+		  </center>	
+		</div>  
+	  </div>	
+	</div>
+	<% end %>
+	</div>
+
+	<!-- DRIVERS LICENSE -->
+	<% if @applicant_licenses.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Drivers License</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo3">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo3" class="collapse in">
+	<% @applicant_licenses.each do |applicant_license| %>
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Drivers License</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<center>
+		  	<p><span>Drivers License Code: </span><%= applicant_license.applicant_license_code %></p>
+		  	<p><span>Drivers License Status: </span><%= applicant_license.applicant_license_status %></p>
+			<p><span>Created: </span><%= applicant_license.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_license.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        <%= link_to 'Edit Entry', edit_applicant_license_path(applicant_license), class: "btn btn-xs btn-warning" %>
+	        <%= link_to 'Delete Entry', applicant_license, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+			</center>
+		  </div>
+		</div>
+	</div>
+	<% end %>
+	</div>
+
+	<!-- DISABILITIES -->
+	<% if @applicant_disability_types.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Disabilities</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo4">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo4" class="collapse in">
+	<% @applicant_disability_types.each do |applicant_disability_type| %>
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Disabilities</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<center>
+		  	<p><span>Disability: </span><%= applicant_disability_type.applicant_disability %></p>
+		  	<p><span>Disability Type: </span><%= applicant_disability_type.Disability_Type %></p>
+			<p><span>Created: </span><%= applicant_disability_type.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_disability_type.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        <%= link_to 'Edit Entry', edit_applicant_disability_type_path(applicant_disability_type), class: "btn btn-xs btn-warning" %>
+	        <%= link_to 'Delete Entry', applicant_disability_type, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+			</center>
+		  </div>
+		</div>
+	</div>
+	<% end %>
+	</div>
+
+	<!-- ADDRESS -->
+	<% if @applicant_addresses.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">ADDRESS</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo5">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo5" class="collapse in">
+	<% @applicant_addresses.each do |applicant_address| %>
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+		  <center>
+			<div class="panel panel-info size">
+			  <div class="panel-heading">
+			  	<h4 class="text-center"><%= current_applicant.username %>'s Address</h4>
+			  </div>
+			  <div class="panel-body">
+		  		<p><span>Address Line 1: </span><%= applicant_address.Address_Line_1 %></p>
+		  		<p><span>Address Line 2: </span><%= applicant_address.Address_Line_2 %></p>
+		  		<p><span>Address Line 3: </span><%= applicant_address.Address_Line_3 %></p>
+		  		<p><span>Postal Code: </span><%= applicant_address.Postal_Code %></p>
+		  		<p><span>Created: </span><%= applicant_address.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_address.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        	<%= link_to 'Edit Entry', edit_applicant_address_path(applicant_address), class: "btn btn-xs btn-warning" %>
+	        	<%= link_to 'Delete Entry', applicant_address, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+			  </div>
+			</div>
+		  </center>
+		</div>
+	<% end %>
+	</div>
+
+	<!-- QUALIFICATIONS -->
+	<% if @applicant_field_of_studies.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Qualifications</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo6">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo6" class="collapse in">
+	<% @applicant_field_of_studies.each do |applicant_field_of_study| %>
+	 <div class="col-xs-12 col-md-6 col-md-offset-3">
 	  <center>
 		<div class="panel panel-info size">
 		  <div class="panel-heading">
-		  	<h4 class="text-center"><%= current_applicant.username %>'s Address</h4>
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Qualifications</h4>
 		  </div>
 		  <div class="panel-body">
-	  		<p><span>Address Line 1: </span><%= applicant_address.Address_Line_1 %></p>
-	  		<p><span>Address Line 2: </span><%= applicant_address.Address_Line_2 %></p>
-	  		<p><span>Address Line 3: </span><%= applicant_address.Address_Line_3 %></p>
-	  		<p><span>Postal Code: </span><%= applicant_address.Postal_Code %></p>
-	  		<p><span>Created: </span><%= applicant_address.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_address.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        	<%= link_to 'Edit Entry', edit_applicant_address_path(applicant_address), class: "btn btn-xs btn-warning" %>
-        	<%= link_to 'Delete Entry', applicant_address, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+		  	<p><span>Field Of Study: </span><%= applicant_field_of_study.Field_Of_Study %></p>
+		  	<p><span>Start_Date: </span><%= applicant_field_of_study.Start_Date %></p>
+		  	<p><span>End_date: </span><%= applicant_field_of_study.End_date %></p>
+		  	<p><span>University: </span><%= applicant_field_of_study.applicant_university %></p>
+		  	<p><span>Qualification: </span><%= applicant_field_of_study.applicant_qual %></p>
+		  	<p><span>Status: </span><%= applicant_field_of_study.applicant_qual_status %></p>
+		  	<p><span>Created: </span><%= applicant_field_of_study.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_field_of_study.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        <%= link_to 'Edit Entry', edit_applicant_field_of_study_path(applicant_field_of_study), class: "btn btn-xs btn-warning" %>
+	        <%= link_to 'Delete Entry', applicant_field_of_study, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
 		  </div>
 		</div>
-	  </center>
+	  </center>	
+	 </div>
+	<% end %>
 	</div>
-<% end %>
-</div>
 
-<!-- QUALIFICATIONS -->
-<% if @applicant_field_of_studies.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Qualifications</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo6">Show/Hide</button>
-		</center>
+	<!-- WORK EXPERIENCE -->
+	<% if @applicant_experiences.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">Work experience</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo7">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo7" class="collapse in">
+	<% @applicant_experiences.each do |applicant_experience| %>
+	 <div class="col-xs-12 col-md-6 col-md-offset-3">
+	  <center>
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center"><%= current_applicant.username %>'s Experience</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<p><span>Job Name: </span><%= applicant_experience.Job_Name %></p>
+		  	<p><span>Company Name: </span><%= applicant_experience.Company_Name %></p>
+		  	<p><span>Duties: </span><%= applicant_experience.Duties %></p>
+		  	<p><span>Start Date: </span><%= applicant_experience.Start_Date %></p>
+		  	<p><span>End Date: </span><%= applicant_experience.End_Date %></p>
+		  	<p><span>Created: </span><%= applicant_experience.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_experience.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        <%= link_to 'Edit Entry', edit_applicant_experience_path(applicant_experience), class: "btn btn-xs btn-warning" %>
+	        <%= link_to 'Delete Entry', applicant_experience, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+		  </div>
+		</div>
+	  </center>	
+	 </div>
+	<% end %>
 	</div>
-<% end %>
-<div id="demo6" class="collapse in">
-<% @applicant_field_of_studies.each do |applicant_field_of_study| %>
- <div class="col-xs-12 col-md-6 col-md-offset-3">
-  <center>
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s Qualifications</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<p><span>Field Of Study: </span><%= applicant_field_of_study.Field_Of_Study %></p>
-	  	<p><span>Start_Date: </span><%= applicant_field_of_study.Start_Date %></p>
-	  	<p><span>End_date: </span><%= applicant_field_of_study.End_date %></p>
-	  	<p><span>University: </span><%= applicant_field_of_study.applicant_university %></p>
-	  	<p><span>Qualification: </span><%= applicant_field_of_study.applicant_qual %></p>
-	  	<p><span>Status: </span><%= applicant_field_of_study.applicant_qual_status %></p>
-	  	<p><span>Created: </span><%= applicant_field_of_study.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_field_of_study.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        <%= link_to 'Edit Entry', edit_applicant_field_of_study_path(applicant_field_of_study), class: "btn btn-xs btn-warning" %>
-        <%= link_to 'Delete Entry', applicant_field_of_study, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-	  </div>
-	</div>
-  </center>	
- </div>
-<% end %>
-</div>
 
-<!-- WORK EXPERIENCE -->
-<% if @applicant_experiences.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">Work experience</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo7">Show/Hide</button>
-		</center>
+	<!-- REFERENCES -->
+	<% if @applicant_references.any? %>
+		<div class="well col-xs-12 col-md-12">
+			<h1 class="text-center">References</h1>
+			<center>
+				<button class="btn btn-info" data-toggle="collapse" data-target="#demo8">Show/Hide</button>
+			</center>
+		</div>
+	<% end %>
+	<div id="demo8" class="collapse in">
+	<% @applicant_references.each do |applicant_reference| %>
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+		<div class="panel panel-info size">
+		  <div class="panel-heading">
+		  	<h4 class="text-center"><%= current_applicant.username %>'s References</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<center>
+		  	<p><span>Reference Name: </span><%= applicant_reference.Reference_Name %></p>
+		  	<p><span>Contact Number: </span><%= applicant_reference.Contact_Number %></p>
+			<p><span>Email Address: </span><%= applicant_reference.Email_address %></p>
+			<p><span>Relationship: </span><%= applicant_reference.Relationship %></p>
+			<p><span>Created: </span><%= applicant_reference.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
+				<p><span>Last Updated: </span><%= applicant_reference.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
+	        <%= link_to 'Edit Entry', edit_applicant_reference_path(applicant_reference), class: "btn btn-xs btn-warning" %>
+	        <%= link_to 'Delete Entry', applicant_reference, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
+			</center>
+		  </div>
+		</div>
 	</div>
-<% end %>
-<div id="demo7" class="collapse in">
-<% @applicant_experiences.each do |applicant_experience| %>
- <div class="col-xs-12 col-md-6 col-md-offset-3">
-  <center>
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s Experience</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<p><span>Job Name: </span><%= applicant_experience.Job_Name %></p>
-	  	<p><span>Company Name: </span><%= applicant_experience.Company_Name %></p>
-	  	<p><span>Duties: </span><%= applicant_experience.Duties %></p>
-	  	<p><span>Start Date: </span><%= applicant_experience.Start_Date %></p>
-	  	<p><span>End Date: </span><%= applicant_experience.End_Date %></p>
-	  	<p><span>Created: </span><%= applicant_experience.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_experience.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        <%= link_to 'Edit Entry', edit_applicant_experience_path(applicant_experience), class: "btn btn-xs btn-warning" %>
-        <%= link_to 'Delete Entry', applicant_experience, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-	  </div>
+	<% end %>
 	</div>
-  </center>	
- </div>
-<% end %>
-</div>
-
-<!-- REFERENCES -->
-<% if @applicant_references.any? %>
-	<div class="well col-xs-12 col-md-12">
-		<h1 class="text-center">References</h1>
-		<center>
-			<button class="btn btn-info" data-toggle="collapse" data-target="#demo8">Show/Hide</button>
-		</center>
-	</div>
-<% end %>
-<div id="demo8" class="collapse in">
-<% @applicant_references.each do |applicant_reference| %>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-	<div class="panel panel-info size">
-	  <div class="panel-heading">
-	  	<h4 class="text-center"><%= current_applicant.username %>'s References</h4>
-	  </div>
-	  <div class="panel-body">
-	  	<center>
-	  	<p><span>Reference Name: </span><%= applicant_reference.Reference_Name %></p>
-	  	<p><span>Contact Number: </span><%= applicant_reference.Contact_Number %></p>
-		<p><span>Email Address: </span><%= applicant_reference.Email_address %></p>
-		<p><span>Relationship: </span><%= applicant_reference.Relationship %></p>
-		<p><span>Created: </span><%= applicant_reference.created_at.strftime("%d %B %Y at %I:%M%p") %></p>
-			<p><span>Last Updated: </span><%= applicant_reference.updated_at.strftime("%d %B %Y at %I:%M%p") %></p>
-        <%= link_to 'Edit Entry', edit_applicant_reference_path(applicant_reference), class: "btn btn-xs btn-warning" %>
-        <%= link_to 'Delete Entry', applicant_reference, method: :delete, data: { confirm: 'Are you sure you want to delete this entry?' }, class: "btn btn-xs btn-danger" %>
-		</center>
-	  </div>
-	</div>
-</div>
-<% end %>
 </div>

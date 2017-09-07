@@ -12,10 +12,11 @@
     <%= f.association :applicant_nationality, label: "Nationality", :label_method => lambda { |nationality| "#{nationality.Nationality}"} %>
     <%= f.association :applicant_marital_status, label: "Marital Status", :label_method => lambda { |marital_status| "#{marital_status.Marital_Status}"} %>
     <%= f.input :Number_Of_Dependancies, label: "Number Of Dependancies", placeholder: "1, 2, 3, etc." %>
-    <%= f.association :applicant_current_occupation, label: "Current Occupation", :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
+    <%= f.association :applicant_current_occupation, label: "Current Occupation Status", :label_method => lambda { |occupation| "#{occupation.Current_Occupation}"} %>
     <%= f.input :Skills, placeholder: "HTML, Bootstrap, Microsoft Office, Ruby on Rails, Project Management", hint: "Please specify 5 skills seperated by a comma" %>
     <%= f.input :Criminal_Record, label: "Criminal Record", as: :radio_buttons, :collection => [ ['Yes', 1], ['No', 0] ]  %>
-    <%= f.input :Application_Status, label: "First Time Applicant", :as => :boolean, :input_html => { :checked => "1", :checked => true } %>
+    
+    <%= f.hidden_field :Application_Status, value: 1 %>
   </div> 
 
   <div class="form-actions">

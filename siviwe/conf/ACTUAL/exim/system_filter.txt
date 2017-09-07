@@ -1,9 +1,0 @@
-# Exim filter
-
-if $reply_address: contains "qq.com" then
-logfile /var/log/exim/viruslog
-logwrite "$tod_log $message_id $sender_address: => $h_to: DELETED: Contained a virus"
-seen finish
-endif
-
-

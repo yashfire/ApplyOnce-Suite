@@ -1,5 +1,11 @@
-<h1>New Applicant Person Qualification Field Of Study</h1>
-
-<%= render 'form', applicant_person_qualification_field_of_study: @applicant_person_qualification_field_of_study %>
-
-<%= link_to 'Back', applicant_person_qualification_field_of_studies_path %>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h1 class="text-center">New Qualification </h1>
+		</div>
+		<div class="panel-body">	
+			<%= render 'form', applicant_person_qualification_field_of_study: @applicant_person_qualification_field_of_study %>
+		</div>	
+			<%= link_to 'Back', applicant_person_qualification_field_of_studies_path, class: "btn btn-xs btn-danger" %>
+	</div>
+</div>			

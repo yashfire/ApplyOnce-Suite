@@ -8,22 +8,28 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
-  username: calvin
-  password: seidlc06
-  host: 127.0.0.1
+  username: root
+  password: password123
+  host: localhost
   post: 3306
 
 development:
   <<: *default
-  database: applicant_v2_production
+  database: Applyonce
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: applicant_test
+  database: Applyonce
 
 production:
-  <<: *default
-  database: applicant_v2_production
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  username: root
+  password: password123
+  host: localhost
+  post: 3306
+  database: Applyonce

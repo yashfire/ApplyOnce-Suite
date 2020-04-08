@@ -1,0 +1,3 @@
+class ShortlistCandidates < ApplicationRecord
+
+end

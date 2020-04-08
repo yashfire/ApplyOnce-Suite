@@ -1,0 +1,239 @@
+<!-- MDBootstrap Datatables  -->
+<% if current_applicant.admin %>
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" >
+<!-- MDBootstrap Datatables  -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+<style>
+  table, th, td {
+  padding: 10px;
+  /* border: 1px solid black; */
+  /* border-collapse: collapse; */
+  }
+  table {
+    padding: 0px;
+  }
+  th{
+    background-color:black;
+    color:white;
+  }
+  td{
+     background-color:white;
+      font-color:black;
+  }
+
+  #null{
+    color:red;
+  }
+
+</style>
+
+<h1> TABLE OF APPLICANTS </h1>
+<div style="overflow-x:auto;">
+<%= render "checkall" %>
+
+<table id="example" class="table table-dark table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th id="header" scope="col">CHECK </th>
+      <th id="header" scope="col">ID</th>
+      <th id="header" scope="col"> Name & Surname</th>
+      <th id="header" scope="col"> Qualification </th>
+      <th id="header" scope="col"> NQF Levels </th>
+      <th id="header" scope="col"> University</th>
+      <th id="header" scope="col">Date Created</th>
+      <th id="header" scope="col"> City </th>
+      <th id="header" scope="col"> Province </th>
+      <th id="header" scope="col">Email</th>
+      <th id="header" scope="col"> Last Updated</th>
+      <th id="header" scope="col"> Gender </th>
+      <th id="header" scope="col"> Race </th>
+      <th id="header" scope="col"> Age</th>
+    </tr>
+  </thead>
+   <tbody class="table-light" id="records" >
+
+  <% @joins.each do |applicants| %>
+    <%
+    idNum = applicants.id_number.to_s.chars;
+    yob = idNum[0]+idNum[1]
+    mob = idNum[2].to_s+idNum[3].to_s
+
+    age = ((DateTime.now.year - yob.to_i)-1900)
+    if DateTime.now.month < mob.to_i
+      age -= 1
+    end
+    det = @details.all.where("applicant_id = "+ applicants.id.to_s)
+     if det.exists?
+      s = det.pluck
+      status = s[0][8]
+      fullName = s[0][2]+" "+s[0][1]
+      gen_id = s[0][14]
+        if !gen_id.blank?
+          gen_group = @gender.select("Gender").where("id = " + gen_id.to_s)
+          gen = gen_group.pluck
+          g = gen[0][1]
+        else
+          gen_id = 3
+          gen_group = @gender.select("Gender").where("id = " + gen_id.to_s)
+          gen = gen_group.pluck
+          g = gen[0][1]
+        end
+
+      race_id = s[0][13]
+        if !race_id.blank?
+          race_group =  @race.all.where("id = " + race_id.to_s)
+          race_values = race_group.pluck
+          race = race_values[0][1]
+        end
+
+       uni_id = @qualification_details.all.where("applicant_id = "+ applicants.id.to_s)
+
+      uni_id = uni_id.pluck
+      uni_s = uni_id[0]
+       if !uni_s.blank?
+       union = uni_s[8]
+           uni_group = @uni.all.where("id ="+ union.to_s)
+           if uni_group.exists?
+              uni_group = uni_group.pluck
+              uni = uni_group[0][1]
+          end
+        end
+
+      qual_det = @qualification_details.all.where("applicant_id = "+ applicants.id.to_s)
+      if qual_det.exists?
+        qual_det = qual_det.pluck
+        if !qual_det.blank?
+             qual_ID_group =qual_det
+             qual_id = qual_ID_group
+             qual_len = qual_ID_group.length
+             i = 0
+             t=0
+          else
+          qual_len = 0
+        end
+      else
+      qual_len ="missing"
+      end
+      addr = @address.all.where("applicant_id ="+applicants.id.to_s)
+      if  addr.exists?
+        addr = addr.pluck
+        addr_id = addr[0][8]
+        city_id = @city.all.where('id ='+ addr_id.to_s)
+        if city_id.exists?
+          city_id = city_id.pluck
+          city = city_id[0][2]
+          muni_id = city_id[0][1]
+          muni_id = @muni.all.where('id ='+ muni_id.to_s)
+          if muni_id.exists?
+            muni_id=muni_id.pluck
+            muni_id = muni_id[0][1]
+            prov_id=@prov.all.where("id =" + muni_id.to_s)
+            if prov_id.exists?
+              prov_id = prov_id.pluck
+              prov = prov_id[0][1]
+            end
+          end
+        end
+      end
+
+
+    end
+    # extract(@applicants)
+    %>
+      <%if !fullName.blank? && !race.blank? && age <= 35 && !qual_det.blank? && status < 4 %>
+     <tr>
+           <th scope="row"><input id="cbx" type=checkbox value="<%= applicants.id%>"/></th>
+             <!-- Applicant ID -->
+           <td>
+           <%= applicants.id%>
+            </td>
+            <!-- Name -->
+          <td>
+            <%= fullName %>
+          </td>
+          <!-- QUALIFICATION -->
+        <td>
+          <% while i < qual_len
+             val = qual_id[i][10]
+             qual_group = @nql_qual.all.where("id = " + val.to_s)
+               if qual_group.exists?
+                  qual_group = qual_group.pluck
+                  qual_sub = qual_group
+               end %>
+            <%= qual_sub[0][2] %> <br>
+          <% i += 1
+          end %>
+        </td>
+          <!-- NQF LEVELS -->
+        <td>
+            <% while t < qual_len
+               val = qual_id[t][10]
+               qual_group = @nql_qual.all.where("id = " + val.to_s)
+                  if qual_group.exists?
+                   qual_group = qual_group.pluck
+                   qual_sub = qual_group
+                  end %>
+                <%= qual_sub[0][1] %> <br>
+            <% t += 1
+              end%>
+        </td>
+        <!-- University -->
+      <td>
+        <%= uni %>
+      </td>
+
+             <!-- creation date -->
+            <td>
+           <%= applicants.created_at.to_date.to_s%>
+            </td>
+            <td>
+              <%= city %>
+            </td>
+            <td>
+              <%= prov %>
+            </td>
+            <!-- Applicant email -->
+            <td>
+            <%= applicants.email%>
+             </td>
+             <!-- confirmed at -->
+           <!-- <td> -->
+            <%#=  applicants.confirmed_at.day.to_s+ "/"+ applicants.confirmed_at.month.to_s+ "/"+ applicants.confirmed_at.year.to_s %>
+            <!-- </td> -->
+             <!-- Updated At -->
+           <td>
+             <%=  applicants.updated_at.to_date.to_s  %>
+           </td>
+
+             <!-- Gender -->
+           <td>
+             <%= g %>
+           </td>
+             <!--  Race  -->
+           <td>
+             <%= race %>
+           </td>
+             <!-- Age -->
+           <td>
+             <%= age %>
+           </td>
+
+
+
+     </tr>
+
+
+<% end %>  <!--END IF -->
+<% end %>  <!--END LOOP -->
+
+
+
+</table>
+</div>
+<% end %>
+<% if !current_applicant.admin
+ root_path
+  end %>

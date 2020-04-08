@@ -1,10 +1,11 @@
 class ApplicantPersonalDetailsController < ApplicationController
   before_action :set_applicant_personal_detail, only: [:show, :edit, :update, :destroy]
-
+  # @applicants = applicant_personal_details.all
   # GET /applicant_personal_details
   # GET /applicant_personal_details.json
   def index
     @applicant_personal_details = current_applicant.applicant_personal_details.all
+
   end
 
   # GET /applicant_personal_details/1
@@ -72,7 +73,7 @@ class ApplicantPersonalDetailsController < ApplicationController
       params.require(:applicant_personal_detail).permit(:Surname, :First_Name, :Middle_Name,
        :Contact_Number, :Alt_Contact_Number, :Criminal_Record, :Skills,
         :Application_Status, :Number_Of_Dependancies, :applicant_id,
-        :applicant_race_id, :applicant_gender_id, :applicant_marital_status_id, 
+        :applicant_race_id, :applicant_gender_id, :applicant_marital_status_id,
         :applicant_nationality_id, :applicant_current_occupation_id)
     end
 end

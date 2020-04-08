@@ -1,0 +1,59 @@
+<style>
+/*body {
+    background:
+    linear-gradient(
+      rgba(0,0,0, 0.5),
+      rgba(0,0,0, 0.5)),
+    url("Cover.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+h1, h3 {
+	color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.white {
+  color: white;
+  font-size: 25px;
+}
+
+.panel, .alert {
+  box-shadow: 3px 3px 5px 6px #000000;
+}
+
+a:hover, .panel:hover {
+  opacity: 0.75;
+}
+table, th, td {
+padding: 10px;
+/* border: 1px solid black; */
+/* border-collapse: collapse; */
+}
+table {
+	padding: 0px;
+}
+th{
+	background-color:black;
+	color:white;
+}
+td{
+	 background-color:white;
+		font-color:black;
+}
+
+#null{
+	color:red;
+}
+
+</style>
+<script>
+	console.log('<%=@check%>');
+</script>
+
+<h1 class="text-center">ApplyOnce Admin Dashboard</h1>
+<H3 class ="alert"> Applicants have been Added to Documents.</h3>
+<hr>
+
+<%= link_to "<- Back to dashboard", admin_main_path, class:"btn btn-success" %>

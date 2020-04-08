@@ -1,0 +1,28 @@
+<input id="toggle" type="Checkbox" onclick="toggleCheck()">Check All
+
+<script>
+function toggleCheck(){
+  var toggle = document.getElementById("toggle");
+  var rows = document.getElementsByTagName("tr");
+  for (var i = 0; i != rows.length-1; i++){
+    // console.log(rows[i].style.display);
+    if (rows[i].style.display != "none"){
+      var data = rows[i].childNodes[1]
+      if (data.scope == "row"){
+        var cbx = data.childNodes[0];
+        if (toggle.checked == true){
+        cbx.checked = true;
+        // console.log("ROW:" + rows[i])
+        // console.log("CheckBox Value:" + cbx.value)
+        // console.log("Checked:" + cbx.checked)
+      } else {
+        cbx.checked = false;
+        // console.log("ROW:" + rows[i])
+        // console.log("CheckBox Value:" + cbx.value)
+        // console.log("Checked:" + cbx.checked)
+      }
+      }
+    }
+  }
+}
+</script>

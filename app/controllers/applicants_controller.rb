@@ -9,11 +9,12 @@ class ApplicantsController < ApplicationController
     @applicant_field_of_studies = current_applicant.applicant_field_of_studies.all
     @applicant_licenses = current_applicant.applicant_licenses.all
     # @applicant_race = ApplicantRace.all
-
-    respond_to do |format| 
+    # @applicants = applicants.all
+    
+    respond_to do |format|
       format.html
-      format.pdf do 
-        pdf = Cv.new(@applicant_personal_details, 
+      format.pdf do
+        pdf = Cv.new(@applicant_personal_details,
                     @applicant_addresses,
                     @applicant_experiences,
                     @applicant_references,
@@ -24,8 +25,9 @@ class ApplicantsController < ApplicationController
                               type: "application/pdf",
                               disposition: "inline"
       end
-    end      
+    end
 
 
-  end 
+  end
+
 end

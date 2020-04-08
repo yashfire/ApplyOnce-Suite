@@ -1,0 +1,57 @@
+<style>
+/*body {
+    background:
+    linear-gradient(
+      rgba(0,0,0, 0.5),
+      rgba(0,0,0, 0.5)),
+    url("Cover.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+h1, h3 {
+	color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.white {
+  color: white;
+  font-size: 25px;
+}
+
+.panel, .alert {
+  box-shadow: 3px 3px 5px 6px #000000;
+}
+
+a:hover, .panel:hover {
+  opacity: 0.75;
+}
+
+</style>
+	<% if current_applicant.admin? %>
+<h1 class="text-center">ApplyOnce Admin Dashboard</h1>
+<hr>
+ <%= render 'admin/dashboard' %>
+	<% else %>
+
+<h1 class="text-center">Oops, Looks like you got lost...</h1>
+<h3 class="text-center">
+	Please wait while we redirect you back to where you should be:
+</h3>
+
+
+<script>
+	var d = window.location.origin;
+	console.log(d);
+	wait(4000);
+  window.location.href = d;
+
+  function wait(ms){
+  var d = new Date();
+  var d2 = null;
+  do { d2 = new Date(); }
+  while(d2-d < ms);
+  }
+</script>
+
+<%end%>

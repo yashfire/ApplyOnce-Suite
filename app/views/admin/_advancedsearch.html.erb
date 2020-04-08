@@ -1,0 +1,184 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style >
+  .panel {
+  padding: 0% 42% 0% 15%;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+<a class="accordion btn btn-danger">Advanced Search</a>
+<div class="panel">
+  <div class="container">
+<table>
+    <tr>
+      <td>
+        Dates:
+      </td>
+      <td>
+        From <input type="date" id="sRDate"/ > to <input type="date" id="eRDate"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Qualification
+      </td>
+      <td>
+        <select id="Qualification" name="qualification">
+            <option value="">NONE</option>
+              <% @nql_qual.each do |qual| %>
+              <option value="<%=qual.Qualification_Name%>"> <%= qual.Qualification_Name %> </option>
+              <% end %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Institution
+      </td>
+      <td>
+        <select id="Uni" name="University">
+          <option value="">NONE</option>
+          <% @uni.each do |q| %>
+          <option value="<%=q.University_Name%>"> <%= q.University_Name %> </option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+ <tr>
+   <td>
+     Province
+   </td>
+   <td>
+     <select id="prov" name="province">
+       <option value="">NONE</option>
+     <%@prov.each do |p|%>
+      <option value='<%=p.Province_Name%>'> <%=p.Province_Name %> </option>
+     <% end %>
+     </select>
+  </td>
+</tr>
+<tr>
+  <td>
+    Programme
+  </td>
+</tr>
+</table>
+   <button class="btn btn-success" onclick="search()">Advanced Search</button>
+   <button class="btn btn-danger"   onclick="clearReset()">Reset Search</button>
+  </div>
+
+</div>
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+function search(){
+  var sRDate = document.getElementById("sRDate").value;
+  var eRDate = document.getElementById("eRDate").value;
+  var qual = document.getElementById("Qualification").value;
+  var uni = document.getElementById("Uni").value;
+  var prov = document.getElementById("prov").value;
+  FilterBydate(parseInt(Date.parse(sRDate)),parseInt(Date.parse(eRDate)));
+  FilterByQual(qual);
+  FilterByUni(uni);
+  FilterByProv(prov);
+
+}
+
+function clearReset(){
+var dRows = document.getElementsByTagName("tr");
+  for (var x = 0;x < dRows.length;x++){
+  dRows[x].style.display="table-row";
+  }
+}
+
+function FilterBydate(sD,eD){
+var dRows = document.getElementsByTagName("tr");
+for (var i = 0; i < dRows.length; i++){
+  var cells = dRows[i].cells;
+    if (cells.length == 14){
+    var date = parseInt(Date.parse(cells[6].innerText));
+    if (sD == sD) { //the condition is used to check if the value of the **Start of Range** is not infinity
+        if (date < sD){
+          dRows[i].style.display="none";
+        }
+    }
+    if (eD==eD){ //the condition is used to check if the value **End Of Range** is not infinity
+      if (date > eD){
+        dRows[i].style.display="none";
+      }
+    }
+  }
+}
+}
+
+function FilterByQual(qual){
+  var dRows = document.getElementsByTagName("tr");
+  if (qual != ""){
+  for (var i = 0; i < dRows.length; i++){
+    var cells = dRows[i].cells;
+      if (cells.length == 14){
+        var userQual = cells[3].innerText;
+        if (userQual != "Qualification"){
+        if (!userQual.includes(qual)){
+          dRows[i].style.display="none";
+        }
+       }
+      }
+    }
+  }
+}
+
+function FilterByUni(uni){
+  var dRows = document.getElementsByTagName("tr");
+  if (uni != ""){
+  for (var i = 0; i < dRows.length; i++){
+    var cells = dRows[i].cells;
+      if (cells.length == 14){
+        var userUni = cells[5].innerText;
+        if (userUni != "University"){
+        if (userUni != uni) {
+          dRows[i].style.display="none";
+        }
+       }
+      }
+    }
+  }
+}
+
+function FilterByProv(prov){
+  var dRows = document.getElementsByTagName("tr");
+  if (prov != ""){
+  for (var i = 0; i < dRows.length; i++){
+    var cells = dRows[i].cells;
+      if (cells.length == 14){
+        var userProv = cells[8].innerText;
+        if (userProv != "Province"){
+        if (userProv != prov) {
+          dRows[i].style.display="none";
+        }
+       }
+      }
+    }
+  }
+}
+
+
+</script>

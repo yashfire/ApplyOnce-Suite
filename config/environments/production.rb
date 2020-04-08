@@ -93,14 +93,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => "applyonce.littlepig.agency:3000" }
+  config.action_mailer.default_url_options = { :host => "localhost" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'twothreeinvestmentholdings.dedicated.co.za',
-    port:                 587,
-    domain:               'applyonce.littlepig.agency',
-    user_name:            'applyonce',
-    password:             '--/$apply---.',
-    authentication:       'plain',
+    port:                 25,
+    domain:               'localhost',
     enable_starttls_auto: false  }	
 end

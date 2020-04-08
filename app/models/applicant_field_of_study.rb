@@ -3,12 +3,12 @@ class ApplicantFieldOfStudy < ApplicationRecord
   belongs_to :applicant_university
   belongs_to :applicant_qual
   belongs_to :applicant_qual_status
-
+  has_many :admin
   def a_method_used_for_validation_purposes
     errors.add(:applicant_university_id, presence: true)
 	errors.add(:applicant_qual_id, presence: true)
 	errors.add(:applicant_qual_status_id, presence: true)
-  end 
+  end
 
   validates :Field_Of_Study, presence: true
   validates :Start_Date, presence: true

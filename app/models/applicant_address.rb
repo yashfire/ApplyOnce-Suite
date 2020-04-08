@@ -10,7 +10,7 @@ class ApplicantAddress < ApplicationRecord
   validates :applicant_pm_city_id, presence: true
 
   # after_initialize :set_defaults
-
+  has_many :admin
   # def set_defaults
   #   self.Address_Line_3 = "n/a" if self.Address_Line_3.nil?
   # end

@@ -5,10 +5,21 @@ class ApplicationController < ActionController::Base
   #before_filter :check_applicant_confirmation, only: :create
 
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:username, :id_number, :email, :password, :password_confirmation, :remember_me)}
-		devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password, :remember_me)}
+		    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:username, :id_number, :email, :password, :password_confirmation, :remember_me)}
+
+    devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password, :remember_me)}
 		devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :remember_me, :current_password)}
-	end	
+	end
+
+
+  def after_sign_in_path_for(resource)
+    if current_applicant.admin?
+    admin_main_path
+  else
+    root_path
+  end
+
+  end
 
 # private
 

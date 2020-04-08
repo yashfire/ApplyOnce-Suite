@@ -1,0 +1,14 @@
+[ N 2019-01-15 16:14:26.7047 59738/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-01-15 16:14:26.7260 59741/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-01-15 16:14:26.7262 59741/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-01-15 16:14:26.7334 59741/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 59741
+2019/01/15 16:14:28 [error] 59756#0: *4 "/var/www/html/app_process_v2/config/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+[ N 2019-01-15 16:14:29.7073 59741/Tb age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+
+[ N 2019-01-15 16:14:39.0935 59741/T5 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-01-15 16:14:39.0935 59741/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-01-15 16:14:39.0937 59741/T8 Ser/Server.h:902 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-01-15 16:14:39.0937 59741/T8 Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-01-15 16:14:39.0938 59741/T5 Ser/Server.h:902 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-01-15 16:14:39.0938 59741/T5 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-01-15 16:14:39.8629 59741/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished

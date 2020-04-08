@@ -1,0 +1,25 @@
+<button class="btn btn-primary" type="button" name="submit" onclick="submit()">Submit</button>
+<script>
+  function submit(){
+    var or = window.location.origin;
+    var cd = window.location.path;
+        var c = window.location;
+        var arr=[];
+    var main = or + cd
+    var newURL = c.origin + "/admin/documents?array="
+    // console.log(host);
+    var checked = document.getElementsByTagName("input");
+for (var i =0; i<checked.length; i++)
+    if (checked[i].type == "checkbox"){
+      if (checked[i].id =="cbx"){
+        if (checked[i].checked == true) {
+          arr.push(checked[i].value);
+      } else {
+      }
+      }
+    }
+  newURL+= arr ;
+  window.location.href = newURL;
+  }
+
+</script>

@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-  end 
+     if current_applicant.admin
+           admin_main_path
+      end
+  end
 end

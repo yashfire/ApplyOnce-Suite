@@ -8,16 +8,23 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div id="info" class="form-inputs">
         <%= f.input :email, required: true, autofocus: true, placeholder: "john@example.com" %>
+        <div class="form-group email required applicant_email">
+        <label class="control-label email required" ><abbr title="required">*</abbr> Confirm Email Address</label>
+        <input id="email_conf" oninput="check()" type = "email" required=true   placeholder="same as above" label="Confirm Email address" class = "form-control string email required" value="example@host.net">
+        <p id="message" class="help-block" style="color:red;">Email Addresses Do Not Match</p>
+        </div>
         <%= f.input :id_number, as: :string, label: "Identity Number", required: true, placeholder: "9101011234567", hint: "13 Digit Identity Number" %>
         <%= f.input :username, required: true, placeholder: "John", label: "Username" %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, label: "Password Confirmation", required: true %>
       </div>
 
-      <div class="form-actions">
+      <div id="submit" class="form-actions">
+
         <%= f.button :submit, "Sign up", class: "btn btn-block btn-primary" %><br>
+
       </div>
     <% end %>
 
@@ -25,3 +32,31 @@
     </div>
   </div>
 </div>
+<script >
+  var mess = document.getElementById("message");
+  var d = document.getElementById("submit").childNodes;
+  var c = document.getElementById("info").childNodes;
+  d= d[1];
+  mess.style.display = "none";
+
+  document.addEventListener('DOMContentLoaded', function() {
+    d.disabled = true;
+}, false);
+
+  c = c[1].childNodes;
+  c = c[1];
+
+  var b = check();
+function check(){
+  var conf = document.getElementById("email_conf").value;
+  var email = c.value;
+  if (conf == email){
+    mess.style.display = "none";
+    d.disabled = false;
+    return 0;
+  }else {
+    mess.style.display ="block";
+    d.disabled = true;
+  }
+}
+</script>

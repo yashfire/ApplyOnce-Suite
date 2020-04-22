@@ -63,7 +63,15 @@
 </tr>
 <tr>
   <td>
-    Programme
+    Qualification Status
+  </td>
+  <td>
+    <select id="qual_stat" name="QualiStatus">
+    <option value="">NONE</option>
+  <%@stutus.each do |a|%>
+   <option value='<%=a.Qualification_Status%>'> <%=a.Qualification_Status %> </option>
+  <% end %>
+  </select>
   </td>
 </tr>
 </table>
@@ -95,11 +103,13 @@ function search(){
   var qual = document.getElementById("Qualification").value;
   var uni = document.getElementById("Uni").value;
   var prov = document.getElementById("prov").value;
+  var qualStat = document.getElementById("qual_stat").value;
+  console.log(qualStat);
   FilterBydate(parseInt(Date.parse(sRDate)),parseInt(Date.parse(eRDate)));
   FilterByQual(qual);
   FilterByUni(uni);
   FilterByProv(prov);
-
+  FilterByQualStat(qualStat)
 }
 
 function clearReset(){
@@ -107,13 +117,14 @@ var dRows = document.getElementsByTagName("tr");
   for (var x = 0;x < dRows.length;x++){
   dRows[x].style.display="table-row";
   }
+   ToggleAutoFilter();
 }
 
 function FilterBydate(sD,eD){
 var dRows = document.getElementsByTagName("tr");
 for (var i = 0; i < dRows.length; i++){
   var cells = dRows[i].cells;
-    if (cells.length == 14){
+    if (cells.length == 15){
     var date = parseInt(Date.parse(cells[6].innerText));
     if (sD == sD) { //the condition is used to check if the value of the **Start of Range** is not infinity
         if (date < sD){
@@ -134,7 +145,7 @@ function FilterByQual(qual){
   if (qual != ""){
   for (var i = 0; i < dRows.length; i++){
     var cells = dRows[i].cells;
-      if (cells.length == 14){
+      if (cells.length == 15){
         var userQual = cells[3].innerText;
         if (userQual != "Qualification"){
         if (!userQual.includes(qual)){
@@ -151,8 +162,8 @@ function FilterByUni(uni){
   if (uni != ""){
   for (var i = 0; i < dRows.length; i++){
     var cells = dRows[i].cells;
-      if (cells.length == 14){
-        var userUni = cells[5].innerText;
+      if (cells.length == 15){
+        var userUni = cells[6].innerText;
         if (userUni != "University"){
         if (userUni != uni) {
           dRows[i].style.display="none";
@@ -168,7 +179,7 @@ function FilterByProv(prov){
   if (prov != ""){
   for (var i = 0; i < dRows.length; i++){
     var cells = dRows[i].cells;
-      if (cells.length == 14){
+      if (cells.length == 15){
         var userProv = cells[8].innerText;
         if (userProv != "Province"){
         if (userProv != prov) {
@@ -180,5 +191,22 @@ function FilterByProv(prov){
   }
 }
 
+function FilterByQualStat(qualStat){
+  console.log(qualStat);
+  var dRows = document.getElementsByTagName("tr");
+  if (qualStat != ""){
+  for (var i = 0; i < dRows.length; i++){
+    var cells = dRows[i].cells;
+      if (cells.length == 15){
+        var userQualStat = cells[5].innerText;
+        if (userQualStat != "Qualification status"){
+        if (!userQualStat.includes(qualStat)){
+          dRows[i].style.display="none";
+        }
+       }
+      }
+    }
+  }
+}
 
 </script>

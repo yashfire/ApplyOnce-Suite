@@ -1,0 +1,24 @@
+<button onclick="ToggleAutoFilter()"> Auto Filter (<a id='indi' style = "color:Green">ON</a>) </button>
+<script>
+  var filter = true;
+  var missedInfo = document.getElementsByClassName("MissingInfo");
+  var indi = document.getElementById("indi");
+  function ToggleAutoFilter(){
+    for (var x =0; x<missedInfo.length;x++){
+       if (filter == true) {
+         missedInfo[x].style.display = "table-row";
+       }else if (filter == false){
+         missedInfo[x].style.display = "none";
+       }
+    }
+    if (filter == true){
+      indi.innerHTML="OFF"
+      indi.style.color="Red"
+      filter = false
+    }else{
+      indi.innerHTML="ON"
+      indi.style.color="GREEN"
+      filter = true
+    }
+  }
+</script>

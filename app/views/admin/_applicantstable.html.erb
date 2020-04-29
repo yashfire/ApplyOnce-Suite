@@ -37,20 +37,21 @@
 <table id="example" class="table table-dark table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th id="header" scope="col">CHECK </th>
+      <th id="header" scope="col">CHECK</th>
       <th id="header" scope="col">ID</th>
-      <th id="header" scope="col"> Name & Surname</th>
-      <th id="header" scope="col"> Qualification </th>
-      <th id="header" scope="col"> NQF Levels </th>
-      <th id="header" scope="col"> University</th>
+      <th id="header" scope="col">Name & Surname</th>
+      <th id="header" scope="col">Qualification</th>
+      <th id="header" scope="col">NQF Levels</th>
+      <th id="header" scope="col">Qualification status</th>
+      <th id="header" scope="col">University</th>
       <th id="header" scope="col">Date Created</th>
-      <th id="header" scope="col"> City </th>
-      <th id="header" scope="col"> Province </th>
+      <th id="header" scope="col">City</th>
+      <th id="header" scope="col">Province</th>
       <th id="header" scope="col">Email</th>
-      <th id="header" scope="col"> Last Updated</th>
-      <th id="header" scope="col"> Gender </th>
-      <th id="header" scope="col"> Race </th>
-      <th id="header" scope="col"> Age</th>
+      <th id="header" scope="col">Last Updated</th>
+      <th id="header" scope="col">Gender</th>
+      <th id="header" scope="col">Race</th>
+      <th id="header" scope="col">Age</th>
     </tr>
   </thead>
    <tbody class="table-light" id="records" >
@@ -110,7 +111,8 @@
              qual_id = qual_ID_group
              qual_len = qual_ID_group.length
              i = 0
-             t=0
+             t = 0
+             q = 0
           else
           qual_len = 0
         end
@@ -143,20 +145,38 @@
     end
     # extract(@applicants)
     %>
-      <%if !fullName.blank? && !race.blank? && age <= 35 && !qual_det.blank? && status < 4 %>
+        <%if !fullName.blank? && !race.blank? && age <= 35 && !qual_det.blank? && status < 4 %>
      <tr>
+       <% else %>
+       <tr class="MissingInfo" style="Display:none;">
+       <% end %>
+
+           <%if !fullName.blank? && !race.blank? && age <= 35 && !qual_det.blank? && status < 4 %>
            <th scope="row"><input id="cbx" type=checkbox value="<%= applicants.id%>"/></th>
-             <!-- Applicant ID -->
+           <%elsif fullName.blank? || race.blank? || qual_det.blank?  %>
+           <th scope="row">INCOMPLETE RECORD</th>
+           <%elsif status >= 4 %>
+           <th scope="row">Enrolled Before</th>
+           <%elsif age > 35 %>
+           <th scope="row">DOES NOT MEET AGE REQUIREMENT</th>
+           <% end %>
+
+
+
+
            <td>
            <%= applicants.id%>
             </td>
+
             <!-- Name -->
           <td>
             <%= fullName %>
           </td>
+
           <!-- QUALIFICATION -->
         <td>
-          <% while i < qual_len
+          <%   if !qual_det.blank?
+          while i < qual_len
              val = qual_id[i][10]
              qual_group = @nql_qual.all.where("id = " + val.to_s)
                if qual_group.exists?
@@ -165,11 +185,14 @@
                end %>
             <%= qual_sub[0][2] %> <br>
           <% i += 1
-          end %>
+          end
+        end %>
         </td>
+
           <!-- NQF LEVELS -->
         <td>
-            <% while t < qual_len
+            <%   if !qual_det.blank?
+             while t < qual_len
                val = qual_id[t][10]
                qual_group = @nql_qual.all.where("id = " + val.to_s)
                   if qual_group.exists?
@@ -178,8 +201,30 @@
                   end %>
                 <%= qual_sub[0][1] %> <br>
             <% t += 1
-              end%>
+              end
+            end%>
         </td>
+
+        <!-- QUALIFICATION STATUS -->
+        <td>
+          <%   if !qual_det.blank?
+           while q < qual_len
+             val = qual_id[q][9]
+              stat_group = @stutus.all.where("id = " + val.to_s)
+              stat_group = stat_group.pluck
+              stat_sub= stat_group[0]
+              if !stat_sub.blank?
+                  sta = stat_sub[1];
+              else
+                sta = 'unknown'
+              end
+                %>
+              <%=  sta.to_s %> <br>
+          <% q += 1
+            end
+          end%>
+        </td>
+
         <!-- University -->
       <td>
         <%= uni %>
@@ -189,12 +234,15 @@
             <td>
            <%= applicants.created_at.to_date.to_s%>
             </td>
+
             <td>
               <%= city %>
             </td>
+
             <td>
               <%= prov %>
             </td>
+
             <!-- Applicant email -->
             <td>
             <%= applicants.email%>
@@ -203,6 +251,7 @@
            <!-- <td> -->
             <%#=  applicants.confirmed_at.day.to_s+ "/"+ applicants.confirmed_at.month.to_s+ "/"+ applicants.confirmed_at.year.to_s %>
             <!-- </td> -->
+
              <!-- Updated At -->
            <td>
              <%=  applicants.updated_at.to_date.to_s  %>
@@ -212,10 +261,12 @@
            <td>
              <%= g %>
            </td>
+
              <!--  Race  -->
            <td>
              <%= race %>
            </td>
+
              <!-- Age -->
            <td>
              <%= age %>
@@ -225,8 +276,7 @@
 
      </tr>
 
-
-<% end %>  <!--END IF -->
+<%# <% end %>  <!--END IF -->
 <% end %>  <!--END LOOP -->
 
 

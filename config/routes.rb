@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'admin/main'
  get "admin/documents"
  get "admin/confirm"
+ get "admin/DocumentsAdmin"
   #get 'welcome/index'
   resources :applicant_emergency_contacts
   resources :applicant_disability_types

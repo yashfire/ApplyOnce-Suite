@@ -1,0 +1,81 @@
+<style>
+/*body {
+    background:
+    linear-gradient(
+      rgba(0,0,0, 0.5),
+      rgba(0,0,0, 0.5)),
+    url("Cover.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+h1, h3 {
+	color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.white {
+  color: white;
+  font-size: 25px;
+}
+
+.panel, .alert {
+  box-shadow: 3px 3px 5px 6px #000000;
+}
+
+a:hover, .panel:hover {
+  opacity: 0.75;
+}
+
+</style>
+
+<% if !current_applicant.admin? %>
+<h1 class="text-center">Welcome to Documents</h1>
+
+
+<div class="col-md-12 table-responsive" id="content"><div class="" role="navigation">
+  <div class="">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav- text-center" role="tablist">
+      <li style="padding-right:0px" role="presentation" class="active col-md-6 col-xs-6" id="welcome_tab">
+        <a class="" href="#welcome" aria-controls="welcome" role="tab" data-toggle="tab">
+        <span class="badge">1</span> Welcome</a>
+      </li>
+
+      <li style="padding-left:0px" role="presentation" class="col-md-6 col-xs-6">
+        <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab" id="upload_tab">
+        <span class="badge">2</span> Upload</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="welcome">
+      <div class="container-fluid">
+
+        <%= render "documents/welcome"%>
+
+      </div>
+    </div>
+    <br>
+    <div role="tabpanel" class="tab-pane" id="upload">
+      <div id="upload_reply"></div>
+        <form method="post" enctype="multipart/form-data" style="padding-bottom:10px" id="file_upload">
+        <%= render "documents/upload"%>
+          <div class="col-md-12" style="padding-bottom:">
+            <button class="btn btn-block btn-primary" type="submit" name="submit" id="submit_btn"><span class="fa fa-upload fa-lg"></span> Upload Files</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%end%>

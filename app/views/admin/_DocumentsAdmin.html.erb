@@ -1,0 +1,73 @@
+
+        <% @candiates.each do |applicant| %>
+        <% det = @details.all.where("applicant_id = "+ applicant.applicant_id.to_s)
+         if det.exists?
+          s = det.pluck
+          fullName = s[0][2]+" "+s[0][1]
+        end
+        addr = @address.all.where("applicant_id ="+applicant.applicant_id.to_s)
+        if  addr.exists?
+          addr = addr.pluck
+          road = addr[0][1]
+          suburb = addr[0][2]
+          city = addr[0][3]
+          postal = addr[0][4]
+        end %>
+
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="heading<%= applicant.applicant_id%>">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#<%= applicant.applicant_id %>" aria-expanded="true" aria-controls="<%= applicant.applicant_id %>">
+                <%= fullName %>
+                (<%= applicant.applicant_id %>)
+                </button>
+              </h2>
+            </div>
+
+            <div id="<%= applicant.applicant_id %>" class="collapse" aria-labelledby="heading<%= applicant.applicant_id%>" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table table-striped table- table-bordered address" style="font-size:18px;list-style:none;">
+
+                  <tbody><tr id="other-blk">
+                    <th>Address</th>
+                    <td colspan="2">
+                      <p><%=road%></p>
+                      <p><%=suburb%></p>
+                      <p><%=city%></p>
+                      <p><%=postal%></p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>Email</th>
+                    <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <th>Cell</th>
+                    <td colspan="2"> <span></span></td>
+                  </tr>
+                  <tr>
+                    <th>Occupation</th>
+                    <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <th>Experience</th>
+                    <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <th>Qualification</th>
+                    <td colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <th>Skills</th>
+                    <td colspan="2"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+                              <% end%>

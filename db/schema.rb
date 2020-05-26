@@ -12,19 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20200319122714) do
 
-  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicant_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Address_Line_1"
     t.string   "Address_Line_2"
     t.string   "Address_Line_3"
@@ -75,7 +63,7 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "applicant_experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicant_experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Job_Name"
     t.string   "Company_Name"
     t.string   "Duties"
@@ -191,14 +179,13 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.integer  "applicant_id"
     t.date     "Start_Date"
     t.date     "End_Date"
-    t.integer  "university_id"
     t.integer  "applicant_university_id"
     t.integer  "applicant_qual_status_id"
     t.integer  "applicant_nqf_qualification_id"
-    t.index ["applicant_qual_status_id", "university_id", "applicant_nqf_qualification_id"], name: "my_index", unique: true, using: :btree
+    t.index ["applicant_qual_status_id", "applicant_university_id", "applicant_nqf_qualification_id"], name: "my_index", unique: true, using: :btree
   end
 
-  create_table "applicant_personal_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicant_personal_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Surname"
     t.string   "First_Name"
     t.string   "Middle_Name"
@@ -206,11 +193,11 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.string   "Alt_Contact_Number"
     t.integer  "Criminal_Record"
     t.text     "Skills",                          limit: 65535
-    t.integer  "Application_Status"
+    t.integer  "Application_Status",                            default: 1
     t.integer  "Number_Of_Dependancies"
     t.integer  "applicant_id"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.integer  "applicant_race_id"
     t.integer  "applicant_gender_id"
     t.integer  "applicant_marital_status_id"
@@ -229,10 +216,6 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["applicant_p_municipality_id"], name: "index_applicant_pm_cities_on_applicant_p_municipality_id", using: :btree
-  end
-
-  create_table "applicant_position_statuses", primary_key: "Applicant_Position_Status_ID", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "Applicant_Position_Status", null: false
   end
 
   create_table "applicant_program_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -265,7 +248,7 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "applicant_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicant_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "Contact_Number"
     t.string   "Reference_Name"
     t.string   "Email_address"
@@ -282,7 +265,7 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "applicants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "applicants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -304,71 +287,6 @@ ActiveRecord::Schema.define(version: 20200319122714) do
     t.index ["confirmation_token"], name: "index_applicants_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_applicants_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "applicants_tables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "approvals", primary_key: "approvals_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "admin_id",         null: false
-    t.integer  "status_id",        null: false
-    t.integer  "candidate_doc_id", null: false
-    t.datetime "date_time",        null: false
-    t.index ["admin_id"], name: "admin_id", using: :btree
-    t.index ["candidate_doc_id"], name: "candidate_doc_id", using: :btree
-    t.index ["status_id"], name: "status_id", using: :btree
-  end
-
-  create_table "bict_internship", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id"
-  end
-
-  create_table "candidate_docs", primary_key: "candidate_docs_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id",            null: false
-    t.integer "status_id",               null: false
-    t.integer "doc_type_id",             null: false
-    t.string  "doc_name",     limit: 50, null: false
-    t.string  "doc_location", limit: 50, null: false
-    t.index ["doc_name"], name: "doc_name", unique: true, using: :btree
-    t.index ["doc_type_id"], name: "doc_type_id", using: :btree
-    t.index ["status_id"], name: "status_id", using: :btree
-  end
-
-  create_table "doc_admin", primary_key: "doc_admin_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id", null: false
-  end
-
-  create_table "doc_status", primary_key: "doc_status_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "status_name", limit: 50, null: false
-  end
-
-  create_table "doc_type", primary_key: "doc_type_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "type_name", limit: 50, null: false
-  end
-
-  create_table "learnership", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id"
-  end
-
-  create_table "lpc_internship", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id"
-  end
-
-  create_table "lpc_learnership", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id"
-  end
-
-  create_table "shortlist_candidates", primary_key: "shortlist_candidates_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "applicant_id",     null: false
-    t.integer "Applicant_Status"
-  end
-
-  create_table "userLevels", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "user_level", limit: 20, null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
 
   add_foreign_key "applicant_addresses", "applicant_pm_cities"
@@ -396,9 +314,4 @@ ActiveRecord::Schema.define(version: 20200319122714) do
   add_foreign_key "applicant_personal_details", "applicants"
   add_foreign_key "applicant_pm_cities", "applicant_p_municipalities"
   add_foreign_key "applicant_references", "applicants"
-  add_foreign_key "approvals", "candidate_docs", primary_key: "candidate_docs_id", name: "approvals_ibfk_3"
-  add_foreign_key "approvals", "doc_admin", column: "admin_id", primary_key: "doc_admin_id", name: "approvals_ibfk_1"
-  add_foreign_key "approvals", "doc_status", column: "status_id", primary_key: "doc_status_id", name: "approvals_ibfk_2"
-  add_foreign_key "candidate_docs", "doc_status", column: "status_id", primary_key: "doc_status_id", name: "candidate_docs_ibfk_1"
-  add_foreign_key "candidate_docs", "doc_type", primary_key: "doc_type_id", name: "candidate_docs_ibfk_2"
 end

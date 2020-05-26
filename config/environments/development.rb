@@ -70,8 +70,8 @@ config.action_mailer.delivery_method = :smtp
     address:              'twothreeinvestmentholdings.dedicated.co.za',
     port:                 587,
     domain:               'localhost',
-    user_name:            'applyonce',
-    password:             '--/$apply---.',
+    user_name:            'root',
+    password:             'RunTh3G@untl3t',
     authentication:       'plain',
     enable_starttls_auto: false  }
 end

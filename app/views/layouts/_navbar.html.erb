@@ -31,7 +31,7 @@
            <li class="active"><a href="#">Signed in as: <%= current_applicant.username %></a></li>
 
             <%  a = current_applicant.applicant_personal_details.pluck()
-                status = a[0][8];
+                status = a[1][8]
                 if status > 3
                %>
                 <li><a href="/documents/index"> Documents </a></li>

@@ -9,7 +9,7 @@ default: &default
   pool: 5
   timeout: 5000
   username: root
-  password: password123
+  password: RunTh3G@untl3t
   host: localhost
   post: 3306
 
@@ -29,7 +29,7 @@ production:
   pool: 5
   timeout: 5000
   username: root
-  password: password123
+  password: RunTh3G@untl3t
   host: localhost
   post: 3306
   database: Applyonce
